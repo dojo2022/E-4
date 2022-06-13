@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Coordinate_ItemDAO
+ * Servlet implementation class Used_ItemDAO
  */
-@WebServlet("/Coordinate_ItemDAO")
-public class Coordinate_ItemDAO extends HttpServlet {
+@WebServlet("/Used_ItemDAO")
+public class UsedItemDAO extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Coordinate_ItemDAO() {
+    public UsedItemDAO() {
         super();
         // TODO Auto-generated constructor stub
     }
