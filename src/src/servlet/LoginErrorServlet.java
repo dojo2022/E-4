@@ -1,5 +1,6 @@
 package servlet;
 
+<<<<<<< HEAD
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -37,5 +38,8 @@ public class LoginErrorServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
+=======
+public class LoginErrorServlet {
+>>>>>>> 62dde271ce24188c712ee85ede2c3f81d4e31ecd
 
 }
