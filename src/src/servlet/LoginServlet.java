@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class ItemDetailServlet
  */
-@WebServlet("CoordinateListServlet")
-public class CoordinateListServlet extends HttpServlet {
+@WebServlet("/LoginServlet")
+public class ItemDetailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -21,7 +21,7 @@ public class CoordinateListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/CoordinateDetail.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ItemDetail.jsp");
 		dispatcher.forward(request, response);
 	}
 
