@@ -1,0 +1,7 @@
+create table coordinate (
+user_id varchar (20) primary key not null,
+coordinate_id varchar (4) auto_increment,
+season varchar (10) not null,
+purpose varchar (10) not null,
+coordinate_image varchar (255) not null
+);
