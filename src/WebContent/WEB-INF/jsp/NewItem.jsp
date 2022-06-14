@@ -33,7 +33,7 @@
     <main>
         <div>
             <!-- fromの始まり -->
-            <form action="test.html" method="post" enctype="multipart/form-data" ></form>
+            <form action="test.html" method="post" enctype="multipart/form-data" >
             <!--fileのupload-->
             <div>
                 <input type="file" id="item_upload">
