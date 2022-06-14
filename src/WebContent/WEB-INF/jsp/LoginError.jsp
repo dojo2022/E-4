@@ -5,11 +5,11 @@
 	<head>
 	<meta charset="UTF-8">
 	<title>CCC｜エラー</title>
+	   <link rel="stylesheet" type="text/css" href="././css/Common.css">
 	</head>
-	  <link rel ="stylesheet" href="C:\DOJO6\src\WebContent\css\common.css">
 	    <body>
 	        <header>
-	            <h1 class="logo"><img src="C:\DOJO6\src\WebContent\image\ccc.png" alt=""></h1>
+	            <h1 class="logo"><img src="././image/ccc.png" alt=""></h1>
 	            <h2>天気予報</h2>
 	            <!-- ヘッダーロゴ -->
 	            <hr>
