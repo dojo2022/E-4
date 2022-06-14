@@ -19,12 +19,12 @@ public class UserDAO {
 			Class.forName("org.h2.Driver");
 
 			// データベースに接続する
-			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/simpleBC", "sa", "");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/CCC", "sa", "ccc");
 
 			// SELECT文を準備する
 			String sql = "select count(*) from USER where USER_ID = ? and PASSWORD = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
-			pStmt.setString(1, user.getUser_id());
+			pStmt.setString(1,user.getUser_id());
 			pStmt.setString(2,user.getPassword());
 
 			// SELECT文を実行し、結果表を取得する
