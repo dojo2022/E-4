@@ -5,10 +5,15 @@
 <head>
 <meta charset="UTF-8">
 <title>ItemSearch</title>
+<link rel="stylesheet" type="text/css" href="/CCC/css/Common.css">
+<link rel="stylesheet" type="text/css" href="/CCC/css/ItemSearch.css">
 </head>
 <body>
 	<header>
-		<h1 class="logo"><img src="C:\DOJO6\src\WebContent\image\ccc.png" alt="logo"></h1>
+		<h1 class="logo">
+			<a href="/CCC/HomeServlet">
+			<img src="/CCC/image/ccc.png" alt="logo"></a>
+		</h1>
 		<div class="logo">ハンバーガーメニュー</div>
         <!-- ハンバーガーメニュー部分 -->
         <div class="nav">
@@ -19,10 +24,10 @@
             <!-- メニュー -->
             <nav class="nav_content">
             <ul class="nav_list">
-                <li class="nav_item"><a href="">Your Outfits</a></li>
-                <li class="nav_item"><a href="">Your Items</a></li>
-                <li class="nav_item"><a href="">Add New Outfit</a></li>
-                <li class="nav_item"><a href="">Add New Item</a></li>
+                <li class="nav_item"><a href="CoordinateListServlet">Your Outfits</a></li>
+                <li class="nav_item"><a href="ItemListServlet">Your Items</a></li>
+                <li class="nav_item"><a href="NewCoordinateServlet">Add New Outfit</a></li>
+                <li class="nav_item"><a href="NewItemServlet">Add New Item</a></li>
             </ul>
             </nav>
         </div>
@@ -65,18 +70,6 @@
 	<footer>
 		<p>&copy;2022 CCC All Rights Reserved</p>
 	</footer>
-	<script>
-	document.getElementById("ItemSearch").style.display ="none";
-	const ItemSearch = document.getElementById("ItemSearch");
-	const search_button = document.getElementById("search_button");
-	function SearchButton(){
-		ItemSearch.style.display ="block";
-		search_button.style.display ="none";
-	}
-	function CancelButton(){
-		ItemSearch.style.display ="none";
-		search_button.style.display ="block";
-	}
-	</script>
+	<script src="/CCC/js/ItemSearch.js"></script>
 </body>
 </html>
