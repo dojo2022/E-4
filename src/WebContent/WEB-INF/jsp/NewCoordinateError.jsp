@@ -1,12 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+	<!DOCTYPE html>
+	<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>CCC｜エラー</title>
+	</head>
+	  <link rel ="stylesheet" href="C:\DOJO6\src\WebContent\css\common.css">
+	    <body>
+	        <header>
+	            <h1 class="logo"><img src="C:\DOJO6\src\WebContent\image\ccc.png" alt=""></h1>
+	            <h2>天気予報</h2>
+	            <!-- ヘッダーロゴ -->
+	            <hr>
+	        </header>
 
-</body>
-</html>
+	        <main>
+				<h50>Oops！</h50>
+				<p><h30>コーディネート登録に失敗しました</h30></p>
+				<button onclick="location.href='NewCoordinate.html'">Back to Add New Outfit</button>
+	        </main>
+
+	        <footer>
+	            <p>&copy;2022 CCC All Rights Reserved</p>
+	        </footer>
+
+	    </body>
+	    </html>

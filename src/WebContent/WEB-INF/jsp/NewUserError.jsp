@@ -17,10 +17,13 @@
 
 	        <main>
 				<h50>Oops！</h50>
-				<p><h30>ログインに失敗しました</h30></p>
+				<h30>登録に失敗しました</h30>
 				<button onclick="location.href='Login.html'">Back to Login</button>
 	        </main>
 
+				<h50>Oops！</h50>
+				<p><h30>失敗しました</h30></p>
+				<button onclick="location.href='Login.html'">Back to Sign Up</button>
 	        <footer>
 	            <p>&copy;2022 CCC All Rights Reserved</p>
 	        </footer>
