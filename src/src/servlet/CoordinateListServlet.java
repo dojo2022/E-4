@@ -10,9 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class SearchServlet
+ * Servlet implementation class ItemDetailServlet
  */
-@WebServlet("/CoordinateListServlet")
+@WebServlet("CoordinateListServlet")
 public class CoordinateListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -21,7 +21,7 @@ public class CoordinateListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/CoordinateSearch.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/CoordinateDetail.jsp");
 		dispatcher.forward(request, response);
 	}
 
@@ -30,7 +30,5 @@ public class CoordinateListServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/CoordinateResult.jsp");
-		dispatcher.forward(request, response);
 	}
 }
