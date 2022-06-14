@@ -5,14 +5,14 @@
 <head>
 <meta charset="UTF-8">
 <title>CoordinateSearch</title>
-<link rel="stylesheet" type="text/css" href="/CCC/css/Common.css">
+    <link rel="stylesheet" type="text/css" href="././css/Common.css">
 <link rel="stylesheet" type="text/css" href="/CCC/css/CoordinateSearch.css">
 </head>
 <body>
 	<header>
 		<h1 class="logo">
 			<a href="/CCC/HomeServlet">
-			<img src="/CCC/image/ccc.png" alt="logo"></a>
+			<img src="././image/ccc.png" alt="logo"></a>
 		</h1>
 		<div class="logo">ハンバーガーメニュー</div>
         <!-- ハンバーガーメニュー部分 -->

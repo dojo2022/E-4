@@ -5,20 +5,21 @@
     <head>
     <meta charset="UTF-8">
     <title>CCC｜ログイン</title>
+        <link rel="stylesheet" type="text/css" href="././css/Common.css">
     </head>
     <body>
         <header>
-            <h1 class="logo"><img src="C:\DOJO6\src\WebContent\image\ccc.png" alt="logo"></h1>
+            <h1 class="logo"><img src="././image/ccc.png" alt="logo"></h1>
             <h2>天気予報</h2>
             <hr>
         </header>
-    
+
         <main>
             <!--action空白-->
             <form id="login_form" method="GET" action="">
                 <table>
                     <tr><td class="data">ID</td><td><input type="text" name="ID"></td></tr>
-                    <tr><td class="data">PW</td><td><input type="password" name="PW"></td></tr>            
+                    <tr><td class="data">PW</td><td><input type="password" name="PW"></td></tr>
                   <tr>
                     <td colspan="2">
                       <input type="submit" name="submit" value="Login">
@@ -29,12 +30,12 @@
               </form>
             <hr id = "line">
             <a href = "C:\Users\User\Documents\justlooking\newuser.html">新規登録</a>
-    
+
         </main>
-        
+
         <footer>
             <p>&copy;2022 CCC All Rights Reserved</p>
         </footer>
-    
+
     </body>
     </html>

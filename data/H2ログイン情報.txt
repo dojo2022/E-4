@@ -1,0 +1,4 @@
+jdbc url:  jdbc:h2:file:C:/pleiades/workspace/data/CCC
+jdbc url:  jdbc:h2:file:C:/dojo6/data/CCC
+ユーザー名:　sa
+パスワード:　ccc
