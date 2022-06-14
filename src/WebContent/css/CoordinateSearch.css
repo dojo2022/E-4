@@ -1,0 +1,13 @@
+@charset "UTF-8";
+#search_button{
+  width:100px;
+  height:100px;
+  background:red;
+  border-radius:100%;
+}
+#search_cancel{
+  width:150px;
+  height:100px;
+  background:lightgray;
+  border-radius:50%;
+}

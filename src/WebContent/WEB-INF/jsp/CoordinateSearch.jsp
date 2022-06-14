@@ -57,7 +57,7 @@
 					<label><input type="checkbox" name="search_season" value="夏">夏</label>
 					<label><input type="checkbox" name="search_season" value="秋">秋</label>
 					<label><input type="checkbox" name="search_season" value="冬">冬</label></td>
-					<td><input type="submit" name="search" value="検索"></td>
+					<td><input type="submit" name="search" value="GO"></td>
 				</tr>
 			</table>
 		</form>
