@@ -30,8 +30,8 @@
 		<hr>
 	</header>
 	<main>
-		<c:forEach>
-			<img src="画像のURL">
+		<c:forEach var="e" items="${coordinateList}">
+			<img src="${e.coordinate_image}">
 		</c:forEach>
 		<form id="CoordinateSearch" method="POST" action="/CCC/CoordinateResultServlet">
 			<table>

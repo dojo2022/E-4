@@ -30,8 +30,8 @@
 		<hr>
 	</header>
 	<main>
-		<c:forEach>
-			<img src="画像のURL">
+		<c:forEach var="e" items="${itemList}">
+			<img src="${e.item_image}">
 		</c:forEach>
 		<form id="ItemSearch" method="POST" action="/CCC/ItemResultServlet">
 			<table>
@@ -52,6 +52,9 @@
 				<tr>
 					<td><select name="search_brand">
 								<option value="">ブランド</option>
+								<c:forEach var="e" items="${itemList}">
+									<option value="${e.brand}">${e.brand}</option>
+								</c:forEach>
 							</select></td>
 					<td><input type="submit" name="search" value="検索"></td>
 				</tr>
