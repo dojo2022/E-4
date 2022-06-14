@@ -33,7 +33,7 @@
     <main>
         <div>
             <!-- fromの始まり -->
-            <form action="test.html" method="post" enctype="multipart/form-data" ></form>
+            <form action="test.html" method="post" enctype="multipart/form-data" >
             <!--fileのupload-->
             <div>
                 <input type="file" id="item_upload">
@@ -49,7 +49,12 @@
                 <p>アイテム情報</p>
                 <select id="category">
                     <option value="tops">トップス</option>
+                    <option value="outer">アウター</option>
                     <option value="pants">パンツ</option>
+                    <option value="skirt">スカート</option>
+                    <option value="onepiece">ワンピース</option>
+                    <option value="shoes">シューズ</option>
+                    <option value="accessories">小物</option>
                 </select>
             </div>
             <!--ブランド入力欄-->
