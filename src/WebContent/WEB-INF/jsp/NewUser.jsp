@@ -6,9 +6,10 @@
     <meta charset="UTF-8">
     <title>CCC｜新規登録</title>
     </head>
+        <link rel="stylesheet" type="text/css" href="././css/Common.css">
     <body>
         <header>
-          <h1 class="logo"><img src="C:\DOJO6\src\WebContent\image\ccc.png" alt="logo"></h1>
+          <h1 class="logo"><img src="././image/ccc.png" alt="logo"></h1>
             <h2>天気予報</h2>
             <hr>
         </header>
@@ -42,6 +43,6 @@
         <footer>
             <p>&copy;2022 CCC All Rights Reserved</p>
         </footer>
-    
+
     </body>
     </html>
