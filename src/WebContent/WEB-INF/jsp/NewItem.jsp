@@ -5,10 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>CCC｜アイテム登録</title>
+    <link rel="stylesheet" type="text/css" href="././css/Common.css">
 </head>
 <body>
     <header>
-        <h1 class="logo"><img src="ccc.png" alt=""></h1>
+        <h1 class="logo"><img src="././image/ccc.png" alt=""></h1>
         <div class="logo">ハンバーガーメニュー</div>
         <!-- ハンバーガーメニュー部分 -->
         <div class="nav">
