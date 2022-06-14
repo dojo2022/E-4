@@ -5,10 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <title>ItemSearch</title>
+<link rel="stylesheet" type="text/css" href="/CCC/css/Common.css">
+<link rel="stylesheet" type="text/css" href="/CCC/css/ItemSearch.css">
 </head>
 <body>
 	<header>
-		<h1 class="logo"><img src="C:\DOJO6\src\WebContent\image\ccc.png" alt="logo"></h1>
+		<h1 class="logo"><img src="/CCC/image/ccc.png" alt="logo"></h1>
 		<div class="logo">ハンバーガーメニュー</div>
         <!-- ハンバーガーメニュー部分 -->
         <div class="nav">
