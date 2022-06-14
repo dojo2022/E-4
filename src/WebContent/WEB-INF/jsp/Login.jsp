@@ -8,7 +8,7 @@
     </head>
     <body>
         <header>
-            <h1 class="logo"><img src="C:\DOJO6\src\WebContent\image\ccc.png" alt=""></h1>
+            <h1 class="logo"><img src="C:\DOJO6\src\WebContent\image\ccc.png" alt="logo"></h1>
             <h2>天気予報</h2>
             <hr>
         </header>
