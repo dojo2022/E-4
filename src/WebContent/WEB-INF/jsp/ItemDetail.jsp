@@ -13,7 +13,6 @@
             <h1 class="logo"><img src="././image/ccc.png" alt=""></h1>
             <h2>天気予報</h2>
             <!-- ヘッダーロゴ -->
-            <div class="logo">ハンバーガーメニュー</div>
 
             <!-- ハンバーガーメニュー部分 -->
             <div class="nav">
@@ -27,9 +26,10 @@
                 <!-- メニュー -->
                 <nav class="nav_content">
                 <ul class="nav_list">
-                    <li class="nav_item"><a href="">メニュー1</a></li>
-                    <li class="nav_item"><a href="">メニュー2</a></li>
-                    <li class="nav_item"><a href="">メニュー3</a></li>
+                    <li class="nav_item"><a href="/CCC/CoordinateListServlet">Your Outfits</a></li>
+                    <li class="nav_item"><a href="/CCC/ItemListServlet">Your Items</a></li>
+                    <li class="nav_item"><a href="/CCC/NewCoordinateServlet">Add New Outfit</a></li>
+                    <li class="nav_item"><a href="/CCC/NewItemtServlet">Add New Item</a></li>
                 </ul>
                 </nav>
 
