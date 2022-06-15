@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* チェックボックスを非表示にする */
 .drawer_hidden {
     display: none;
@@ -76,3 +77,33 @@
   #drawer_input:checked ~ .nav_content {
     left: 0;/* メニューを画面に入れる */
   }
+
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+JP');
+
+* {
+    font-family: 'Noto Serif JP', sans-serif;
+}
+
+/*ロゴの位置を真ん中に指定*/
+.logo {
+	text-align: center;
+}
+
+/*ロゴのサイズを指定*/
+img {
+	width: 200px;
+	height: 75px;
+}
+
+/*天気予報*/
+h2 {
+	text-align: right;
+}
+
+/*フッター*/
+footer {
+	background-color: #C0C0C0;
+	position: absolute;/*←絶対位置*/
+    bottom: 0; /*下に固定*/
+    color: white;
+}

@@ -14,6 +14,32 @@ public class CoordinateItemModel  implements Serializable{
 	//date入れときました
 	private String date;
 
+	public CoordinateItemModel(String user_id, String item_id, String item_image, String category, String brand, String size,
+			String flag, String remarks, String date) {
+		super();
+		this.user_id = user_id;
+		this.item_id = item_id;
+		this.item_image = item_image;
+		this.category = category;
+		this.brand = brand;
+		this.size = size;
+		this.flag = flag;
+		this.remarks = remarks;
+		this.date = date;
+	}
+
+	public CoordinateItemModel() {
+		super();
+		this.user_id = "";
+		this.item_id = "";
+		this.item_image = "";
+		this.category = "";
+		this.brand = "";
+		this.size = "";
+		this.flag = "";
+		this.remarks = "";
+		this.date = "";
+	}
 
 	public String getUser_id() {
 		return user_id;
