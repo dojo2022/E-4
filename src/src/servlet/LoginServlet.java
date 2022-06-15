@@ -8,10 +8,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import dao.UserDAO;
-import model.LoginUser;
 
 /**
  * Servlet implementation class LoginServlet
@@ -41,17 +39,19 @@ public class LoginServlet extends HttpServlet {
 			// ログイン処理を行う
 			UserDAO userDao = new UserDAO();
 			if (userDao.isLoginOK(new User(user_id, password))) {	// ログイン成功
+				/*
 				// セッションスコープにIDを格納する
 				HttpSession session = request.getSession();
 				session.setAttribute("user_id", new LoginUser(id));
+				*/
 
-				// メニューサーブレットにリダイレクトする
+				// ホームサーブレットにリダイレクトする
 				response.sendRedirect("/CCC/HomeServlet");
 			}
 			else {									// ログイン失敗
-				// リクエストスコープに、タイトル、メッセージ、戻り先を格納する
+				// リクエストスコープに、メッセージ、戻り先を格納する
 				request.setAttribute("result",
-				new Result("ログイン失敗！", "Wrong ID or Password", "/simpleBC/LoginServlet"));
+				new Result("Wrong ID or Password", "/CCC/LoginServlet"));
 
 				// 結果ページにフォワードする
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/LoginError.jsp");
