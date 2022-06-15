@@ -1,11 +1,7 @@
 package dao;
 
-import java.io.IOException;
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * Servlet implementation class Coordinate_ItemDAO
@@ -13,29 +9,17 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/Coordinate_ItemDAO")
 public class CoordinateItemDAO extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
     /**
      * @see HttpServlet#HttpServlet()
      */
     public CoordinateItemDAO() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+    	//コーディネイトアイテムを登録する
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
+    	//コーディネイトアイテムの編集
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+    	//コーディネイト一覧からコーディネイトidを受けて使用アイテム一覧を表示する
+
 	}
 
 }
