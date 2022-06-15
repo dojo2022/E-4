@@ -14,7 +14,6 @@
 			<a href="/CCC/HomeServlet">
 			<img src="././image/ccc.png" alt="logo"></a>
 		</h1>
-		<div class="logo">ハンバーガーメニュー</div>
         <!-- ハンバーガーメニュー部分 -->
         <div class="nav">
             <!-- ハンバーガーメニューの表示・非表示を切り替えるチェックボックス -->
@@ -24,10 +23,10 @@
             <!-- メニュー -->
             <nav class="nav_content">
             <ul class="nav_list">
-                <li class="nav_item"><a href="CoordinateListServlet">Your Outfits</a></li>
-                <li class="nav_item"><a href="ItemListServlet">Your Items</a></li>
-                <li class="nav_item"><a href="NewCoordinateServlet">Add New Outfit</a></li>
-                <li class="nav_item"><a href="NewItemServlet">Add New Item</a></li>
+                <li class="nav_item"><a href="/CCC/CoordinateListServlet">Your Outfits</a></li>
+                <li class="nav_item"><a href="/CCC/ItemListServlet">Your Items</a></li>
+                <li class="nav_item"><a href="/CCC/NewCoordinateServlet">Add New Outfit</a></li>
+                <li class="nav_item"><a href="/CCC/NewItemtServlet">Add New Item</a></li>
             </ul>
             </nav>
         </div>
