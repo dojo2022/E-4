@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.UserDAO;
+
 /**
  * Servlet implementation class NewUserServlet
  */
@@ -29,6 +31,26 @@ public class NewUserServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		// リクエストパラメータを取得する
+		request.setCharacterEncoding("UTF-8");
+		String user_id = request.getParameter("user_id");
+		String password = request.getParameter("password");
+
+		// 登録処理を行う
+		UserDAO uDao = new UserDAO();
+		if (uDao.insert(new User(user_id, password))) {	// 登録成功
+			request.setAttribute("result",
+			new Result("Welcome!", "/simpleBC/LoginServlet"));
+		}
+		else {												// 登録失敗
+			request.setAttribute("result",
+			new Result("An error has occurred. Try again.", "/simpleBC/NewUserServlet"));
+		}
+
+		// 結果ページにフォワードする
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Login.jsp");
+		dispatcher.forward(request, response);
 
 	}
 }

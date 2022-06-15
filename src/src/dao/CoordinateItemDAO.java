@@ -83,11 +83,11 @@ public class CoordinateItemDAO extends HttpServlet {
     				CoordinateItemModel card = new CoordinateItemModel(
     				rs.getString("item_id"),
     				rs.getString("item_image"),
-    				rs.getString("DIVISION"),
-    				rs.getString("POSITION"),
-    				rs.getString("NAME"),
+    				rs.getString("category"),
+    				rs.getString("brand"),
+    				rs.getString("size"),
     				);
-    				cardList.add(card);
+    				cardList.add(card);//ここよくわからない
     			}
     		}
     		catch (SQLException e) {
@@ -114,12 +114,12 @@ public class CoordinateItemDAO extends HttpServlet {
     			}
 
     			// 結果を返す(どのようにデータを返せばいいかわからない)
-    			return cardList;
+    			return cardList;//
 
     		}
 
     		//コーディネイトアイテムを登録する 引数cardで指定されたレコードを登録し、成功したらtrueを返す
-    		public boolean insert(CI card) {
+    		public boolean insert(CoordinateItemModel card) {
     			Connection conn = null;
     			boolean result = false;
 
@@ -131,14 +131,14 @@ public class CoordinateItemDAO extends HttpServlet {
     				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/CCC", "sa", "ccc");
 
     				// SQL文を準備する
-    				String sql = "insert into used_item (NUMBER,CORP,DIVISION,POSITION, NAME,TEL,PHONE,MAIL, ADDRESS) values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    				String sql = "insert into used_item (user_id,item_id,item_image,category, brand,size) values (?, ?, ?, ?, ?, ?)";
     				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 
 
     			}
     	//コーディネイトアイテムの更新
-    			public boolean update(Bc card) {
+    			public boolean update(CoordinateItemModel card) {
     				Connection conn = null;
     				boolean result = false;
 
@@ -153,6 +153,33 @@ public class CoordinateItemDAO extends HttpServlet {
     					String sql = "update used_item set item_id = ?";
     					PreparedStatement pStmt = conn.prepareStatement(sql);
 
+    					// SQL文を完成させる
+    					if (card.getused_item() != null && !card.getused_item().equals("")) {
+    						pStmt.setString(1, card.getused_item());
+    					}
+    					else {
+    						pStmt.setString(1, null);
+    					}
+    					// SQL文を実行する
+    					if (pStmt.executeUpdate() == 1) {
+    						result = true;
+    					}
+    				}
+    				catch (SQLException e) {
+    					e.printStackTrace();
+    				}
+    				catch (ClassNotFoundException e) {
+    					e.printStackTrace();
+    				}
+    				finally {
+    					// データベースを切断
+    					if (conn != null) {
+    						try {
+    							conn.close();
+    						}
+    						catch (SQLException e) {
+    							e.printStackTrace();
+    						}
     				}
     			}
 
@@ -175,10 +202,10 @@ public class CoordinateItemDAO extends HttpServlet {
     				}
     			}
     			// SQL文を完成させる
-    			pStmt.setString(2, coordinate_id);
+    			pStmt.setString(1, coordinate_id);
 
     			// SQL文を実行する
-    			if (pStmt.executeUpdate() == 2) {
+    			if (pStmt.executeUpdate() == 1) {
     				result = true;
     			}
     		}
@@ -204,5 +231,3 @@ public class CoordinateItemDAO extends HttpServlet {
     		return result;
 
 	}
-
-}
