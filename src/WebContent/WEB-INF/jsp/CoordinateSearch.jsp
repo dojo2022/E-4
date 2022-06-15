@@ -38,7 +38,7 @@
 			<img src="${e.coordinate_image}">
 		</c:forEach>
 		<input id="search_input" class="search_hidden" type="checkbox">
-		<nav class="search_content">
+		<div class="search_content">
 			<form id="CoordinateSearch" method="POST" action="/CCC/CoordinateResultServlet">
 				<table>
 					<tr>
@@ -62,7 +62,7 @@
 					</tr>
 				</table>
 			</form>
-		</nav>
+		</div>
 		<label for="search_input" class="container"><span>検索</span></label>
 	</main>
 	<footer>
