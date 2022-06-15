@@ -10,6 +10,22 @@ public class CoordinateModel  implements Serializable{
 	private String coordinate_image;
 
 
+	public CoordinateModel(String user_id, String coordinate_id, String season, String purpose, String coordinate_image) {
+		this.user_id = user_id;
+		this.coordinate_id = coordinate_id;
+		this.season = season;
+		this.purpose = purpose;
+		this.coordinate_image = coordinate_image;
+	}
+
+	public CoordinateModel() {
+		this.user_id = "";
+		this.coordinate_id = "";
+		this.season = "";
+		this.purpose = "";
+		this.coordinate_image = "";
+	}
+
 	public String getUser_id() {
 		return user_id;
 	}
