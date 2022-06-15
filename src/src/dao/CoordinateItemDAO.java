@@ -11,6 +11,7 @@ import java.util.List;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 
+
 import model.CoordinateItemModel;
 
 /**
@@ -41,8 +42,67 @@ public class CoordinateItemDAO extends HttpServlet {
     			String sql = "select item_id,item_image,category,brand,size from item where item_id = ? item_image = ? category = ? brand = ? size = ? and ";
     			PreparedStatement pStmt = conn.prepareStatement(sql);
 
+    			// SQL文を完成させる
+    			if (param.getItem_id() != null) {
+    				pStmt.setString(1, "%" + param.getItem_id() + "%");
+    			}
+    			else {
+    				pStmt.setString(1, "%");
+    			}
+    			if (param.getItem_image() != null) {
+    				pStmt.setString(2, "%" + param.getItem_image() + "%");
+    			}
+    			else {
+    				pStmt.setString(2, "%");
+    			}
+    			if (param.getCategory() != null) {
+    				pStmt.setString(3, "%" + param.getCategory() + "%");
+    			}
+    			else {
+    				pStmt.setString(3, "%");
+    			}
+    			if (param.getBrand() != null) {
+    				pStmt.setString(4, "%" + param.getBrand() + "%");
+    			}
+    			else {
+    				pStmt.setString(4, "%");
+    			}
+     			if (param.getSize() != null) {
+    				pStmt.setString(5, "%" + param.getSize() + "%");
+    			}
+    			else {
+    				pStmt.setString(5, "%");
+    			}
+
+
     			// SQL文を実行し、結果表を取得する
     			ResultSet rs = pStmt.executeQuery();
+
+    			// 結果表をコレクションにコピーする
+    			while (rs.next()) {
+    				Bc card = new Bc(
+    				rs.getString("NUMBER"),
+    				rs.getString("CORP"),
+    				rs.getString("DIVISION"),
+    				rs.getString("POSITION"),
+    				rs.getString("NAME"),
+    				rs.getString("TEL"),
+    				rs.getString("PHONE"),
+    				rs.getString("MAIL"),
+    				rs.getString("ADDRESS")
+    				);
+    				cardList.add(card);
+    			}
+    		}
+    		catch (SQLException e) {
+    			e.printStackTrace();
+    			cardList = null;
+    		}
+    		catch (ClassNotFoundException e) {
+    			e.printStackTrace();
+    			cardList = null;
+    		}
+
 
     			finally {
     				// データベースを切断
