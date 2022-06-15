@@ -6,6 +6,17 @@ public class UserModel  implements Serializable{
 	private String user_id;
 	private String password;
 
+	public UserModel(String user_id, String password) {
+		super();
+		this.user_id = user_id;
+		this.password = password;
+	}
+
+	public UserModel() {
+		super();
+		this.user_id = "";
+		this.password = "";
+	}
 
 	public String getUser_id() {
 		return user_id;
