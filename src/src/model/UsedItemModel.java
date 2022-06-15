@@ -8,6 +8,21 @@ public class UsedItemModel implements Serializable {
 	private String item_id;
 
 
+	public UsedItemModel(String user_id, String coordinate_id, String item_id) {
+		super();
+		this.user_id = user_id;
+		this.coordinate_id = coordinate_id;
+		this.item_id = item_id;
+	}
+
+	public UsedItemModel() {
+		super();
+		this.user_id = "";
+		this.coordinate_id = "";
+		this.item_id = "";
+	}
+
+
 	public String getUser_id() {
 		return user_id;
 	}
