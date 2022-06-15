@@ -11,12 +11,12 @@ import java.util.List;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 
-import model.Bc;
+import model.CoordinateItemModel;
 
 /**
  * Servlet implementation class Coordinate_ItemDAO
  */
-@WebServlet("/Coordinate_ItemDAO")
+@WebServlet("/CoordinateItemDAO")
 public class CoordinateItemDAO extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -26,9 +26,9 @@ public class CoordinateItemDAO extends HttpServlet {
     public CoordinateItemDAO() {
 
        	//コーディネイト一覧からコーディネイトidを受けて使用アイテムまとまりを表示する（型や()の中に何を書いたらいいかわからない）
-    	public List<used_item> select(used_item param) {
+    	public List<CoordinateItemModel> select(CoordinateItemModel param) {
     		Connection conn = null;
-    		List<CI> cardList = new ArrayList<CI>();
+    		List<CoordinateItemModel> cardList = new ArrayList<CoordinateItemModel>();
 
     		try {
     			// JDBCドライバを読み込む
@@ -37,8 +37,8 @@ public class CoordinateItemDAO extends HttpServlet {
     			// データベースに接続する
     			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/CCC", "sa", "ccc");
 
-    			// SQL文を準備(コーディネイトからアイテムのまとまりを探す)
-    			String sql = "select coordinate_id";
+    			// SQL文を準備(コーディネイトからアイテムのまとまりを探す)(修正)
+    			String sql = "select item_id,item_image,category,brand,size from item where item_id = ? item_image = ? category = ? brand = ? size = ? and ";
     			PreparedStatement pStmt = conn.prepareStatement(sql);
 
     			// SQL文を実行し、結果表を取得する
