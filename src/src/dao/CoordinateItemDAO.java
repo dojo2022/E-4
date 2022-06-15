@@ -80,16 +80,12 @@ public class CoordinateItemDAO extends HttpServlet {
 
     			// 結果表をコレクションにコピーする
     			while (rs.next()) {
-    				Bc card = new Bc(
-    				rs.getString("NUMBER"),
-    				rs.getString("CORP"),
+    				CoordinateItemModel card = new CoordinateItemModel(
+    				rs.getString("item_id"),
+    				rs.getString("item_image"),
     				rs.getString("DIVISION"),
     				rs.getString("POSITION"),
     				rs.getString("NAME"),
-    				rs.getString("TEL"),
-    				rs.getString("PHONE"),
-    				rs.getString("MAIL"),
-    				rs.getString("ADDRESS")
     				);
     				cardList.add(card);
     			}
