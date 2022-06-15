@@ -37,38 +37,41 @@
 		<c:forEach var="e" items="${itemList}">
 			<img src="${e.item_image}">
 		</c:forEach>
-		<form id="ItemSearch" method="POST" action="/CCC/ItemResultServlet">
-			<table>
-				<tr>
-					<td><p>SEARCH ITEMS</p></td>
-					<td><input id="search_cancel" type="button" value="×" onclick="CancelButton()"></td>
-				</tr>
-				<tr>
-					<th><p>カテゴリー</p></th>
-					<td><label><input type="checkbox" name="search_category" value="トップス">トップス</label>
-					<label><input type="checkbox" name="search_category" value="アウター">アウター</label>
-					<label><input type="checkbox" name="search_category" value="パンツ">パンツ</label>
-					<label><input type="checkbox" name="search_category" value="スカート">スカート</label>
-					<label><input type="checkbox" name="search_category" value="ワンピース">ワンピース</label>
-					<label><input type="checkbox" name="search_category" value="シューズ">シューズ</label>
-					<label><input type="checkbox" name="search_category" value="小物">小物</label></td>
-				</tr>
-				<tr>
-					<td><select name="search_brand">
+		<input id="search_input" class="search_hidden" type="checkbox">
+		<nav class="search_content">
+			<form id="ItemSearch" method="POST" action="/CCC/ItemResultServlet">
+				<table>
+					<tr>
+						<td><p>SEARCH ITEMS</p></td>
+						<td><label for="search_input" class="btn"><span>×</span></label></td>
+					</tr>
+					<tr>
+						<th><p>カテゴリー</p></th>
+						<td><label><input type="checkbox" name="search_category" value="トップス">トップス</label>
+						<label><input type="checkbox" name="search_category" value="アウター">アウター</label>
+						<label><input type="checkbox" name="search_category" value="パンツ">パンツ</label>
+						<label><input type="checkbox" name="search_category" value="スカート">スカート</label>
+						<label><input type="checkbox" name="search_category" value="ワンピース">ワンピース</label>
+						<label><input type="checkbox" name="search_category" value="シューズ">シューズ</label>
+						<label><input type="checkbox" name="search_category" value="小物">小物</label></td>
+					</tr>
+					<tr>
+						<td><select name="search_brand">
 								<option value="">ブランド</option>
 								<c:forEach var="e" items="${itemList}">
 									<option value="${e.brand}">${e.brand}</option>
 								</c:forEach>
-							</select></td>
-					<td><input type="submit" name="search" value="検索"></td>
-				</tr>
-			</table>
-		</form>
-		<input id="search_button" type="button" value="検索" onclick="SearchButton()">
+							</select>
+						</td>
+						<td><input type="submit" name="search" value="GO" class="search_submit"></td>
+					</tr>
+				</table>
+			</form>
+		</nav>
+		<label for="search_input" class="container"><span>検索</span></label>
 	</main>
 	<footer>
 		<p>&copy;2022 CCC All Rights Reserved</p>
 	</footer>
-	<script src="/CCC/js/ItemSearch.js"></script>
 </body>
 </html>
