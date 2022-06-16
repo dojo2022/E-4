@@ -2,4 +2,5 @@
 	</div>
 	<div class="bottomBar"><span>&copy;2022 CCC All Rights Reserved</span></div>
 	</body>
+	<script src = "././js/Common.js"></script>
 </html>
