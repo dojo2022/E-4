@@ -8,23 +8,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-
-
 import model.CoordinateItemModel;
 
-/**
- * Servlet implementation class Coordinate_ItemDAO
- */
-@WebServlet("/CoordinateItemDAO")
-public class CoordinateItemDAO extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public CoordinateItemDAO() {
+public class CoordinateItemDAO {
 
        	//コーディネイト一覧からコーディネイトidを受けて使用アイテムまとまりを表示する（型や()の中に何を書いたらいいかわからない）
     	public List<CoordinateItemModel> select(CoordinateItemModel param) {
@@ -247,7 +233,6 @@ public class CoordinateItemDAO extends HttpServlet {
     			return result;
 
         		}
-    	}
 
 
 
