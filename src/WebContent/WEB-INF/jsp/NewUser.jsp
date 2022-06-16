@@ -40,9 +40,4 @@
                 </tr>
             </table>
         </form>
-        <footer>
-            <p>&copy;2022 CCC All Rights Reserved</p>
-        </footer>
-
-    </body>
-    </html>
+<%@ include file="/WEB-INF/jsp/Footer.jsp" %>
