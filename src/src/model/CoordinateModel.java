@@ -8,14 +8,18 @@ public class CoordinateModel  implements Serializable{
 	private String season;
 	private String purpose;
 	private String coordinate_image;
+	private String date;
+	private String remark;
 
 
-	public CoordinateModel(String user_id, String coordinate_id, String season, String purpose, String coordinate_image) {
+	public CoordinateModel(String user_id, String coordinate_id, String season, String purpose, String coordinate_image, String date, String remark) {
 		this.user_id = user_id;
 		this.coordinate_id = coordinate_id;
 		this.season = season;
 		this.purpose = purpose;
 		this.coordinate_image = coordinate_image;
+		this.date = date;
+		this.remark =remark;
 	}
 
 	public CoordinateModel() {
@@ -24,6 +28,8 @@ public class CoordinateModel  implements Serializable{
 		this.season = "";
 		this.purpose = "";
 		this.coordinate_image = "";
+		this.date ="";
+		this.remark="";
 	}
 
 	public String getUser_id() {
@@ -55,5 +61,17 @@ public class CoordinateModel  implements Serializable{
 	}
 	public void setCoordinate_image(String coordinate_image) {
 		this.coordinate_image = coordinate_image;
+	}
+	public String getDate() {
+		return date;
+	}
+	public void setDate(String date) {
+		this.date = date;
+	}
+	public String getRemark() {
+		return remark;
+	}
+	public void setRemark(String remark) {
+		this.remark = remark;
 	}
 }
