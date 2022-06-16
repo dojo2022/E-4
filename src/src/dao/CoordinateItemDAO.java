@@ -236,7 +236,7 @@ public class CoordinateItemDAO {
 
 
 
-    	//コーディネイトアイテムの更新(フラグつける)
+    	//アイテムの更新
     	public boolean update(CoordinateItemModel card) {
     				Connection conn = null;
     				boolean result = false;
@@ -248,9 +248,6 @@ public class CoordinateItemDAO {
     					// データベースに接続する
     					conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/CCC", "sa", "ccc");
 
-    					// SQL文を準備する
-    					String sql = "update used_item set item_id = ?";
-    					PreparedStatement pStmt = conn.prepareStatement(sql);
 
     					// SQL文を準備する
     					String sql = "update item set item_id=?,item_image=?,category=?,brand=?,size=?,flag=?, remarks=?,date=? where user_id=?";
@@ -332,4 +329,46 @@ public class CoordinateItemDAO {
     				return result;
     			}
     	}
-   }
+    	//フラグ更新
+     	public boolean updateflag(CoordinateItemModel card) {
+			Connection conn = null;
+			boolean result = false;
+
+			try {
+				// JDBCドライバを読み込む
+				Class.forName("org.h2.Driver");
+
+				// データベースに接続する
+				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/CCC", "sa", "ccc");
+
+
+				// SQL文を準備する
+				String sql = "flag=? where user_id=?,item_id=?";
+				PreparedStatement pStmt = conn.prepareStatement(sql);
+				
+				// SQL文を実行する
+				if (pStmt.executeUpdate() == 1) {
+					result = true;
+				}
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+			}
+			catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+			finally {
+				// データベースを切断
+				if (conn != null) {
+					try {
+						conn.close();
+					}
+					catch (SQLException e) {
+						e.printStackTrace();
+					}
+			}
+			// 結果を返す
+			return result;
+		}
+     }
+}
