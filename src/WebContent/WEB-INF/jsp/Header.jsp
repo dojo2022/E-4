@@ -13,7 +13,6 @@
 </head>
 	<body>
     	<h1 class="logo"><img src="././image/ccc.png" alt=""></h1>
-        <h2>天気予報</h2>
         <!-- ヘッダーロゴ -->
 		<div id = "weather">
 		</div>
