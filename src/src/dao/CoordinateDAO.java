@@ -11,7 +11,7 @@ import java.util.List;
 import model.CoordinateModel;
 
 public class CoordinateDAO{
-	//季節にあった服装をランダムで3件ずつ選択する。（ランダムに3件が未実装）
+	//季節にあった服装をランダムで3件ずつ選択する。（ランダムあと少し、日付に関するソート未実装）
 	public List<CoordinateModel> select(CoordinateModel param) {
 		Connection conn = null;
 		List<CoordinateModel> coordinateList = new ArrayList<CoordinateModel>();
@@ -24,8 +24,8 @@ public class CoordinateDAO{
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/CCC", "sa", "ccc");
 
 			// SELECT文を準備する
-			String sql ="select COORDINATE.USER_ID, COORDINATE.COORDINATE_ID, COORDINATE.SEASON, COORDINATE.PURPOSE, COORDINATE.COORDINATE_IMAGE, DAY FROM ((COORDINATE left outer join USED_ITEM on COORDINATE.COORDINATE_ID = USED_ITEM.COORDINATE_ID) left outer join ITEM on USED_ITEM.ITEM_ID = ITEM.ITEM_ID) where SEASON = ? and PURPOSE = bussines and DATE = ? id IN(?, ?, ?)";
-			String sql2 ="select COORDINATE.USER_ID, COORDINATE.COORDINATE_ID, COORDINATE.SEASON, COORDINATE.PURPOSE, COORDINATE.COORDINATE_IMAGE, DAY FROM ((COORDINATE left outer join USED_ITEM on COORDINATE.COORDINATE_ID = USED_ITEM.COORDINATE_ID) left outer join ITEM on USED_ITEM.ITEM_ID = ITEM.ITEM_ID) where SEASON = ? and PURPOSE = private and DATE = ?";
+			String sql ="select COORDINATE.USER_ID, COORDINATE.COORDINATE_ID, COORDINATE.SEASON, COORDINATE.PURPOSE, COORDINATE.COORDINATE_IMAGE, DAY FROM ((COORDINATE left outer join USED_ITEM on COORDINATE.COORDINATE_ID = USED_ITEM.COORDINATE_ID) left outer join ITEM on USED_ITEM.ITEM_ID = ITEM.ITEM_ID) where SEASON = ? and PURPOSE = bussines and DATE = ? and COORDINATE_ID IN(?, ?, ?)";
+			String sql2 ="select COORDINATE.USER_ID, COORDINATE.COORDINATE_ID, COORDINATE.SEASON, COORDINATE.PURPOSE, COORDINATE.COORDINATE_IMAGE, DAY FROM ((COORDINATE left outer join USED_ITEM on COORDINATE.COORDINATE_ID = USED_ITEM.COORDINATE_ID) left outer join ITEM on USED_ITEM.ITEM_ID = ITEM.ITEM_ID) where SEASON = ? and PURPOSE = private and DATE = ? and COORDINATE_ID IN(?, ?, ?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			PreparedStatement pStmt2 = conn.prepareStatement(sql2);
 
@@ -47,6 +47,17 @@ public class CoordinateDAO{
 				pStmt.setString(2, "%");
 				pStmt2.setString(2, "%");
 			}
+
+
+			double ran = Math.random();
+			String site = String.valueOf(ran);
+
+			pStmt.setString(3,site);
+			pStmt2.setString(3,site);
+			pStmt.setString(4,site);
+			pStmt2.setString(4,site);
+			pStmt.setString(5,site);
+			pStmt2.setString(5,site);
 
 
 
