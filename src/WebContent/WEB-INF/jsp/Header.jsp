@@ -10,15 +10,13 @@
 	-->
 	<!-- cssやjsは、Servlet名やjsp名から自動追加することが多い -->
 	<link rel="stylesheet" href="././css/Common.css">
-	<script type="text/javascript" src="./js/jquery-3.6.0.min.js"></script>
-	<script type="text/javascript" src="./js/jquery-ui.min.js"></script>
-	${script}
 </head>
 	<body>
     	<h1 class="logo"><img src="././image/ccc.png" alt=""></h1>
         <h2>天気予報</h2>
         <!-- ヘッダーロゴ -->
-
+		<div id = "weather">
+		</div>
         <!-- ハンバーガーメニュー部分 -->
         <div class="nav">
 
