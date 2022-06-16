@@ -1,38 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>ItemSearch</title>
-    <link rel="stylesheet" type="text/css" href="././css/Common.css">
-<link rel="stylesheet" type="text/css" href="/CCC/css/ItemSearch.css">
-</head>
-<body>
-	<header>
-		<h1 class="logo">
-			<a href="/CCC/HomeServlet">
-			<img src="././image/ccc.png" alt="logo"></a>
-		</h1>
-        <!-- ハンバーガーメニュー部分 -->
-        <div class="nav">
-            <!-- ハンバーガーメニューの表示・非表示を切り替えるチェックボックス -->
-            <input id="drawer_input" class="drawer_hidden" type="checkbox">
-            <!-- ハンバーガーアイコン -->
-            <label for="drawer_input" class="drawer_open"><span></span></label>
-            <!-- メニュー -->
-            <nav class="nav_content">
-            <ul class="nav_list">
-                <li class="nav_item"><a href="/CCC/CoordinateListServlet">Your Outfits</a></li>
-                <li class="nav_item"><a href="/CCC/ItemListServlet">Your Items</a></li>
-                <li class="nav_item"><a href="/CCC/NewCoordinateServlet">Add New Outfit</a></li>
-                <li class="nav_item"><a href="/CCC/NewItemtServlet">Add New Item</a></li>
-            </ul>
-            </nav>
-        </div>
-		<h2>天気予報</h2>
-		<hr>
-	</header>
+<%@ include file="/WEB-INF/jsp/Header.jsp" %>
+<title>CCC｜アイテム検索</title>
 	<main>
 		<c:forEach var="e" items="${itemList}">
 			<img src="${e.item_image}">
@@ -70,8 +39,4 @@
 		</div>
 		<label for="search_input" class="container"><span>検索</span></label>
 	</main>
-	<footer>
-		<p>&copy;2022 CCC All Rights Reserved</p>
-	</footer>
-</body>
-</html>
+<%@ include file="/WEB-INF/jsp/Footer.jsp" %>
