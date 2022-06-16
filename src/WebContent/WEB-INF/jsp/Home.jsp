@@ -11,6 +11,9 @@
         <header>
             <h1 class="logo"><img src="././image/ccc.png" alt="logo"></h1>
             <h2>天気予報</h2>
+            <div id="weather">
+
+        	</div>
 
             <!-- ハンバーガーメニュー部分 -->
             <div class="nav">
@@ -42,4 +45,5 @@
         </footer>
 
     </body>
+    <script src="././js/Common.js"></script>
     </html>
