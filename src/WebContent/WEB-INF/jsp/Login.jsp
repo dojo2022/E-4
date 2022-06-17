@@ -1,22 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <!DOCTYPE html>
-    <html>
-    <head>
-    <meta charset="UTF-8">
+<%@ include file="/WEB-INF/jsp/Header2.jsp" %>
     <title>CCC｜ログイン</title>
-        <link rel="stylesheet" type="text/css" href="././css/Common.css">
-    </head>
-    <body>
-        <header>
-            <h1 class="logo"><img src="././image/ccc.png" alt="logo"></h1>
-            <h2>天気予報</h2>
-            <hr>
-        </header>
-
         <main>
             <!--action空白-->
-            <form id="login_form" method="GET" action="">
+            <form id="login_form" method="POST" action="/CCC/LoginServlet">
                 <table>
                     <tr><td class="data">ID</td><td><input type="text" name="ID"></td></tr>
                     <tr><td class="data">PW</td><td><input type="password" name="PW"></td></tr>
