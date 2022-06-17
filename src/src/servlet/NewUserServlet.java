@@ -41,11 +41,11 @@ public class NewUserServlet extends HttpServlet {
 		UserDAO uDao = new UserDAO();
 		if (uDao.insert(new User(user_id, password))) {	// 登録成功
 			request.setAttribute("result",
-			new Result("Welcome!", "/simpleBC/LoginServlet"));
+			new Result("Welcome!", "/CCC/LoginServlet"));
 		}
 		else {												// 登録失敗
 			request.setAttribute("result",
-			new Result("An error has occurred. Try again.", "/simpleBC/NewUserServlet"));
+			new Result("An error has occurred. Try again.", "/CCC/NewUserServlet"));
 		}
 
 		// 結果ページにフォワードする
