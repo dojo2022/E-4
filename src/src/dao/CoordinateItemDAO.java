@@ -25,10 +25,10 @@ public class CoordinateItemDAO {
     			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/CCC", "sa", "ccc");
 
     			// SQL文を準備(検索）
-    			String sql = "select category,brand from item where  category= ? category= ? category = ? category = ?  category = ? category = ? category = ? brand = ?and ";
+    			String sql = "select category,brand from item where  category= ?  brand = ? ";
     			PreparedStatement pStmt = conn.prepareStatement(sql);
 
-    			// SQL文を完成させる（追加）
+    			// SQL文を完成させる
     			if (param.getCategory() != null) {
     				pStmt.setString(1, "%" + param.getCategory() + "%");
     			}
