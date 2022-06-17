@@ -68,7 +68,6 @@ li {
     position: absolute;
     top: 0;
     left: 0;
-	opacity: 0.75;
 }
 
 /*ハンバーガーメニューのリンクの色*/
@@ -109,10 +108,14 @@ a:active {
 /*ロゴの位置を真ん中に指定*/
 .logo {
 	text-align: center;
+	margin-bottom: 0px;
+	margin-top: 0px;
 }
 
 .logo2 {
 	text-align: center;
+	margin-bottom: 0px;
+	margin-top: 0px;
 }
 
 /*ロゴのサイズを指定*/
@@ -122,29 +125,34 @@ img {
 }
 
 /*天気予報*/
+.ten{
+	display: inline-block;
+	margin-top: 0px;
+	margin-bottom: 0px
+}
+.num{
+	display: inline-block;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+#weather {
+	text-align: right
+}
 .mark{
 	text-align: right;
 }
 #mark{
 	margin-left: auto;
-	width: 50px;
-	height: 35px;
+	width: 40px;
+	height: 30px;
 
-}
-#weathertext {
-    text-align: right;
-}
-#max {
-    text-align: right;
-}
-#min {
-    text-align: right;
 }
 
 /*フッター*/
-.bottomBar {
+footer {
 	background-color: #C0C0C0;
-	position: absolute;/*←絶対位置*/
+	height: 80px;
     bottom: 0; /*下に固定*/
     color: white;
 }
