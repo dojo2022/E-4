@@ -29,7 +29,7 @@ public class CoordinateListServlet extends HttpServlet {
 
 		// 検索処理を行う
 		CoordinateDAO cDao = new CoordinateDAO();
-		List<CoordinateModel> CoordinateList = cDao.select(new CoordinateModel("", "", "",  "",  "",  "",  "",  "", "", "", "", "", ""));
+		List<CoordinateModel> CoordinateList = cDao.search(new CoordinateModel("", "", "",  "",  "",  "",  "",  "", "", "", "", "", ""));
 
 		// 検索結果をリクエストスコープに格納する
 		request.setAttribute("CoordinateList", CoordinateList);
