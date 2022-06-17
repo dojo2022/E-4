@@ -1,4 +1,6 @@
 @charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Cherry+Swash&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP');
 /* チェックボックスを非表示にする */
 .drawer_hidden {
     display: none;
@@ -40,34 +42,49 @@
     top: 8px;
   }
 
-  /* アイコンがクリックされたら真ん中の線を透明にする */
-  /*
-  #drawer_input:checked ~ .drawer_open span {
-    background: rgba(255, 255, 255, 0);
-  }*/
-
-  /* アイコンがクリックされたらアイコンが×印になように上下の線を回転 */
-  /*#drawer_input:checked ~ .drawer_open span::before {
-    bottom: 0;
-    transform: rotate(45deg);
-  }
-
-  #drawer_input:checked ~ .drawer_open span::after {
-    top: 0;
-    transform: rotate(-45deg);
-  }*/
-
   /* メニューのデザイン*/
-  .nav_content {
+ .nav_content {
     width: 100%;
     height: 100%;
     position: fixed;
     top: 0;
-    left: 100%; /* メニューを画面の外に飛ばす */
+    left: -100vw; /* メニューを画面の外に飛ばす */
     z-index: 99;
     background: #000;
     transition: .5s;
+    font-size: 40px;
   }
+/*ハンバーガーメニューの間隔*/
+li {
+	margin-bottom:30px;
+	margin-right: 10px;
+	text-align: right;
+	opacity: 1.0;
+}
+
+.nav {
+	width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+	opacity: 0.75;
+}
+
+/*ハンバーガーメニューのリンクの色*/
+a:link {
+	color: white;
+}
+a:visited {
+	color: white;
+}
+a.hover:hover {
+	color: white;
+}
+a:active {
+	color:white;
+}
+
 .nav_item {
 	color: white;
 }
@@ -78,17 +95,23 @@
 
   /* アイコンがクリックされたらメニューを表示 */
   #drawer_input:checked ~ .nav_content {
-    left: 0;/* メニューを画面に入れる */
+	-webkit-transform: translateX(30vw);
+	        transform: translateX(30vw);
+
+    /*left: 0;/* メニューを画面に入れる */
   }
 
-@import url('https://fonts.googleapis.com/css?family=Noto+Serif+JP');
-
+/*全体に適用*/
 * {
-    font-family: 'Noto Serif JP', sans-serif;
+  font-family: 'Cherry Swash','Noto Sans JP', sans-serif;
+  text-decoration:none;
 }
-
 /*ロゴの位置を真ん中に指定*/
 .logo {
+	text-align: center;
+}
+
+.logo2 {
 	text-align: center;
 }
 
@@ -126,7 +149,7 @@ img {
     color: white;
 }
 
-/*aハンバーガーアイコン*/
+/*ハンバーガーアイコン*/
 label{
 	 margin-left: auto;
 	 margin-right: 0;
