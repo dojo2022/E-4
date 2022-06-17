@@ -143,55 +143,60 @@ public class CoordinateItemDAO {
     				PreparedStatement pStmt = conn.prepareStatement(sql);
 
  					// SQL文を完成させる
-					if (card.getItem_id() != null && !card.getItem_id().equals("")) {
-						pStmt.setString(1, card.getItem_id());
+					if (card.getUser_id() != null && !card.getUser_id().equals("")) {
+						pStmt.setString(1, card.getUser_id());
 					}
 					else {
 						pStmt.setString(1, null);
 					}
-					if (card.getItem_image() != null && !card.getItem_image().equals("")) {
-						pStmt.setString(2, card.getItem_image());
+					if (card.getItem_id() != null && !card.getItem_id().equals("")) {
+						pStmt.setString(2, card.getItem_id());
 					}
 					else {
 						pStmt.setString(2, null);
 					}
-					if (card.getCategory() != null && !card.getCategory().equals("")) {
-						pStmt.setString(3, card.getCategory());
+					if (card.getItem_image() != null && !card.getItem_image().equals("")) {
+						pStmt.setString(3, card.getItem_image());
 					}
 					else {
 						pStmt.setString(3, null);
 					}
-					if (card.getBrand() != null && !card.getBrand().equals("")) {
-						pStmt.setString(4, card.getBrand());
+					if (card.getCategory() != null && !card.getCategory().equals("")) {
+						pStmt.setString(4, card.getCategory());
 					}
 					else {
 						pStmt.setString(4, null);
 					}
-					if (card.getSize() != null && !card.getSize().equals("")) {
-						pStmt.setString(5, card.getSize());
+					if (card.getBrand() != null && !card.getBrand().equals("")) {
+						pStmt.setString(5, card.getBrand());
 					}
 					else {
 						pStmt.setString(5, null);
 					}
-					if (card.getFlag() != null && !card.getFlag().equals("")) {
-						pStmt.setString(6, card.getFlag());
+					if (card.getSize() != null && !card.getSize().equals("")) {
+						pStmt.setString(6, card.getSize());
 					}
 					else {
 						pStmt.setString(6, null);
 					}
-					if (card.getRemarks() != null && !card.getRemarks().equals("")) {
-						pStmt.setString(7, card.getRemarks());
+					if (card.getFlag() != null && !card.getFlag().equals("")) {
+						pStmt.setString(7, card.getFlag());
 					}
 					else {
 						pStmt.setString(7, null);
 					}
-					if (card.getDate() != null && !card.getDate().equals("")) {
-						pStmt.setString(8, card.getDate());
+					if (card.getRemarks() != null && !card.getRemarks().equals("")) {
+						pStmt.setString(8, card.getRemarks());
 					}
 					else {
 						pStmt.setString(8, null);
 					}
-					pStmt.setString(9, card.getUser_id());
+					if (card.getDate() != null && !card.getDate().equals("")) {
+						pStmt.setString(9, card.getDate());
+					}
+					else {
+						pStmt.setString(9, null);
+					}
 
         			// SQL文を実行する
         			if (pStmt.executeUpdate() == 1) {
