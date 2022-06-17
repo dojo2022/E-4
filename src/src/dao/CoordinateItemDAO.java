@@ -199,36 +199,32 @@ public class CoordinateItemDAO {
         			}
 
 
-        			// SQL文を実行し、結果表を取得する
-        			ResultSet rs = pStmt.executeQuery();
-
-
+        			// SQL文を実行する
+        			if (pStmt.executeUpdate() == 1) {
+        				result = true;
+        			}
         		}
-    			catch (SQLException e) {
-    				e.printStackTrace();
-    			}
-    			catch (ClassNotFoundException e) {
-    				e.printStackTrace();
-    			}
-
-
-        			finally {
-        				// データベースを切断
-        				if (conn != null) {
-        					try {
-        						conn.close();
-        					}
-        					catch (SQLException e) {
-        						e.printStackTrace();
-        					}
+        		catch (SQLException e) {
+        			e.printStackTrace();
+        		}
+        		catch (ClassNotFoundException e) {
+        			e.printStackTrace();
+        		}
+        		finally {
+        			// データベースを切断
+        			if (conn != null) {
+        				try {
+        					conn.close();
+        				}
+        				catch (SQLException e) {
+        					e.printStackTrace();
         				}
         			}
-
-        			// 結果を返す(どのようにデータを返せばいいかわからない)
-    			return result;
-
         		}
 
+        		// 結果を返す
+        		return result;
+        	}
 
 
     	//アイテムの更新
