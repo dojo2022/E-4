@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.CoordinateDAO;
+import dao.CoordinateItemDAO;
 
 /**
  * Servlet implementation class ItemDetailServlet
@@ -25,7 +25,7 @@ public class ItemDetailServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         String item_id = request.getParameter("q");
         // 検索処理を行う
-        Coordinate_ItemDAO itemDao = new Coordinate_itemDAO();
+        CoordinateItemDAO itemDao = new CoordinateItemDAO();
         List<Coordinate_Item> itemList = itemDao.select(new Coordinate_Item("", item_id,  "",  "",  "",  "",  "",  "",  ""));
         // 検索結果をリクエストスコープに格納する
         request.setAttribute("itemList", itemList);
@@ -43,10 +43,10 @@ public class ItemDetailServlet extends HttpServlet {
         String item_id = request.getParameter("item_id");
         String brand = request.getParameter("brand");
         String size = request.getParameter("size");
-        String size = request.getParameter("remarks");
+        String remarks = request.getParameter("remarks");
 
         // 更新または削除を行う
-        CoordinateDAO itemDao = new CoordinateDAO();
+        CoordinateItemDAO itemDao = new CoordinateItemDAO();
         if (request.getParameter("submit").equals("更新")) {
             if (itemDao.update(new Coordinate_Item(item_id, brand, size, remarks))) {  // 更新成功
                 request.setAttribute("result",
