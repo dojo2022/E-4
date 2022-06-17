@@ -54,11 +54,11 @@ try {
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
-			(変数名) = null;
+			param = null;
 		}
 		catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			（変数名） = null;
+			param = null;
 		}
 		finally {
 			// データベースを切断
@@ -68,13 +68,12 @@ try {
 				}
 				catch (SQLException e) {
 					e.printStackTrace();
-					（変数名） = null;
+					param = null;
 				}
 
 			}
-
 		return result;
-public boolean delete(String テーブル) {
+public boolean delete(String Coordinate_ID) {
 		Connection conn = null;
 		boolean result = false;
 
@@ -90,7 +89,7 @@ public boolean delete(String テーブル) {
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
-			pStmt.setString(1, coodinate_id);
+			pStmt.setString(1, Coordinate_ID);
 
 			// SQL文を実行する
 			if (pStmt.executeUpdate() == 1) {
@@ -120,5 +119,6 @@ public boolean delete(String テーブル) {
 
 		// 結果を返す
 		return result;
+
 	}
 }

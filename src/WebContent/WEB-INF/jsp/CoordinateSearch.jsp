@@ -3,12 +3,12 @@
 <%@ include file="/WEB-INF/jsp/Header.jsp" %>
 <title>CCC｜コーディネート検索</title>
 	<main>
-		<c:forEach var="e" items="${coordinateList}">
-			<img src="${e.coordinate_image}">
+		<c:forEach var="e" items="${CoordinateList}">
+			<a href="/CCC/CoordiateResultServlet?q=${e.coordinate_id}"><img src="${e.coordinate_image}"></a>
 		</c:forEach>
 		<input id="search_input" class="search_hidden" type="checkbox">
 		<div class="search_content">
-			<form id="CoordinateSearch" method="POST" action="/CCC/CoordinateResultServlet">
+			<form id="CoordinateSearch" method="POST" action="/CCC/CoordinateListServlet">
 				<table>
 					<tr>
 					<td><p>SEARCH COORDINATE</p></td>

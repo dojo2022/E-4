@@ -24,8 +24,8 @@ public class CoordinateDAO{
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/CCC", "sa", "ccc");
 
 			// SELECT文を準備する
-			String sql ="select COORDINATE.USER_ID, COORDINATE.COORDINATE_ID, COORDINATE.SEASON, COORDINATE.PURPOSE, COORDINATE.COORDINATE_IMAGE, DAY FROM ((COORDINATE left outer join USED_ITEM on COORDINATE.COORDINATE_ID = USED_ITEM.COORDINATE_ID) left outer join ITEM on USED_ITEM.ITEM_ID = ITEM.ITEM_ID) where SEASON = ? and PURPOSE = bussines and DATE = ? and COORDINATE_ID IN(?, ?, ?)";
-			String sql2 ="select COORDINATE.USER_ID, COORDINATE.COORDINATE_ID, COORDINATE.SEASON, COORDINATE.PURPOSE, COORDINATE.COORDINATE_IMAGE, DAY FROM ((COORDINATE left outer join USED_ITEM on COORDINATE.COORDINATE_ID = USED_ITEM.COORDINATE_ID) left outer join ITEM on USED_ITEM.ITEM_ID = ITEM.ITEM_ID) where SEASON = ? and PURPOSE = private and DATE = ? and COORDINATE_ID IN(?, ?, ?)";
+			String sql ="select COORDINATE.USER_ID, COORDINATE.COORDINATE_ID, COORDINATE.SEASON, COORDINATE.PURPOSE, COORDINATE.COORDINATE_IMAGE, DAY FROM ((COORDINATE left outer join USED_ITEM on COORDINATE.COORDINATE_ID = USED_ITEM.COORDINATE_ID) left outer join ITEM on USED_ITEM.ITEM_ID = ITEM.ITEM_ID) where SEASON = ? and PURPOSE = bussines and DATE = ? ORDER BY RAND() LIMIT 3 ";
+			String sql2 ="select COORDINATE.USER_ID, COORDINATE.COORDINATE_ID, COORDINATE.SEASON, COORDINATE.PURPOSE, COORDINATE.COORDINATE_IMAGE, DAY FROM ((COORDINATE left outer join USED_ITEM on COORDINATE.COORDINATE_ID = USED_ITEM.COORDINATE_ID) left outer join ITEM on USED_ITEM.ITEM_ID = ITEM.ITEM_ID) where SEASON = ? and PURPOSE = private and DATE = ? ORDER BY RAND() LIMIT 3 ";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			PreparedStatement pStmt2 = conn.prepareStatement(sql2);
 
@@ -49,6 +49,7 @@ public class CoordinateDAO{
 			}
 
 
+			/*
 			double ran = Math.random();
 			String site = String.valueOf(ran);
 
@@ -58,6 +59,7 @@ public class CoordinateDAO{
 			pStmt2.setString(4,site);
 			pStmt.setString(5,site);
 			pStmt2.setString(5,site);
+			*/
 
 
 

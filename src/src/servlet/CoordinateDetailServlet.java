@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.CoordinateDAO;
+import dao.CoordinateItemDAO;
+
 /**
  * Servlet implementation class CoordinateDetailServlet
  */
@@ -20,15 +23,69 @@ public class CoordinateDetailServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        String Coordinate_id = request.getParameter("q");
+        // 検索処理を行う
+        CoordinateDAO CoordinateDao = new CoordinateDAO();
+        List<Coordinate_List> selectCoordinate = CoordinateDAO.select(new selectCoordinate("", Coordinate_id, ""));//コーディネートの画像のみ
+        // 検索結果をリクエストスコープに格納する
+        request.setAttribute("selectcoordinate", selectCoordinate);
 
+        //アイテム情報相談
+
+         // 結果ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/CoordinateDetail.jsp");
 		dispatcher.forward(request, response);
-	}
+    }
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // リクエストパラメータを取得する
+        request.setCharacterEncoding("UTF-8");
+        String coordinate_id = request.getParameter("coordinate_id");
+        String useditem_id = request.getParameter("item_id");
 
-	}
+        //アイテム情報追加、アイテム、コーディネート削除
+        CoordinateDAO coordinateDao = new CoordinateDAO();
+        CoordinateItemDAO itemDao = new CoordinateItemDAO();
+
+        if(request.getParameter("submit").equals("アイテム削除")){
+            if (coordinateDao.delete(useditem_id)) { // 削除成功
+                request.setAttribute("result",
+                new Result("レコードを削除しました。", "/CCC/CoordinateDetailServlet"));
+            }
+            else {                      // 削除失敗
+                request.setAttribute("result",
+                new Result("レコードを削除できませんでした。", "/CCC/itemDetailServlet"));
+            }
+        }
+        else if(request.getParameter("submit").equals("コーディネート削除")){
+            if (coordinateDao.delete(coordinate_id)) { // 削除成功
+                request.setAttribute("result",
+                new Result("レコードを削除しました。", "/CCC/CoordinateListServlet"));
+            }
+            else {                      // 削除失敗
+                request.setAttribute("result",
+                new Result("レコードを削除できませんでした。", "/CCC/itemDetailServlet"));
+            }
+        }
+
+        else if(request.getParameter("submit").equals("コーディネートアイテム追加")){
+            if (coordinateDao.insert(item_id)) { // 追加成功
+                request.setAttribute("result",
+                new Result("レコードを追加しました。", "/CCC/CoordinateDetailServlet"));
+            }
+            else {                      // 削除失敗
+                request.setAttribute("result",
+                new Result("レコードを追加できませんでした。", "/CCC/CoordinateDetailServlet"));
+            }
+        }
+
+        // 結果ページにフォワードする
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/NewCoordinateError.jsp");
+        dispatcher.forward(request, response);
+
+    }
 }

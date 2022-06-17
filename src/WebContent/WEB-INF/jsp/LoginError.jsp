@@ -4,7 +4,7 @@
 	<title>CCC｜エラー</title>
 	    <link rel="stylesheet" type="text/css" href="././css/Error.css">
 	        <main>
-				<h50>Oops！</h50>
+				<h50>Oops!</h50>
 				<p><h30>ログインに失敗しました</h30></p>
 				<button onclick="location.href='Login.html'">Back to Login</button>
 	        </main>
