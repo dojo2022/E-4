@@ -8,7 +8,7 @@
 		</c:forEach>
 		<input id="search_input" class="search_hidden" type="checkbox">
 		<div class="search_content">
-			<form id="ItemSearch" method="POST" action="/CCC/ItemResultServlet">
+			<form id="ItemSearch" method="POST" action="/CCC/ItemListServlet">
 				<table>
 					<tr>
 						<td><p>SEARCH ITEMS</p></td>
