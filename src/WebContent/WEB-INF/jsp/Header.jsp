@@ -12,10 +12,8 @@
 	<link rel="stylesheet" href="././css/Common.css">
 </head>
 	<body>
-    	<h1 class="logo"><img src="././image/ccc.png" alt=""></h1>
+    	<h1 class="logo"><a href = "/CCC/HomeServlet"><img src="././image/ccc.png" alt=""></a></h1>
         <!-- ヘッダーロゴ -->
-		<div id = "weather">
-		</div>
         <!-- ハンバーガーメニュー部分 -->
         <div class="nav">
 
@@ -33,8 +31,9 @@
                 <li class="nav_item"><a href="/CCC/NewItemtServlet">Add New Item</a></li>
             </ul>
             </nav>
-
         </div>
+		<div id = "weather">
+		</div>
         <hr>
     <div class="container">
 
