@@ -1,11 +1,12 @@
 create table item (
-user_id varchar (20) primary key not null,
-item_id varchar (4) auto_increment,
+user_id varchar (20) not null,
+item_id varchar (4) primary key auto_increment,
 item_image varchar (255) not null,
 category varchar (20) not null,
 brand varchar (50),
 size varchar (20),
 flag varchar (30),
 remarks varchar (300),
-day date 
+day date,
+foreign key (user_id) references user (user_id) on delete cascade
 );

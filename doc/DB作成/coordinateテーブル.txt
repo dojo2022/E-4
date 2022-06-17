@@ -1,7 +1,8 @@
 create table coordinate (
-user_id varchar (20) primary key not null,
-coordinate_id varchar (4) auto_increment,
+user_id varchar (20) not null,
+coordinate_id varchar (4) primary key auto_increment,
 season varchar (10) not null,
 purpose varchar (10) not null,
-coordinate_image varchar (255) not null
+coordinate_image varchar (255) not null,
+foreign key (user_id) references user (user_id) on delete cascade
 );
