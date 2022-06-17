@@ -11,8 +11,9 @@ import java.util.List;
 import model.CoordinateModel;
 
 public class CoordinateDAO{
-	//季節にあった服装をランダムで3件ずつ選択する。（ランダムあと少し、日付に関するソート未実装）
-	public List<CoordinateModel> select(CoordinateModel param) {
+	//季節にあった服装をランダムで3件ずつ選択する。
+	//日付取得CAST(GETDATE() as date)、日付に関するソート　 DATE_SUB(CAST(GETDATE() as date), INTERVAL 3 DAY)
+	public List<CoordinateModel> homeSelect(CoordinateModel param) {
 		Connection conn = null;
 		List<CoordinateModel> coordinateList = new ArrayList<CoordinateModel>();
 
@@ -24,8 +25,13 @@ public class CoordinateDAO{
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/CCC", "sa", "ccc");
 
 			// SELECT文を準備する
-			String sql ="select COORDINATE.USER_ID, COORDINATE.COORDINATE_ID, COORDINATE.SEASON, COORDINATE.PURPOSE, COORDINATE.COORDINATE_IMAGE, DAY FROM ((COORDINATE left outer join USED_ITEM on COORDINATE.COORDINATE_ID = USED_ITEM.COORDINATE_ID) left outer join ITEM on USED_ITEM.ITEM_ID = ITEM.ITEM_ID) where SEASON = ? and PURPOSE = bussines and DATE = ? ORDER BY RAND() LIMIT 3 ";
-			String sql2 ="select COORDINATE.USER_ID, COORDINATE.COORDINATE_ID, COORDINATE.SEASON, COORDINATE.PURPOSE, COORDINATE.COORDINATE_IMAGE, DAY FROM ((COORDINATE left outer join USED_ITEM on COORDINATE.COORDINATE_ID = USED_ITEM.COORDINATE_ID) left outer join ITEM on USED_ITEM.ITEM_ID = ITEM.ITEM_ID) where SEASON = ? and PURPOSE = private and DATE = ? ORDER BY RAND() LIMIT 3 ";
+			String sql ="select COORDINATE.USER_ID, COORDINATE.COORDINATE_ID, COORDINATE.SEASON, COORDINATE.PURPOSE, COORDINATE.COORDINATE_IMAGE, DAY "
+					+ "FROM ((COORDINATE left outer join USED_ITEM on COORDINATE.COORDINATE_ID = USED_ITEM.COORDINATE_ID) left outer join ITEM on USED_ITEM.ITEM_ID = ITEM.ITEM_ID) "
+					+ "where SEASON = ? and PURPOSE = bussines and DATE < DATE_SUB(CAST(GETDATE() as date), INTERVAL 3 DAY) ORDER BY RAND() LIMIT 3 ";
+			String sql2 ="select COORDINATE.USER_ID, COORDINATE.COORDINATE_ID, COORDINATE.SEASON, COORDINATE.PURPOSE, COORDINATE.COORDINATE_IMAGE, DAY "
+					+ "FROM ((COORDINATE left outer join USED_ITEM on COORDINATE.COORDINATE_ID = USED_ITEM.COORDINATE_ID) left outer join ITEM on USED_ITEM.ITEM_ID = ITEM.ITEM_ID) "
+					+ "where SEASON = ? and PURPOSE = private and DATE < DATE_SUB(CAST(GETDATE() as date), INTERVAL 3 DAY) ORDER BY RAND() LIMIT 3 ";
+			//SQLで日付取得
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			PreparedStatement pStmt2 = conn.prepareStatement(sql2);
 
@@ -76,7 +82,13 @@ public class CoordinateDAO{
 				rs.getString("purpose"),
 				rs.getString("COORDINATE_IMAGE"),
 				rs.getString("DATE"),
-				rs.getString("REMARk")
+				rs.getString("REMARk"),
+				rs.getString(""),
+				rs.getString(""),
+				rs.getString(""),
+				rs.getString(""),
+				rs.getString(""),
+				rs.getString("")
 				);
 				coordinateList.add(card);
 
@@ -87,7 +99,13 @@ public class CoordinateDAO{
 				rs2.getString("purpose"),
 				rs2.getString("COORDINATE_IMAGE"),
 				rs2.getString("DATE"),
-				rs.getString("REMARK")
+				rs2.getString("REMARK"),
+				rs2.getString(""),
+				rs2.getString(""),
+				rs2.getString(""),
+				rs2.getString(""),
+				rs2.getString(""),
+				rs2.getString("")
 				);
 				coordinateList.add(card2);
 			}
@@ -125,10 +143,131 @@ public class CoordinateDAO{
 	}
 
 	//コーディネートの検索(広渕さんやってくれてる）
+	//日付取得CAST(GETDATE() as date)
+	public List<CoordinateModel> search(CoordinateModel param) {
+		Connection conn = null;
+		List<CoordinateModel> CoordinateList = new ArrayList<CoordinateModel>();
+
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/CCC", "sa", "ccc");
+
+			// SQL文を準備する
+			String sql = "SELECT c.coordinate_id, season, purpose, coordinate_image, i.item_id, item_image, category, brand, size, remarks "
+					 + "FROM used_item u RIGHT JOIN coordinate c ON u.coordinate_id = c.coordinate_id RIGHT JOIN item i ON u.item_id = i.item_id "
+					 + "WHERE user_id LIKE ? AND coordinate_id LIKE ? AND season LIKE ? AND purpose LIKE ? AND item_id LIKE ? "
+					 + "AND category LIKE ? OR brand LIKE ? OR size LIKE ? OR remarks LIKE ?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			// SQL文を完成させる
+			if (param.getUser_id() != null) {
+				pStmt.setString(1, param.getUser_id());
+			}
+			else {
+				pStmt.setString(1, "%");
+			}
+			if (param.getCoordinate_id() != null) {
+				pStmt.setString(2, param.getCoordinate_id());
+			}
+			else {
+				pStmt.setString(2, "%");
+			}
+			if (param.getSeason() != null) {
+				pStmt.setString(3, "%" + param.getSeason() + "%");
+			}
+			else {
+				pStmt.setString(3, "%");
+			}
+			if (param.getPurpose() != null) {
+				pStmt.setString(4, "%" + param.getPurpose() + "%");
+			}
+			else {
+				pStmt.setString(4, "%");
+			}
+			if (param.getItem_id() != null) {
+				pStmt.setString(5, param.getItem_id());
+			}
+			else {
+				pStmt.setString(5, "%");
+			}
+			if (param.getCategory() != null) {
+				pStmt.setString(6, "%" + param.getCategory() + "%");
+			}
+			else {
+				pStmt.setString(6, "%");
+			}
+			if (param.getBrand() != null) {
+				pStmt.setString(7, "%" + param.getBrand() + "%");
+			}
+			else {
+				pStmt.setString(7, "%");
+			}
+			if (param.getSize() != null) {
+				pStmt.setString(8, "%" + param.getSize() + "%");
+			}
+			else {
+				pStmt.setString(8, "%");
+			}
+			if (param.getRemarks() != null) {
+				pStmt.setString(9, "%" + param.getRemarks() + "%");
+			}
+			else {
+				pStmt.setString(9, "%");
+			}
+			// SQL文を実行し、結果表を取得する
+			ResultSet rs = pStmt.executeQuery();
+
+			// 結果表をコレクションにコピーする
+			while (rs.next()) {
+				CoordinateModel Coordinate = new CoordinateModel(
+						rs.getString("user_id"),
+						rs.getString("coordinate_id"),
+						rs.getString("season"),
+						rs.getString("purpose"),
+						rs.getString(""),
+						rs.getString("item_id"),
+						rs.getString(""),
+						rs.getString("category"),
+						rs.getString("brand"),
+						rs.getString("size"),
+						rs.getString(""),
+						rs.getString("remarks"),
+						rs.getString("")
+				);
+				CoordinateList.add(Coordinate);
+			}
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+			CoordinateList = null;
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			CoordinateList = null;
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+					CoordinateList = null;
+				}
+			}
+		}
+
+		// 結果を返す
+		return CoordinateList;
+	}
 
 
 
-
+	/*
 	//コーディネートからコーディネート詳細に移行の際に送られるデータ
 	public List<CoordinateModel> move(CoordinateModel detail) {
 		Connection conn = null;
@@ -158,8 +297,8 @@ public class CoordinateDAO{
 			else {
 				pStmt.setString(2, "%");
 			}
-			if(detail.getRemark() != null) {
-				pStmt.setString(3,detail.getRemark());
+			if(detail.getRemarks() != null) {
+				pStmt.setString(3,detail.getRemarks());
 			}
 			else {
 				pStmt.setString(3, "%");
@@ -177,7 +316,13 @@ public class CoordinateDAO{
 				rs.getString("purpose"),
 				rs.getString("COORDINATE_IMAGE"),
 				rs.getString("DATE"),
-				rs.getString("REMARK")
+				rs.getString("REMARK"),
+				rs.getString(""),
+				rs.getString(""),
+				rs.getString(""),
+				rs.getString(""),
+				rs.getString(""),
+				rs.getString("")
 				);
 				coordinateList.add(card);
 			}
@@ -208,17 +353,7 @@ public class CoordinateDAO{
 		return coordinateList;
 
 	}
-
-
-
-
-
-
-
-
-
-
-
+	*/
 
 
 
@@ -235,7 +370,7 @@ public class CoordinateDAO{
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/CCC", "sa", "ccc");
 
 			// SQL文を準備する
-			String sql = "insert into COORDINATE (USER_ID, COORDINATE_ID, SEASON, PURPOSE, COORDINATE_IMAGE) values (?, ?, ?, ?, ?)";
+			String sql = "insert into COORDINATE(USER_ID,COORDINATE_ID,SEASON,PURPOSE,COODINATE_IMAGE) values (?, ?, ?, ?, ?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
