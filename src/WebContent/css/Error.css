@@ -4,9 +4,16 @@ h50{
 	font-family: "Segoe Print";
 	font-size:100px;
 	text-align: center;
+	/*color:#222222;*/
+	/*color:#333333;*/
+	color:#2F4F4F;
 }
 h30{
 	font-size:20px;
+	text-align: center;
+
+}
+button{
 	text-align: center;
 
 }

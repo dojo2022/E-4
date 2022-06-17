@@ -12,7 +12,7 @@ import model.CoordinateItemModel;
 
 public class CoordinateItemDAO {
 
-       	//コーディネイト一覧からコーディネイトidを受けて使用アイテムまとまりを表示する（型や()の中に何を書いたらいいかわからない）
+       	//アイテム検索
     	public List<CoordinateItemModel> select(CoordinateItemModel param) {
     		Connection conn = null;
     		List<CoordinateItemModel> cardList = new ArrayList<CoordinateItemModel>();
@@ -24,25 +24,25 @@ public class CoordinateItemDAO {
     			// データベースに接続する
     			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/CCC", "sa", "ccc");
 
-    			// SQL文を準備(コーディネイトからアイテムのまとまりを探す)
-    			String sql = "select user_id,item_id,item_image,category,brand,size,flag,remarks,date from item where user_id = ? item_id = ? item_image = ? category = ? brand = ? size = ?  flag = ? remarks = ? date = ? and ";
+    			// SQL文を準備(検索）
+    			String sql = "select category,brand from item where  category= ? category= ? category = ? category = ?  category = ? category = ? category = ? brand = ?and ";
     			PreparedStatement pStmt = conn.prepareStatement(sql);
 
     			// SQL文を完成させる（追加）
-    			if (param.getUser_id() != null) {
-    				pStmt.setString(1, "%" + param.getUser_id() + "%");
+    			if (param.getCategory() != null) {
+    				pStmt.setString(1, "%" + param.getCategory() + "%");
     			}
     			else {
     				pStmt.setString(1, "%");
     			}
-    			if (param.getItem_id() != null) {
-    				pStmt.setString(2, "%" + param.getItem_id() + "%");
+    			if (param.getCategory() != null) {
+    				pStmt.setString(2, "%" + param.getCategory() + "%");
     			}
     			else {
     				pStmt.setString(2, "%");
     			}
-    			if (param.getItem_image() != null) {
-    				pStmt.setString(3, "%" + param.getItem_image() + "%");
+    			if (param.getCategory() != null) {
+    				pStmt.setString(3, "%" + param.getCategory() + "%");
     			}
     			else {
     				pStmt.setString(3, "%");
@@ -53,36 +53,31 @@ public class CoordinateItemDAO {
     			else {
     				pStmt.setString(4, "%");
     			}
-    			if (param.getBrand() != null) {
-    				pStmt.setString(5, "%" + param.getBrand() + "%");
+    			if (param.getCategory() != null) {
+    				pStmt.setString(5, "%" + param.getCategory() + "%");
     			}
     			else {
     				pStmt.setString(5, "%");
     			}
-    			if (param.getSize() != null) {
-    				pStmt.setString(6, "%" + param.getSize() + "%");
+    			if (param.getCategory() != null) {
+    				pStmt.setString(6, "%" + param.getCategory() + "%");
     			}
     			else {
     				pStmt.setString(6, "%");
     			}
-    			if (param.getFlag() != null) {
-    				pStmt.setString(7, "%" + param.getFlag() + "%");
+    			if (param.getCategory() != null) {
+    				pStmt.setString(7, "%" + param.getCategory() + "%");
     			}
     			else {
     				pStmt.setString(7, "%");
     			}
-    			if (param.getRemarks() != null) {
-    				pStmt.setString(8, "%" + param.getRemarks() + "%");
+    			if (param.getBrand() != null) {
+    				pStmt.setString(8, "%" + param.getBrand() + "%");
     			}
     			else {
     				pStmt.setString(8, "%");
     			}
-    			if (param.getDate() != null) {
-    				pStmt.setString(9, "%" + param.getDate() + "%");
-    			}
-    			else {
-    				pStmt.setString(9, "%");
-    			}
+
 
 
     			// SQL文を実行し、結果表を取得する
@@ -324,11 +319,14 @@ public class CoordinateItemDAO {
     						catch (SQLException e) {
     							e.printStackTrace();
     						}
-    				}
+    		   			}
+    	    		}
     				// 結果を返す
     				return result;
-    			}
+
     	}
+
+
     	//フラグ更新
      	public boolean updateflag(CoordinateItemModel card) {
 			Connection conn = null;
@@ -345,7 +343,7 @@ public class CoordinateItemDAO {
 				// SQL文を準備する
 				String sql = "flag=? where user_id=?,item_id=?";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
-				
+
 				// SQL文を実行する
 				if (pStmt.executeUpdate() == 1) {
 					result = true;
@@ -366,9 +364,9 @@ public class CoordinateItemDAO {
 					catch (SQLException e) {
 						e.printStackTrace();
 					}
+				}
 			}
 			// 結果を返す
 			return result;
-		}
      }
 }
