@@ -4,7 +4,7 @@
 <title>CCC｜コーディネート検索</title>
 	<main>
 		<c:forEach var="e" items="${CoordinateList}">
-			<a href="/CCC/CoordiateResultServlet?q=${e.coordinate_id}"><img src="${e.coordinate_image}"></a>
+			<a href="/CCC/CoordiateDetailServlet?q=${e.coordinate_id}"><img src="${e.coordinate_image}"></a>
 		</c:forEach>
 		<input id="search_input" class="search_hidden" type="checkbox">
 		<div class="search_content">
