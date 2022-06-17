@@ -2,18 +2,21 @@
 
 h50{
 	font-family: "Segoe Print";
-	font-size:100px;
+	font-size:5.6rem;
 	text-align: center;
-	/*color:#222222;*/
+	color:#222222;
 	/*color:#333333;*/
-	color:#2F4F4F;
+	/*color:#2F4F4F;*/
 }
 h30{
-	font-size:20px;
-	text-align: center;
+	font-size:1.0rem;
 
 }
-button{
-	text-align: center;
+.buttonBack{
+	position:relative;
+	top:75px;
 
+}
+main{
+	text-align: center;
 }

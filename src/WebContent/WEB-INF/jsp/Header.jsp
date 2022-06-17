@@ -12,6 +12,7 @@
 	<link rel="stylesheet" href="././css/Common.css">
 </head>
 	<body>
+		<header>
     	<h1 class="logo"><a href = "/CCC/HomeServlet"><img src="././image/ccc.png" alt=""></a></h1>
         <!-- ヘッダーロゴ -->
         <!-- ハンバーガーメニュー部分 -->
@@ -35,5 +36,6 @@
 		<div id = "weather">
 		</div>
         <hr>
+        </header>
     <div class="container">
 

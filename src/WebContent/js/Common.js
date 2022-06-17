@@ -30,7 +30,7 @@ fetch(url).then(data => data.json())
             weatherposition.innerHTML += "<div class = 'mark'><img src='././image/一部曇り.png' alt = '天気マーク' id = 'mark'></div>";
         }else if(weather === 3){
             weathertext = "曇り";
-            weatherposition.innerHTML += "<div class = 'mark'><img src='././image/曇り.png' alt = '天気マーク' id = 'mark'></div>";
+            weatherposition.innerHTML += "<div class = 'ten'><img src='././image/曇り.png' alt = '天気マーク' id = 'mark'></div>";
         }else if(weather <= 49){
             weathertext = "霧";
             weatherposition.innerHTML += "<div class = 'mark'><img src='././image/霧.png' alt = '天気マーク' id = 'mark'></div>";
@@ -60,9 +60,9 @@ fetch(url).then(data => data.json())
 
 function afterloading(){
     weatherset();//weatherset呼び出し
-    weatherposition.innerHTML += "<p id=weathertext>"+weathertext+"</p>";//天気が何かをHTMLに挿入
-    weatherposition.innerHTML += "<p id=max>"+max+"</p>";//最高気温をHTMLに挿入
-    weatherposition.innerHTML += "<p id=min>"+min+"</p>";//最低気温をHTMLに挿入
+    weatherposition.innerHTML += "<p class=ten id=weathertext>"+"/"+weathertext+"</p>"+"<br>";//天気が何かをHTMLに挿入
+    weatherposition.innerHTML += "<p class=num id=max>"+max+'/'+"</p>";//最高気温をHTMLに挿入
+    weatherposition.innerHTML += "<p class=num id=min>"+min+"</p>";//最低気温をHTMLに挿入
 }
 //fetchに時間がかかりopen-meteoのデータがロードよりも早く実行してしまうためsettimeoutで実行を遅らせる
 setTimeout(afterloading,1000);//1000ミリ秒(1秒後)にafterloading呼び出し

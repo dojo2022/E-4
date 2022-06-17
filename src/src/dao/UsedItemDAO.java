@@ -12,7 +12,7 @@ import model.UsedItemModel;
 
 public class UsedItemDAO {
 	//アイテムIDとコーディネートIDの登録
-	public List<UsedItemModel> select(UsedItemModel param) {
+	public List<UsedItemModel> select(List<UsedItemModel> list) {
 		Connection conn = null;
 		List<UsedItemModel> UsedItemList = new ArrayList<UsedItemModel>();
 
@@ -24,7 +24,8 @@ public class UsedItemDAO {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/CCC", "sa", "ccc");
 
 			// SQL文を準備する
-			//ここからループfor(i<count????
+			//ここからループ
+			for(UsedItemModel param:list) {
 			String sql = "insert into Used_Item (User_ID, Item_ID, Coordinate_ID) values (?, ?, ?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
@@ -49,18 +50,16 @@ public class UsedItemDAO {
 			}
 			//SQL文の実行
 
-			// 結果表をコレクションにコピーする
-			//rs(i)
-
+			}
 
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
-			param = null;
+			list = null;
 		}
 		catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			param = null;
+			list = null;
 		}
 
 		finally {
@@ -71,7 +70,7 @@ public class UsedItemDAO {
 				}
 				catch (SQLException e) {
 					e.printStackTrace();
-					param = null;
+					list = null;
 				}
 
 			}
