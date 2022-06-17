@@ -25,7 +25,7 @@ public class CoordinateItemDAO {
     			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/CCC", "sa", "ccc");
 
     			// SQL文を準備(検索）
-    			String sql = "select category,brand from item where  category= ?  brand = ? ";
+    			String sql = "select category,brand from item where  category= ?  brand = ? and flag_no = 'Delete'";
     			PreparedStatement pStmt = conn.prepareStatement(sql);
 
     			// SQL文を完成させる
@@ -126,7 +126,7 @@ public class CoordinateItemDAO {
     	}
 
 
-    		//アイテムを登録する 引数cardで指定されたレコードを登録し、成功したらtrueを返す(わからない、ここの登録データをどのデータベースにいれるか、入れる情報がわからない)
+    		//アイテムを登録する 引数cardで指定されたレコードを登録し、成功したらtrueを返す
     		public boolean insert(CoordinateItemModel card) {
     			Connection conn = null;
     			boolean result = false;
