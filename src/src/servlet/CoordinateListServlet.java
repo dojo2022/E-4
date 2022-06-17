@@ -24,8 +24,7 @@ public class CoordinateListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/CoordinateSearch.jsp");
-		dispatcher.forward(request, response);
+
 
 		// 検索処理を行う
 		CoordinateDAO cDao = new CoordinateDAO();
@@ -33,6 +32,8 @@ public class CoordinateListServlet extends HttpServlet {
 
 		// 検索結果をリクエストスコープに格納する
 		request.setAttribute("CoordinateList", CoordinateList);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/CoordinateSearch.jsp");
+		dispatcher.forward(request, response);
 	}
 
 	/**

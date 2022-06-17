@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.CoordinateItemDAO;
+import model.CoordinateItemModel;
+
 /**
  * Servlet implementation class ItemDetailServlet
  */
@@ -21,6 +24,12 @@ public class ItemListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		//検索処理を行う
+		CoordinateItemDAO itemDao = new CoordinateItemDAO();
+		List<CoordinateItemModel> ModelList = itemDao.select(new CoordinateItemModel("","","","","","","","",""));
+
+		//検索結果をリクエストスコープに格納する
+		request.setAttribute("ModelList", ModelList);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ItemSearch.jsp");
 		dispatcher.forward(request, response);
 	}
