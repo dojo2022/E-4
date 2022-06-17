@@ -11,7 +11,7 @@ import model.UsedItemModel;
 
 
 public class UsedItemDAO {
-	//登録
+	//アイテムIDとコーディネートIDの登録
 	public List<UsedItemModel> select(UsedItemModel param) {
 		Connection conn = null;
 		List<UsedItemModel> UsedItemList = new ArrayList<UsedItemModel>();
@@ -80,7 +80,7 @@ public class UsedItemDAO {
 	}
 
 
-	//削除
+	//アイテムIDの削除
 	public boolean delete(String Coordinate_ID) {
 		Connection conn = null;
 		boolean result = false;
