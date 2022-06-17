@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.CoordinateDAO;
-import model.CoordinateAndItemModel;
 import model.CoordinateModel;
 
 /**
@@ -50,7 +49,7 @@ public class CoordinateListServlet extends HttpServlet {
 
 		// 検索処理を行う
 		CoordinateDAO cDao = new CoordinateDAO();
-		List<CoordinateModel> CoordinateList = cDao.search(new CoordinateAndItemModel("", "", season, purpose, "", "", "", category, brand, size, "", remarks, ""));
+		List<CoordinateModel> CoordinateList = cDao.search(new CoordinateModel("", "", season, purpose, "", "", "", category, brand, size, "", remarks, ""));
 
 		// 検索結果をリクエストスコープに格納する
 		request.setAttribute("CoordinateList", CoordinateList);
