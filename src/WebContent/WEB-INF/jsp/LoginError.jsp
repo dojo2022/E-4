@@ -6,7 +6,9 @@
 	        <main>
 				<h50>Oops!</h50>
 				<p><h30>ログインに失敗しました</h30></p>
+				<div class="buttonBack">
 				<button onclick="location.href='Login.html'">Back to Login</button>
-	        </main>
+				</div>
+	       </main>
 
 <%@ include file="/WEB-INF/jsp/Footer.jsp" %>
