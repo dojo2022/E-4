@@ -1,24 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-	<!DOCTYPE html>
-	<html>
-	<head>
-	<meta charset="UTF-8">
+<%@ include file="/WEB-INF/jsp/Header2.jsp" %>
 	<title>CCC｜エラー</title>
-	</head>
-    <link rel="stylesheet" type="text/css" href="././css/Common.css">
-	    <body>
-	        <header>
-	            <h1 class="logo"><img src="././image/ccc.png" alt=""></h1>
-	            <h2>天気予報</h2>
-	            <!-- ヘッダーロゴ -->
-	            <hr>
-	        </header>
-
-	        <main>
-				<h50>Oops！</h50>
-				<h30>登録に失敗しました</h30>
-				<button onclick="location.href='Login.html'">Back to Login</button>
-	        </main>
+		<main>
+			<h50>Oops！</h50>
+			<h30>登録に失敗しました</h30>
+			<button onclick="location.href='Login.html'">Back to Login</button>
+	    </main>
 
 <%@ include file="/WEB-INF/jsp/Footer.jsp" %>
