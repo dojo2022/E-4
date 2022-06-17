@@ -12,8 +12,9 @@ h30{
 	font-size:1.0rem;
 
 }
-button{
-	text-align: center;
+.buttonBack{
+	position:relative;
+	top:75px;
 
 }
 main{
