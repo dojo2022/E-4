@@ -25,7 +25,7 @@ public class CoordinateItemDAO {
     			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/CCC", "sa", "ccc");
 
     			// SQL文を準備(検索）
-    			String sql = "select category,brand from item where  category= ?  brand = ? and flag_no = 'Delete'";
+    			String sql = "select category,brand from item where  category= ?  brand = ? and flag_no='Delete'";
     			PreparedStatement pStmt = conn.prepareStatement(sql);
 
     			// SQL文を完成させる
@@ -126,7 +126,7 @@ public class CoordinateItemDAO {
     	}
 
 
-    		//アイテムを登録する 引数cardで指定されたレコードを登録し、成功したらtrueを返す
+    	//アイテムを登録する 引数cardで指定されたレコードを登録し、成功したらtrueを返す(修正）
     		public boolean insert(CoordinateItemModel card) {
     			Connection conn = null;
     			boolean result = false;
@@ -142,62 +142,61 @@ public class CoordinateItemDAO {
     				String sql = "insert into item (user_id,item_id,item_image,category, brand,size,flag,remarks,date) values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
     				PreparedStatement pStmt = conn.prepareStatement(sql);
 
-    				// SQL文を完成させる（追加）
-        			if (card.getUser_id() != null) {
-        				pStmt.setString(1, "%" + card.getUser_id() + "%");
-        			}
-        			else {
-        				pStmt.setString(1, "%");
-        			}
-        			if (card.getItem_id() != null) {
-        				pStmt.setString(2, "%" + card.getItem_id() + "%");
-        			}
-        			else {
-        				pStmt.setString(2, "%");
-        			}
-        			if (card.getItem_image() != null) {
-        				pStmt.setString(3, "%" + card.getItem_image() + "%");
-        			}
-        			else {
-        				pStmt.setString(3, "%");
-        			}
-        			if (card.getCategory() != null) {
-        				pStmt.setString(4, "%" + card.getCategory() + "%");
-        			}
-        			else {
-        				pStmt.setString(4, "%");
-        			}
-        			if (card.getBrand() != null) {
-        				pStmt.setString(5, "%" + card.getBrand() + "%");
-        			}
-        			else {
-        				pStmt.setString(5, "%");
-        			}
-        			if (card.getSize() != null) {
-        				pStmt.setString(6, "%" + card.getSize() + "%");
-        			}
-        			else {
-        				pStmt.setString(6, "%");
-        			}
-        			if (card.getFlag() != null) {
-        				pStmt.setString(7, "%" + card.getFlag() + "%");
-        			}
-        			else {
-        				pStmt.setString(7, "%");
-        			}
-        			if (card.getRemarks() != null) {
-        				pStmt.setString(8, "%" + card.getRemarks() + "%");
-        			}
-        			else {
-        				pStmt.setString(8, "%");
-        			}
-        			if (card.getDate() != null) {
-        				pStmt.setString(9, "%" + card.getDate() + "%");
-        			}
-        			else {
-        				pStmt.setString(9, "%");
-        			}
-
+ 					// SQL文を完成させる
+					if (card.getUser_id() != null && !card.getUser_id().equals("")) {
+						pStmt.setString(1, card.getUser_id());
+					}
+					else {
+						pStmt.setString(1, null);
+					}
+					if (card.getItem_id() != null && !card.getItem_id().equals("")) {
+						pStmt.setString(2, card.getItem_id());
+					}
+					else {
+						pStmt.setString(2, null);
+					}
+					if (card.getItem_image() != null && !card.getItem_image().equals("")) {
+						pStmt.setString(3, card.getItem_image());
+					}
+					else {
+						pStmt.setString(3, null);
+					}
+					if (card.getCategory() != null && !card.getCategory().equals("")) {
+						pStmt.setString(4, card.getCategory());
+					}
+					else {
+						pStmt.setString(4, null);
+					}
+					if (card.getBrand() != null && !card.getBrand().equals("")) {
+						pStmt.setString(5, card.getBrand());
+					}
+					else {
+						pStmt.setString(5, null);
+					}
+					if (card.getSize() != null && !card.getSize().equals("")) {
+						pStmt.setString(6, card.getSize());
+					}
+					else {
+						pStmt.setString(6, null);
+					}
+					if (card.getFlag() != null && !card.getFlag().equals("")) {
+						pStmt.setString(7, card.getFlag());
+					}
+					else {
+						pStmt.setString(7, null);
+					}
+					if (card.getRemarks() != null && !card.getRemarks().equals("")) {
+						pStmt.setString(8, card.getRemarks());
+					}
+					else {
+						pStmt.setString(8, null);
+					}
+					if (card.getDate() != null && !card.getDate().equals("")) {
+						pStmt.setString(9, card.getDate());
+					}
+					else {
+						pStmt.setString(9, null);
+					}
 
         			// SQL文を実行する
         			if (pStmt.executeUpdate() == 1) {
@@ -337,7 +336,52 @@ public class CoordinateItemDAO {
 
 
 				// SQL文を準備する
-				String sql = "flag=? where user_id=?,item_id=?";
+				String sql = "update item set flag=? where user_id=?,item_id=?";
+				PreparedStatement pStmt = conn.prepareStatement(sql);
+
+				// SQL文を実行する
+				if (pStmt.executeUpdate() == 1) {
+					result = true;
+				}
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+			}
+			catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+			finally {
+				// データベースを切断
+				if (conn != null) {
+					try {
+						conn.close();
+					}
+					catch (SQLException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+			// 結果を返す
+			return result;
+     }
+
+
+     	//着用日付の更新
+
+    	public boolean updateDate(CoordinateItemModel card) {
+			Connection conn = null;
+			boolean result = false;
+
+			try {
+				// JDBCドライバを読み込む
+				Class.forName("org.h2.Driver");
+
+				// データベースに接続する
+				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/CCC", "sa", "ccc");
+
+
+				// SQL文を準備する
+				String sql = "update item set date=? where user_id=?,item_id=?";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				// SQL文を実行する

@@ -1,7 +1,8 @@
 create table used_item (
-user_id varchar (20) primary key not null,
+user_id varchar (20),
 coordinate_id varchar (4),
 item_id varchar (4),
 foreign key (coordinate_id) references coordinate (coordinate_id) on delete cascade,
-foreign key (item_id) references item (item_id) on delete cascade
+foreign key (item_id) references item (item_id) on delete cascade,
+foreign key (user_id) references user (user_id) on delete cascade
 );
