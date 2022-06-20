@@ -9,11 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.h2.result.SimpleResult;
 
 import dao.CoordinateItemDAO;
 import model.CoordinateItemModel;
-import model.ResultModel;
 /**
  * Servlet implementation class NewUserErrorServlet
  */
@@ -24,10 +22,6 @@ public class NewItemServlet extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public NewItemServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/*
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -56,14 +50,16 @@ public class NewItemServlet extends HttpServlet {
 
 
 		// 登録処理を行う
-		CoordinateItemDAO bDao = new CoordinateItemDAO();
-		if (bDao.insert(new CoordinateItemModel(user_id,item_id,item_image,category, brand,size,flag,remarks,date))) {	// 登録成功
-			request.setAttribute("result",
-			new Result("登録成功！", "レコードを登録しました。", "/CCC/NewItemServlet"));
+		CoordinateItemDAO nDao = new CoordinateItemDAO();
+		if (nDao.insert(new CoordinateItemModel(user_id,item_id,item_image,category, brand,size,flag,remarks,date))) {	// 登録成功
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
+			dispatcher.forward(request, response);
+			doGet(request, response);
 		}
-		else {												// 登録失敗
-			request.setAttribute("result",
-			new Result("登録失敗！", "レコードを登録できませんでした。", "/CCC/NewItemErrorServlet"));
+		else {	// 登録失敗
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/NewItemError.jsp");
+			dispatcher.forward(request, response);
+			doGet(request, response);
 		}
 
 		// 結果ページにフォワードする
@@ -71,4 +67,4 @@ public class NewItemServlet extends HttpServlet {
 		dispatcher.forward(request, response);
 		doGet(request, response);
 	}
-}
+ }
