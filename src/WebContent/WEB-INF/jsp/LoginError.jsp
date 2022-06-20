@@ -7,7 +7,7 @@
 				<h50>Oops!</h50>
 				<p><h30>ログインに失敗しました</h30></p>
 				<div class="buttonBack">
-				<button onclick="location.href='/CSS/Login.jsp'">Back to Login</button>
+				<button onclick="location.href='/CCC/LoginServlet'">Back to Login</button>
 				</div>
 	       </main>
 

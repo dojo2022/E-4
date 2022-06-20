@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.CoordinateDAO;
-import model.CoordinateModel;
+import model.Coordinate;
 
 /**
  * Servlet implementation class ItemDetailServlet
@@ -28,7 +28,7 @@ public class CoordinateListServlet extends HttpServlet {
 
 		// 検索処理を行う
 		CoordinateDAO cDao = new CoordinateDAO();
-		List<CoordinateModel> CoordinateList = cDao.search(new CoordinateModel("", "", "",  "",  "",  "",  "",  "", "", "", "", "", ""));
+		List<Coordinate> CoordinateList = cDao.CoordinateSearch(new Coordinate("", "", "", "", ""));
 
 		// 検索結果をリクエストスコープに格納する
 		request.setAttribute("CoordinateList", CoordinateList);
@@ -43,11 +43,10 @@ public class CoordinateListServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String season = request.getParameter("search_season");
 		String purpose = request.getParameter("search_purpose");
-		String remarks = request.getParameter("search_word");
 
 		// 検索処理を行う
 		CoordinateDAO cDao = new CoordinateDAO();
-		List<CoordinateModel> CoordinateList = cDao.search(new CoordinateModel("%", "%", season, purpose, "", "%", "", "", "", "", "", remarks, ""));
+		List<Coordinate> CoordinateList = cDao.CoordinateSearch(new Coordinate("", "", season, purpose, ""));
 
 		// 検索結果をリクエストスコープに格納する
 		request.setAttribute("CoordinateList", CoordinateList);
