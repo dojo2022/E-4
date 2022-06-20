@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/jsp/Header.jsp" %>
+<link rel="stylesheet" href="././css/NewItem.css">
 <title>CCC｜アイテム登録</title>
     <main>
         <div>
@@ -18,7 +19,7 @@
             <hr id="line">
             <!--カテゴリーのプルダウンメニュー-->
             <div>
-                <p>アイテム情報</p>
+                <p id="iteminfo">アイテム情報</p>
                 <select id="category">
                     <option value="tops">トップス</option>
                     <option value="outer">アウター</option>
@@ -30,17 +31,17 @@
                 </select>
             </div>
             <!--ブランド入力欄-->
-            <div>
+            <div id="brand">
                 <p>ブランド：<input type="text" name="brand"></p>
             </div>
             <!--サイズ入力欄-->
-            <div>
+            <div id="size">
                 <p>サイズ：<input type="text" name="size"></p>
             </div>
             <!--サイズ入力欄-->
             <div>
                 <p>メモ：</p>
-                <textarea name="remarks" rows="8" cols="30"></textarea>
+                <textarea id = "remarls" name="remarks" rows="8" cols="30"></textarea>
             </div>
             <!--コーディネート登録ボタン-->
             <div>
