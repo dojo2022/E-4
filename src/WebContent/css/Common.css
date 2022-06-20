@@ -1,6 +1,7 @@
 @charset "UTF-8";
-@import url('https://fonts.googleapis.com/css2?family=Cherry+Swash&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300');
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP');
+
 /* チェックボックスを非表示にする */
 .drawer_hidden {
     display: none;
@@ -103,7 +104,7 @@ a:active {
 
 /*全体に適用*/
 * {
-  font-family: 'Cherry Swash','Noto Sans JP', sans-serif;
+  font-family: 'Alegreya Sans SC', sans-serif;;
   text-decoration:none;
 }
 /*ロゴの位置を真ん中に指定*/
