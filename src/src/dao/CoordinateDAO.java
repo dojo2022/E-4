@@ -45,9 +45,9 @@ public class CoordinateDAO{
 				pStmt2.setString(1, "%");
 			}
 
-			if(param.getDate() != null) {
-				pStmt.setString(2,param.getDate());
-				pStmt2.setString(2,param.getDate());
+			if(param.getDay() != null) {
+				pStmt.setString(2,param.getDay());
+				pStmt2.setString(2,param.getDay());
 			}
 			else {
 				pStmt.setString(2, "%");
@@ -156,10 +156,10 @@ public class CoordinateDAO{
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/CCC", "sa", "ccc");
 
 			// SQL文を準備する
-			String sql = "SELECT c.coordinate_id, season, purpose, coordinate_image, i.item_id, item_image, category, brand, size, remarks "
+			String sql = "SELECT c.coordinate_id, season, purpose, coordinate_image, i.item_id, item_image, category, brand, size, flag, remarks, day "
 					 + "FROM used_item u RIGHT JOIN coordinate c ON u.coordinate_id = c.coordinate_id RIGHT JOIN item i ON u.item_id = i.item_id "
-					 + "WHERE u.user_id LIKE '?' AND c.coordinate_id LIKE '?' AND season LIKE '?' AND purpose LIKE '?' AND i.item_id LIKE '?' "
-					 + "AND remarks LIKE '?'";
+					 + "WHERE u.user_id LIKE ? AND c.coordinate_id LIKE ? AND season LIKE ? AND purpose LIKE ? AND i.item_id LIKE ? "
+					 + "AND remarks LIKE ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
@@ -205,19 +205,19 @@ public class CoordinateDAO{
 			// 結果表をコレクションにコピーする
 			while (rs.next()) {
 				CoordinateModel Coordinate = new CoordinateModel(
-						rs.getString("user_id"),
+						param.getUser_id(),
 						rs.getString("coordinate_id"),
 						rs.getString("season"),
 						rs.getString("purpose"),
-						rs.getString(""),
+						rs.getString("coordinate_image"),
 						rs.getString("item_id"),
-						rs.getString(""),
-						rs.getString(""),
-						rs.getString(""),
-						rs.getString(""),
-						rs.getString(""),
+						rs.getString("item_image"),
+						rs.getString("category"),
+						rs.getString("brand"),
+						rs.getString("size"),
+						rs.getString("flag"),
 						rs.getString("remarks"),
-						rs.getString("")
+						rs.getString("day")
 				);
 				CoordinateList.add(Coordinate);
 			}

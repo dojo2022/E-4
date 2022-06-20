@@ -31,6 +31,8 @@ public class ItemListServlet extends HttpServlet {
 
 		//検索結果をリクエストスコープに格納する
 		request.setAttribute("ModelList", ModelList);
+
+		//結果ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ItemSearch.jsp");
 		dispatcher.forward(request, response);
 	}
