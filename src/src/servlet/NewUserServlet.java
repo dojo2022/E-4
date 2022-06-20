@@ -41,17 +41,13 @@ public class NewUserServlet extends HttpServlet {
 		// 登録処理を行う
 		UserDAO uDao = new UserDAO();
 		if (uDao.insert(new UserModel(user_id, password))) {	// 登録成功
-			request.setAttribute("result",
-			new Result("Welcome!", "/CCC/LoginServlet"));
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/NewUserSuccess.jsp");
+			dispatcher.forward(request, response);
+
 		}
 		else {												// 登録失敗
-			request.setAttribute("result",
-			new Result("An error has occurred. Try again.", "/CCC/NewUserServlet"));
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/NewUserError.jsp");
+			dispatcher.forward(request, response);
 		}
-
-		// 結果ページにフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Login.jsp");
-		dispatcher.forward(request, response);
-
 	}
 }
