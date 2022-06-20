@@ -3,7 +3,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 import model.UsedItemModel;
@@ -12,9 +11,10 @@ import model.UsedItemModel;
 
 public class UsedItemDAO {
 	//アイテムIDとコーディネートIDの登録
-	public List<UsedItemModel> select(List<UsedItemModel> list) {
+	public boolean insertId(List<UsedItemModel> list) {
 		Connection conn = null;
-		List<UsedItemModel> UsedItemList = new ArrayList<UsedItemModel>();
+		boolean result = false;
+		//List<UsedItemModel> UsedItemList = new ArrayList<UsedItemModel>();
 
 		try {
 			// JDBCドライバを読み込む
@@ -49,6 +49,9 @@ public class UsedItemDAO {
 				pStmt.setString(3, null);
 			}
 			//SQL文の実行
+			if (pStmt.executeUpdate() == 1) {
+				result = true;
+			}
 
 			}
 
@@ -75,7 +78,7 @@ public class UsedItemDAO {
 
 			}
 		}
-		return UsedItemList;
+		return result;
 	}
 
 
