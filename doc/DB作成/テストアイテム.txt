@@ -35,4 +35,8 @@ INSERT INTO USED_ITEM (USER_ID, COORDINATE_ID , ITEM_ID) VALUES ('takahashi', '5
 DELETE FROM ITEM WHERE ITEM_ID = '8';
 
 UPDATE item SET ITEM_IMAGE = 'C:/dojo6/src/WebContent/itemimage/白T.jpg' WHERE ITEM_ID = '1';
-
+UPDATE COORDINATE SET COORDINATE_IMAGE = 'C:/dojo6/src/WebContent/coordinateimage/コーデ1.png' WHERE COORDINATE_ID = '1';
+UPDATE COORDINATE SET COORDINATE_IMAGE = 'C:/dojo6/src/WebContent/coordinateimage/コーデ2.png' WHERE COORDINATE_ID = '2';
+UPDATE COORDINATE SET COORDINATE_IMAGE = 'C:/dojo6/src/WebContent/coordinateimage/コーデ3.png' WHERE COORDINATE_ID = '3';
+UPDATE COORDINATE SET COORDINATE_IMAGE = 'C:/dojo6/src/WebContent/coordinateimage/コーデ4.png' WHERE COORDINATE_ID = '5';
+UPDATE COORDINATE SET COORDINATE_IMAGE = 'C:/dojo6/src/WebContent/coordinateimage/スーツ1.png' WHERE COORDINATE_ID = '4';
