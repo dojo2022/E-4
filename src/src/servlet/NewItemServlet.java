@@ -9,8 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.CoordinateItemDAO;
+import org.h2.result.SimpleResult;
 
+import dao.CoordinateItemDAO;
+import model.CoordinateItemModel;
+import model.ResultModel;
 /**
  * Servlet implementation class NewUserErrorServlet
  */
@@ -41,20 +44,20 @@ public class NewItemServlet extends HttpServlet {
 		//登録情報の取得
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-		String user_id = request.getParameter("USER_ID");
-		String item_id = request.getParameter("ITEM_ID");
-		String item_image = request.getParameter("ITEM_IMAGE");
-		String category = request.getParameter("CATEGORY");
-		String brand = request.getParameter("BRAND");
-		String size = request.getParameter("SIZE");
-		String flag = request.getParameter("FLAG");
-		String remarks = request.getParameter("REMARKS");
-		String date = request.getParameter("DATE");
+		String user_id = request.getParameter("user_id");
+		String item_id = request.getParameter("item_id");
+		String item_image = request.getParameter("item_image");
+		String category = request.getParameter("category");
+		String brand = request.getParameter("brand");
+		String size = request.getParameter("size");
+		String flag = request.getParameter("flag");
+		String remarks = request.getParameter("remarks");
+		String date = request.getParameter("date");
 
 
 		// 登録処理を行う
-		CoordinateItemDAO bDao = newCoordinateItemDAO();
-		if (bDao.insert(new CoordinateItem(user_id,item_id,item_image,category, brand,size,flag,remarks,date))) {	// 登録成功
+		CoordinateItemDAO bDao = new CoordinateItemDAO();
+		if (bDao.insert(new CoordinateItemModel(user_id,item_id,item_image,category, brand,size,flag,remarks,date))) {	// 登録成功
 			request.setAttribute("result",
 			new Result("登録成功！", "レコードを登録しました。", "/CCC/NewItemServlet"));
 		}
@@ -68,5 +71,4 @@ public class NewItemServlet extends HttpServlet {
 		dispatcher.forward(request, response);
 		doGet(request, response);
 	}
-
 }
