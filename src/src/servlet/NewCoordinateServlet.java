@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.CoordinateDAO;
+import model.CoordinateModel;
 
 /**
  * Servlet implementation class HomeServlet
@@ -23,14 +24,6 @@ public class NewCoordinateServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	        request.setCharacterEncoding("UTF-8");
-	        String coordinate_id = request.getParameter("q");
-	        // 検索処理を行う
-	        CoordinateDAO itemDao = new CoordinateDAO();
-	        List<CoordinateItem> itemList = itemDao.select(new Coordinate_Item("", "",  "",  "",  "",  "",  "",  "",  ""));
-
-	        request.setAttribute("itemList", itemList);
-	        // 結果ページにフォワードする
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/NewCoordinate.jsp");
 		dispatcher.forward(request, response);
@@ -43,9 +36,36 @@ public class NewCoordinateServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         String user_id = request.getParameter("user_id");
-        String Coordinate_id = request.getParameter("Coordinate_id");
-        String Season = request.getParameter("Season");
-        String Purpose = request.getParameter("Purpose");
-        String Coordinate_image = request.getParameter("Coordinate_image");
+        String coordinate_id = request.getParameter("coordinate_id");
+        String season = request.getParameter("season");
+        String purpose = request.getParameter("purpose");
+        String coordinate_image = request.getParameter("coordinate_image");
+
+
+		/*CoordinateDAO cDao = new CoordinateDAO();
+		//List<CoordinateModel> CoordinateList = cDao.insert(new CoordinateModel(user_id, coordinate_id, season, purpose, coordinate_image, "", "", "", "", "", "", "", ""))) {
+		if (cDao.insert(new CoordinateModel(user_id, coordinate_id, season, purpose, coordinate_image, "", "", "", "", "", "", "", "" ))) {	// 登録成功
+			request.setAttribute("result",
+			new result("Welcome!", "/CCC/NewCoordinateServlet"));
+		}
+		else {												// 登録失敗
+			request.setAttribute("result",
+			new result("An error has occurred. Try again.", "/CCC/NewCoordinateServlet"));
+		}*/
+
+
+		CoordinateDAO bDao = new CoordinateDAO();
+		if (bDao.insert(new CoordinateModel("", "", "", "", "", "", "", "", "", "", "", "", ""))) {	// 登録成功
+			request.setAttribute("result",
+			new result("登録成功！", "Successfully registered", "/simpleBC/MenuServlet"));
+		}
+		else {												// 登録失敗
+			request.setAttribute("result",
+			new result("登録失敗！", "An error has occurred. Try again.", "/simpleBC/MenuServlet"));
+		}
+
+
+
+
 	}
 }
