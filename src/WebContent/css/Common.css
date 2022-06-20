@@ -151,12 +151,15 @@ img {
 
 /*フッター*/
 footer {
+	width: 100%;
+	position: absolute;
 	background-color: #C0C0C0;
 	height: 80px;
     bottom: 0; /*下に固定*/
+    left: 0;
+    text-align: center;
     color: white;
 }
-
 /*ハンバーガーアイコン*/
 label{
 	 margin-left: auto;
