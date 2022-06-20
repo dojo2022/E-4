@@ -15,10 +15,10 @@ public class CoordinateModel  implements Serializable{
 	private String size;
 	private String flag;
 	private String remarks;
-	private String date;
+	private String day;
 
 	public CoordinateModel(String user_id, String coordinate_id, String season, String purpose, String coordinate_image, String item_id, String item_image, String category, String brand, String size,
-			String flag, String remarks, String date) {
+			String flag, String remarks, String day) {
 		super();
 		this.user_id = user_id;
 		this.coordinate_id = coordinate_id;
@@ -32,7 +32,7 @@ public class CoordinateModel  implements Serializable{
 		this.size = size;
 		this.flag = flag;
 		this.remarks = remarks;
-		this.date = date;
+		this.day = day;
 	}
 
 	public CoordinateModel() {
@@ -49,7 +49,7 @@ public class CoordinateModel  implements Serializable{
 		this.size = "";
 		this.flag = "";
 		this.remarks = "";
-		this.date = "";
+		this.day = "";
 	}
 
 	public String getUser_id() {
@@ -148,12 +148,12 @@ public class CoordinateModel  implements Serializable{
 		this.remarks = remarks;
 	}
 
-	public String getDate() {
-		return date;
+	public String getDay() {
+		return day;
 	}
 
-	public void setDate(String date) {
-		this.date = date;
+	public void setDay(String day) {
+		this.day = day;
 	}
 
 
