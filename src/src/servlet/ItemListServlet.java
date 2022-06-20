@@ -43,5 +43,16 @@ public class ItemListServlet extends HttpServlet {
 		String category =request.getParameter("search_category");
 		String brand =request.getParameter("search_brand");
 
+		//検索処理を行う
+		CoordinateItemDAO itemDao = new CoordinateItemDAO();
+		List<CoordinateItemModel> CoordinateItemList = itemDao.select(new CoordinateItemModel("","","",category,brand,"","","",""));
+
+		//検索結果をリクエストスコープに格納する
+		request.setAttribute("CoordinateItemList", CoordinateItemList);
+
+		//結果ページにフォワードする
+		RequestDispatcher dispatcher =request.getRequestDispatcher("/WEB-INF/jsp/ItemResult.jsp");
+		dispatcher.forward(request, response);
+
 	}
 }
