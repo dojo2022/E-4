@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.CoordinateDAO;
+import dao.UsedItemDAO;
 import model.CoordinateModel;
+import model.UsedItemModel;
 
 /**
  * Servlet implementation class HomeServlet
@@ -56,6 +58,16 @@ public class NewCoordinateServlet extends HttpServlet {
 
 		CoordinateDAO bDao = new CoordinateDAO();
 		if (bDao.insert(new CoordinateModel("", "", "", "", "", "", "", "", "", "", "", "", ""))) {	// 登録成功
+			request.setAttribute("result",
+			new result("登録成功！", "Successfully registered", "/simpleBC/MenuServlet"));
+		}
+		else {												// 登録失敗
+			request.setAttribute("result",
+			new result("登録失敗！", "An error has occurred. Try again.", "/simpleBC/MenuServlet"));
+		}
+
+		UsedItemDAO iDao = new UsedItemDAO();
+		if (iDao.insert(new UsedItemModel("", "", ""))) {	// 登録成功
 			request.setAttribute("result",
 			new result("登録成功！", "Successfully registered", "/simpleBC/MenuServlet"));
 		}
