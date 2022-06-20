@@ -8,8 +8,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.Coordinate;
 import model.CoordinateModel;
-
 public class CoordinateDAO{
 	//季節にあった服装をランダムで3件ずつ選択する。
 	//日付取得CAST(GETDATE() as date)、日付に関するソート　 DATE_SUB(CAST(GETDATE() as date), INTERVAL 3 DAY)
@@ -141,6 +141,90 @@ public class CoordinateDAO{
 
 
 	}
+
+
+
+	public List<Coordinate> CoordinateSearch(Coordinate param) {
+		Connection conn = null;
+		List<Coordinate> CoordinateList = new ArrayList<Coordinate>();
+
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/CCC", "sa", "ccc");
+
+			// SQL文を準備する
+			String sql = "SELECT coordinate_id, season, purpose, coordinate_image "
+					 + "FROM coordinate WHERE user_id LIKE ? AND coordinate_id LIKE ? AND season LIKE ? AND purpose LIKE ?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			// SQL文を完成させる
+			if (param.getUser_id() != null) {
+				pStmt.setString(1, "%" + param.getUser_id() + "%");
+			}
+			else {
+				pStmt.setString(1, "%");
+			}
+			if (param.getCoordinate_id() != null) {
+				pStmt.setString(2, "%" + param.getCoordinate_id() + "%");
+			}
+			else {
+				pStmt.setString(2, "%");
+			}
+			if (param.getSeason() != null) {
+				pStmt.setString(3, "%" + param.getSeason() + "%");
+			}
+			else {
+				pStmt.setString(3, "%");
+			}
+			if (param.getPurpose() != null) {
+				pStmt.setString(4, "%" + param.getPurpose() + "%");
+			}
+			else {
+				pStmt.setString(4, "%");
+			}
+			// SQL文を実行し、結果表を取得する
+			ResultSet rs = pStmt.executeQuery();
+
+			// 結果表をコレクションにコピーする
+			while (rs.next()) {
+				Coordinate Coordinate = new Coordinate(
+						param.getUser_id(),
+						rs.getString("coordinate_id"),
+						rs.getString("season"),
+						rs.getString("purpose"),
+						rs.getString("coordinate_image")
+				);
+				CoordinateList.add(Coordinate);
+			}
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+			CoordinateList = null;
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			CoordinateList = null;
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+					CoordinateList = null;
+				}
+			}
+		}
+
+		// 結果を返す
+		return CoordinateList;
+	}
+
 
 	//コーディネートの検索(広渕さんやってくれてる）
 	//日付取得CAST(GETDATE() as date)
