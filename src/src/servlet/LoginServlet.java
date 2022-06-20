@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.UserDAO;
+import model.UserModel;
 
 /**
  * Servlet implementation class LoginServlet
@@ -38,7 +39,7 @@ public class LoginServlet extends HttpServlet {
 
 			// ログイン処理を行う
 			UserDAO userDao = new UserDAO();
-			if (userDao.isLoginOK(new User(user_id, password))) {	// ログイン成功
+			if (userDao.isLoginOK(new UserModel(user_id, password))) {	// ログイン成功
 				/*
 				// セッションスコープにIDを格納する
 				HttpSession session = request.getSession();
@@ -49,11 +50,6 @@ public class LoginServlet extends HttpServlet {
 				response.sendRedirect("/CCC/HomeServlet");
 			}
 			else {									// ログイン失敗
-				// リクエストスコープに、メッセージ、戻り先を格納する
-				request.setAttribute("result",
-				new Result("Wrong ID or Password", "/CCC/LoginServlet"));
-
-				// 結果ページにフォワードする
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/LoginError.jsp");
 				dispatcher.forward(request, response);
 			}

@@ -42,38 +42,27 @@ public class NewCoordinateServlet extends HttpServlet {
         String season = request.getParameter("season");
         String purpose = request.getParameter("purpose");
         String coordinate_image = request.getParameter("coordinate_image");
-
-
-		/*CoordinateDAO cDao = new CoordinateDAO();
-		//List<CoordinateModel> CoordinateList = cDao.insert(new CoordinateModel(user_id, coordinate_id, season, purpose, coordinate_image, "", "", "", "", "", "", "", ""))) {
-		if (cDao.insert(new CoordinateModel(user_id, coordinate_id, season, purpose, coordinate_image, "", "", "", "", "", "", "", "" ))) {	// 登録成功
-			request.setAttribute("result",
-			new result("Welcome!", "/CCC/NewCoordinateServlet"));
-		}
-		else {												// 登録失敗
-			request.setAttribute("result",
-			new result("An error has occurred. Try again.", "/CCC/NewCoordinateServlet"));
-		}*/
+        String item_id = request.getParameter("item_id");
 
 
 		CoordinateDAO bDao = new CoordinateDAO();
-		if (bDao.insert(new CoordinateModel("", "", "", "", "", "", "", "", "", "", "", "", ""))) {	// 登録成功
-			request.setAttribute("result",
-			new result("登録成功！", "Successfully registered", "/simpleBC/MenuServlet"));
+		if (bDao.insert(new CoordinateModel(user_id, coordinate_id, season, purpose, coordinate_image, "", "", "", "", "", "", "", ""))) {	// 登録成功
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/NewCoordinateSuccess.jsp");
+			dispatcher.forward(request, response);
 		}
 		else {												// 登録失敗
-			request.setAttribute("result",
-			new result("登録失敗！", "An error has occurred. Try again.", "/simpleBC/MenuServlet"));
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/NewCoordinateError.jsp");
+			dispatcher.forward(request, response);
 		}
 
 		UsedItemDAO iDao = new UsedItemDAO();
-		if (iDao.insert(new UsedItemModel("", "", ""))) {	// 登録成功
-			request.setAttribute("result",
-			new result("登録成功！", "Successfully registered", "/simpleBC/MenuServlet"));
+		if (iDao.insert(new UsedItemModel(user_id, item_id, coordinate_id))) {	// 登録成功
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/NewCoordinateSuccess.jsp");
+			dispatcher.forward(request, response);
 		}
 		else {												// 登録失敗
-			request.setAttribute("result",
-			new result("登録失敗！", "An error has occurred. Try again.", "/simpleBC/MenuServlet"));
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/CoordinateError.jsp");
+			dispatcher.forward(request, response);
 		}
 
 

@@ -45,9 +45,9 @@ public class CoordinateDAO{
 				pStmt2.setString(1, "%");
 			}
 
-			if(param.getDate() != null) {
-				pStmt.setString(2,param.getDate());
-				pStmt2.setString(2,param.getDate());
+			if(param.getDay() != null) {
+				pStmt.setString(2,param.getDay());
+				pStmt2.setString(2,param.getDay());
 			}
 			else {
 				pStmt.setString(2, "%");

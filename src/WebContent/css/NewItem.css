@@ -1,1 +1,38 @@
 @charset "UTF-8";
+#iteminfo{
+	font-size: 20px;
+	position:relative;
+	top: 0px;
+	bottom: 0px;
+	right: 0px;
+	left: 50px;
+}
+#category{
+	position:relative;
+	top: 0px;
+	bottom: 0px;
+	right: 0px;
+	left: 80px;
+}
+#brand{
+	position:relative;
+	top: 0px;
+	bottom: 0px;
+	right: 0px;
+	left: 150px;
+}
+#size{
+	position:relative;
+	top: 0px;
+	bottom: 0px;
+	right: 0px;
+	left: 150px;
+}
+
+#remarks{
+	position:relative;
+	top: 0px;
+	bottom: 0px;
+	right: 0px;
+	left: 150px;
+}
