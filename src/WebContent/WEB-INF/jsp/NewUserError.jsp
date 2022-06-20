@@ -5,8 +5,8 @@
 	<link rel="stylesheet" type="text/css" href="././css/Error.css">
 		<main>
 			<h50>Oops！</h50>
-			<h30>登録に失敗しました</h30>
-			<button onclick="location.href='/CCC/LoginServlet'">Back to Login</button>
+			<p><h30>登録に失敗しました</h30></p>
+			<button onclick="location.href='./LoginServlet'">Back to Login</button>
 	    </main>
 
 <%@ include file="/WEB-INF/jsp/Footer.jsp" %>
