@@ -52,7 +52,7 @@ public class NewItemServlet extends HttpServlet {
 		// 登録処理を行う
 		CoordinateItemDAO nDao = new CoordinateItemDAO();
 		if (nDao.insert(new CoordinateItemModel(user_id,item_id,item_image,category, brand,size,flag,remarks,date))) {	// 登録成功
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/NewItemSuccess.jsp");
 			dispatcher.forward(request, response);
 			doGet(request, response);
 		}

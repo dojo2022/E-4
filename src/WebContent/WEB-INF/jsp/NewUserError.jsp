@@ -6,7 +6,7 @@
 		<main>
 			<h50>Oops！</h50>
 			<h30>登録に失敗しました</h30>
-			<button onclick="location.href='Login.html'">Back to Login</button>
+			<button onclick="location.href='/CCC/LoginServlet'">Back to Login</button>
 	    </main>
 
 <%@ include file="/WEB-INF/jsp/Footer.jsp" %>
