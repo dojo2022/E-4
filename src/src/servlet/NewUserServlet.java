@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.UserDAO;
+import model.UserModel;
 
 /**
  * Servlet implementation class NewUserServlet
@@ -39,7 +40,7 @@ public class NewUserServlet extends HttpServlet {
 
 		// 登録処理を行う
 		UserDAO uDao = new UserDAO();
-		if (uDao.insert(new User(user_id, password))) {	// 登録成功
+		if (uDao.insert(new UserModel(user_id, password))) {	// 登録成功
 			request.setAttribute("result",
 			new Result("Welcome!", "/CCC/LoginServlet"));
 		}
