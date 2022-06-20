@@ -426,7 +426,7 @@ DROP TABLE ITEM [90107-200]
 	at org.h2.server.web.WebThread.process(WebThread.java:178)
 	at org.h2.server.web.WebThread.run(WebThread.java:94)
 	at java.base/java.lang.Thread.run(Thread.java:834)
-2022-06-17 14:42:22 database: wrong user or password; user: "SA"
+2022-06-17 14:46:22 database: wrong user or password; user: "SA"
 org.h2.message.DbException: ユーザ名またはパスワードが不正です
 Wrong user name or password [28000-200]
 	at org.h2.message.DbException.get(DbException.java:205)
@@ -455,3 +455,7 @@ Wrong user name or password [28000-200]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:461)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
 	... 21 more
+2022-06-17 17:52:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: SQLステートメントに文法エラーがあります "COORDINATE_ID[*]"; 期待されるステートメント "COMMIT, CREATE, CALL, CHECKPOINT, COMMENT"
+Syntax error in SQL statement "COORDINATE_ID[*]"; expected "COMMIT, CREATE, CALL, CHECKPOINT, COMMENT"; SQL statement:
+COORDINATE_ID [42001-200]

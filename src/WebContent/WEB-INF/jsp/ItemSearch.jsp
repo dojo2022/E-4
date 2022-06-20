@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="/WEB-INF/jsp/Header.jsp" %>
 <title>CCC｜アイテム検索</title>
 	<main>
@@ -16,13 +16,13 @@
 					</tr>
 					<tr>
 						<th><p>カテゴリー</p></th>
-						<td><label><input type="checkbox" name="search_category" value="トップス">トップス</label>
-						<label><input type="checkbox" name="search_category" value="アウター">アウター</label>
-						<label><input type="checkbox" name="search_category" value="パンツ">パンツ</label>
-						<label><input type="checkbox" name="search_category" value="スカート">スカート</label>
-						<label><input type="checkbox" name="search_category" value="ワンピース">ワンピース</label>
-						<label><input type="checkbox" name="search_category" value="シューズ">シューズ</label>
-						<label><input type="checkbox" name="search_category" value="小物">小物</label></td>
+						<td><label><input type="checkbox" name="search_category" value="tops">トップス</label>
+						<label><input type="checkbox" name="search_category" value="outer">アウター</label>
+						<label><input type="checkbox" name="search_category" value="pants">パンツ</label>
+						<label><input type="checkbox" name="search_category" value="skirt">スカート</label>
+						<label><input type="checkbox" name="search_category" value="onepiece">ワンピース</label>
+						<label><input type="checkbox" name="search_category" value="shoes">シューズ</label>
+						<label><input type="checkbox" name="search_category" value="accessories">小物</label></td>
 					</tr>
 					<tr>
 						<td><select name="search_brand">
