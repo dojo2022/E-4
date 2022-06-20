@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url(http://fonts.googleapis.com/earlyaccess/notosansjapanese.css);
 
 h50{
 	font-family: "Segoe Print";
@@ -9,10 +10,12 @@ h50{
 	/*color:#2F4F4F;*/
 }
 h30{
+	font-family: 'Noto Sans Japanese', sans-serif;
 	font-size:1.0rem;
 
 }
 .buttonBack{
+	font-family: "Calibri";
 	position:relative;
 	top:75px;
 
