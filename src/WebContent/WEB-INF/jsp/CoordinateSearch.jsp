@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ include file="/WEB-INF/jsp/Header.jsp" %>
+<link rel="stylesheet" href="././css/CoordinateSearch.css">
 <title>CCC｜コーディネート検索</title>
 	<main>
 		<c:forEach var="e" items="${CoordinateList}">
 			<a href="/CCC/CoordiateDetailServlet?q=${e.coordinate_id}"><img src="${e.coordinate_image}"></a>
 		</c:forEach>
+		<img src="C:/dojo6/src/WebContent/coordinateimage/コーデ1.png">
 		<input id="search_input" class="search_hidden" type="checkbox">
 		<div class="search_content">
 			<form id="CoordinateSearch" method="POST" action="/CCC/CoordinateListServlet">
