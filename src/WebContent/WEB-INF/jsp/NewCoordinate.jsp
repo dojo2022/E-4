@@ -26,7 +26,7 @@
 	            	<div id="itemform">
 	            		<!--季節のプルダウンメニュー-->
 	            		<div>
-	                		<p>アイテム情報</p>
+	                		<p id="iteminfo">アイテム情報</p>
 	                		<select id="season_select">
 	                    		<option value="spring">春</option>
 	                    		<option value="summer">夏</option>
@@ -35,9 +35,9 @@
 	                		</select>
 	            		</div>
 	            		<!--登録する用途？のラジオボタン-->
-	            		<div>
+	            		<div id="scene_select">
 		                	<input type="radio" name="scene_select" value="business">ビジネス
-		                	<input type="radio" name="scene_select" value="private">プライベート
+		                	<input type="radio" name="scene_select" value="private">プライベート<br>
 		                	<input type="radio" name="scene_select" value="combination" checked>兼用
 		            	</div>
 	            		<!--コーディネートアイテム追加ボタン-->
@@ -46,16 +46,14 @@
 	            		</div>
 
 		            	<!--コーディネート登録ボタン-->
-		            	<div>
+		            	<div id="coordinate_add">
 		                	<input type="submit" id="coordinate_add" value="register">
 		            	</div>
 					</div>
-				</div>
+		        	<div id="allitemimage"><!-- 画像一覧表示枠 -->
 
-
-	        	<div id="allitemimage"><!-- 画像一覧表示枠 -->
-
-	        	</div>
+		        	</div>
+		        </div>
 	        </form>
 	   </div>
 

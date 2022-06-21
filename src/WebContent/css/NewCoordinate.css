@@ -30,3 +30,36 @@
 input[type="file"] {
     display: none;
 }
+#iteminfo{
+	font-size: 20px;
+	position:relative;
+	top: 0px;
+	bottom: 0px;
+	right: 0px;
+	left: 50px;
+}
+#season_select{
+	position:relative;
+	top: 0px;
+	bottom: 0px;
+	right: 0px;
+	left: 80px;
+	width: 100px;
+}
+#scene_select{
+	position:relative;
+	top: 0px;
+	bottom: 0px;
+	right: 0px;
+	left: 80px;
+}
+#item_add{
+	position:relative;
+	top: 0px;
+	bottom: 0px;
+	right: 0px;
+	left: 60px;
+}
+#coordinate_add{
+	text-align: right;
+}
