@@ -26,7 +26,7 @@ public class CoordinateItemDAO {
 
     			// SQL文を準備(検索）
     			String sql = "select category,brand,item_image,item_id,size,remarks,day "
-    					+ "from item where  category= ?  brand = ? and item_id = ? and flag_no='Delete' and user_id = ?";
+    					+ "from item where  category= ? and brand = ? and item_id = ? and flag != Delete and user_id = ?";
     			PreparedStatement pStmt = conn.prepareStatement(sql);
 
     			// SQL文を完成させる
@@ -36,24 +36,17 @@ public class CoordinateItemDAO {
     			else {
     				pStmt.setString(1, "%");
     			}
-
-    			if (param.getItem_id() != null) {
-    				pStmt.setString(2, "%" + param.getItem_id() + "%");
+    			if (param.getBrand() != null) {
+    				pStmt.setString(2, "%" + param.getBrand() + "%");
     			}
     			else {
     				pStmt.setString(2, "%");
     			}
-    			if (param.getBrand() != null) {
-    				pStmt.setString(3, "%" + param.getBrand() + "%");
+    			if (param.getItem_id() != null) {
+    				pStmt.setString(3, "%" + param.getItem_id() + "%");
     			}
     			else {
     				pStmt.setString(3, "%");
-    			}
-    			if (param.getFlag() != null) {
-    				pStmt.setString(4, "%" + param.getFlag() + "%");
-    			}
-    			else {
-    				pStmt.setString(4, "%");
     			}
     			if (param.getUser_id() != null) {
     				pStmt.setString(4, "%" + param.getUser_id() + "%");
@@ -319,8 +312,23 @@ public class CoordinateItemDAO {
 
 
 				// SQL文を準備する
-				String sql = "update item set flag=? where user_id=?,item_id=?";
+				String sql = "update item set flag=delete where user_id=?,item_id=?";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
+
+				//SQL文を完成させる
+				if (card.getUser_id() != null && !card.getUser_id().equals("")) {
+					pStmt.setString(1, card.getUser_id());
+				}
+				else {
+					pStmt.setString(1, null);
+
+				}
+				if (card.getItem_id() != null && !card.getItem_id().equals("")) {
+					pStmt.setString(2, card.getItem_id());
+				}
+				else {
+					pStmt.setString(2, null);
+				}
 
 				// SQL文を実行する
 				if (pStmt.executeUpdate() == 1) {
