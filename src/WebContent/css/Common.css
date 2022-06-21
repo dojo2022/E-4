@@ -73,16 +73,16 @@ li {
 }
 
 /*ハンバーガーメニューのリンクの色*/
-#id:link {
+#ham:link {
 	color: white;
 }
-#id:visited {
+#ham:visited {
 	color: white;
 }
-#id.hover:hover {
+#ham.hover:hover {
 	color: white;
 }
-#id:active {
+#ham:active {
 	color:white;
 }
 
