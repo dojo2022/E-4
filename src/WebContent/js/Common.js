@@ -67,3 +67,13 @@ function afterloading(){
 //fetchに時間がかかりopen-meteoのデータがロードよりも早く実行してしまうためsettimeoutで実行を遅らせる
 setTimeout(afterloading,1000);//1000ミリ秒(1秒後)にafterloading呼び出し
 
+//写真アップロードのためのfunction
+function upimage(upimage){
+    var fileData = new FileReader();
+    fileData.onload = (function() {
+      //id属性が付与されているimgタグのsrc属性に、fileReaderで取得した値の結果を入力することで
+      //プレビュー表示している
+    document.getElementById('uploadimage').src = fileData.result;
+    });
+    fileData.readAsDataURL(upimage.files[0]);
+}

@@ -29,10 +29,39 @@
 	left: 150px;
 }
 
+#memo{
+	position:relative;
+	top: 0px;
+	bottom: 0px;
+	right: 0px;
+	left: 0px;
+}
 #remarks{
 	position:relative;
 	top: 0px;
 	bottom: 0px;
 	right: 0px;
 	left: 150px;
+}
+#uploadbutton{
+	text-align: right;
+}
+#imageplace{
+	text-align: center;
+}
+#uploadimage{
+	width: 200px;
+	height: 200px;
+}
+
+.label#upbtn{
+
+    padding: 10px 40px;
+    color: #ffffff;
+    background-color: #C0C0C0;
+    cursor: pointer;
+}
+
+input[type="file"] {
+    display: none;
 }
