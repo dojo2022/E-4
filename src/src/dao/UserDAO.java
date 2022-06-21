@@ -73,7 +73,7 @@ public class UserDAO {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/CCC", "sa", "ccc");
 
 			// SQL文を準備する
-			String sql = "insert into USER (user_id, password,) values (?, ?)";
+			String sql = "insert into USER (user_id, password) values (?, ?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
