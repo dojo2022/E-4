@@ -4,7 +4,7 @@
     <title>CCC｜検索結果</title>
 
         <main>
-        <h1 class="Title_Result">Result</h1>
+        <h1 class="Title_Result">Results</h1>
     <p id="searchword">検索タグ</p>
     <%--
      <table border="1" style="border-collapse: collapse">
