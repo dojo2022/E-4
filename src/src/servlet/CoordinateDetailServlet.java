@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.CoordinateDAO;
 import dao.CoordinateItemDAO;
-import dao.UsedItemDAO;
+import model.CoordinateModel;
 
 /**
  * Servlet implementation class CoordinateDetailServlet
@@ -25,15 +26,15 @@ public class CoordinateDetailServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
-        String Coordinate_id = request.getParameter("q");
+        String coordinate_id = request.getParameter("q");
         // 検索処理を行う
-        CoordinateDAO CoordinateDao = new CoordinateDAO();
-        List<Coordinate_List> selectCoordinate = CoordinateDAO.select(new selectCoordinate("", Coordinate_id, ""));//コーディネートの画像のみ
+        CoordinateDAO cDao = new CoordinateDAO();
+        List<CoordinateModel> CoordinateList = cDao.search(new CoordinateModel("", coordinate_id, "", "", "", "", "", "", "", "", "", "", ""));//コーディネートの画像のみ
         // 検索結果をリクエストスコープに格納する
-        request.setAttribute("selectcoordinate", selectCoordinate);
+        request.setAttribute("CoordinateList", CoordinateList);
 
         //アイテム情報
-        UsedItemDAO UseditemDAO = new UsedItemDAO();
+        /*UsedItemDAO UseditemDAO = new UsedItemDAO();
         List<Coordinate_Item> selectCoordinateItem = UsedItemDAO.select(new selectCoordinateItem(Coordinate_id,""));
         CoordinateItemDAO ItemDAO = new CoordinateItemDAO();
         for(int i=0;i<selectCoordinateItem.size;i++){
@@ -46,7 +47,7 @@ public class CoordinateDetailServlet extends HttpServlet {
         }
 
         request.setAttribute("selectitem", selectItem);
-
+*/
 
 
          // 結果ページにフォワードする
