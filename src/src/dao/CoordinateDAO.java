@@ -164,7 +164,7 @@ public class CoordinateDAO{
 
 			// SQL文を完成させる
 			if (param.getUser_id() != null) {
-				pStmt.setString(1, "%" + param.getUser_id() + "%");
+				pStmt.setString(1, param.getUser_id());
 			}
 			else {
 				pStmt.setString(1, "%");
@@ -250,7 +250,7 @@ public class CoordinateDAO{
 
 			// SQL文を完成させる
 			if (param.getUser_id() != null) {
-				pStmt.setString(1, "%" + param.getUser_id() + "%");
+				pStmt.setString(1,param.getUser_id());
 			}
 			else {
 				pStmt.setString(1, "%");
