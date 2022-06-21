@@ -3,7 +3,7 @@
 <%@ include file="/WEB-INF/jsp/Header.jsp" %>
 <title>CCC｜アイテム検索</title>
 	<main>
-		<c:forEach var="e" items="${itemList}">
+		<c:forEach var="e" items="${ModelList}">
 			<a href="/CCC/ItemDetailServlet?q=${e.item_id}"><img src="${e.item_image}"></a>
 		</c:forEach>
 		<input id="search_input" class="search_hidden" type="checkbox">
@@ -30,7 +30,7 @@
 					<tr>
 						<td><select name="search_brand">
 								<option value="">ブランド</option>
-								<c:forEach var="e" items="${itemList}">
+								<c:forEach var="e" items="${ModelList}">
 									<option value="${e.brand}">${e.brand}</option>
 								</c:forEach>
 							</select>

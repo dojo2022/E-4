@@ -75,7 +75,7 @@ public class CoordinateDAO{
 			ResultSet rs2 = pStmt.executeQuery();
 
 			// 結果表をコレクションにコピーする
-			while (rs.next()) {
+			while (rs.next() && rs2.next()) {
 				CoordinateModel card = new CoordinateModel(
 				rs.getString("user_id"),
 				rs.getString("coordinate_id"),
