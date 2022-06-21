@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Coordinate;
+import model.CoordinateInsertModel;
 import model.CoordinateModel;
 
 public class CoordinateDAO{
@@ -425,7 +426,7 @@ public class CoordinateDAO{
 
 
 	//コーディネートの登録
-	public boolean insert(CoordinateModel card) {
+	public boolean insert(CoordinateInsertModel card) {
 		Connection conn = null;
 		boolean result = false;
 

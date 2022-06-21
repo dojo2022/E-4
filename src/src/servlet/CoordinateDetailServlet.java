@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.CoordinateDAO;
-import dao.CoordinateItemDAO;
+import model.CoordinateInsertModel;
 import model.CoordinateModel;
 
 /**
@@ -46,10 +46,14 @@ public class CoordinateDetailServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         String coordinate_id = request.getParameter("coordinate_id");
         String useditem_id = request.getParameter("item_id");
+        String user_id = request.getParameter("user_id");
+        String season = request.getParameter("season");
+        String purpose = request.getParameter("porpose");
+        String coordinate_image = request.getParameter("coordinate_image");
 
         //アイテム情報追加、アイテム、コーディネート削除
         CoordinateDAO coordinateDao = new CoordinateDAO();
-        CoordinateItemDAO itemDao = new CoordinateItemDAO();
+        //CoordinateItemDAO itemDao = new CoordinateItemDAO();
 
         if(request.getParameter("submit").equals("アイテム削除")){
             if (coordinateDao.delete(useditem_id)) { // 削除成功
@@ -73,19 +77,22 @@ public class CoordinateDetailServlet extends HttpServlet {
         }
 
         else if(request.getParameter("submit").equals("コーディネートアイテム追加")){
-            if (coordinateDao.insert(item_id)) { // 追加成功
-                request.setAttribute("result",
-                new Result("レコードを追加しました。", "/CCC/CoordinateDetailServlet"));
+        	// 追加成功
+            if (coordinateDao.insert(new CoordinateInsertModel(user_id, coordinate_id, season, purpose, coordinate_image))) {
+            	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/CoordinateList.jsp");
+            	dispatcher.forward(request, response);
             }
             else {                      // 削除失敗
-                request.setAttribute("result",
-                new Result("レコードを追加できませんでした。", "/CCC/CoordinateDetailServlet"));
+            	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/CoordinateList.jsp");
+            	dispatcher.forward(request, response);
             }
         }
 
         // 結果ページにフォワードする
+        /*
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/NewCoordinateError.jsp");
         dispatcher.forward(request, response);
+        */
 
     }
 }
