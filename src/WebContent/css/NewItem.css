@@ -29,6 +29,13 @@
 	left: 150px;
 }
 
+#memo{
+	position:relative;
+	top: 0px;
+	bottom: 0px;
+	right: 0px;
+	left: 0px;
+}
 #remarks{
 	position:relative;
 	top: 0px;

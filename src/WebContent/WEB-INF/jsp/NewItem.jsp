@@ -9,12 +9,11 @@
             <form action="test.html" method="post" enctype="multipart/form-data" >
             <!--fileのupload-->
             <div>
-                <input type="file" id="item_upload">
+                <input type="file" id="item_upload" onchange="upimage(this)">
             </div>
             <!--選択された画像の表示枠-->
-            <div>
+            <img id="uploadimage">
 
-            </div>
             <!--破線-->
             <hr id="line">
             <!--カテゴリーのプルダウンメニュー-->
@@ -39,9 +38,9 @@
                 <p>サイズ：<input type="text" name="size"></p>
             </div>
             <!--サイズ入力欄-->
-            <div>
-                <p>メモ：</p>
-                <textarea id = "remarls" name="remarks" rows="8" cols="30"></textarea>
+            <div id = "remarks">
+                <p id="memo">メモ：</p>
+                <textarea name="remarks" rows="8" cols="30"></textarea>
             </div>
             <!--コーディネート登録ボタン-->
             <div>
