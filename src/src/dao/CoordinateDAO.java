@@ -255,7 +255,7 @@ public class CoordinateDAO{
 				pStmt.setString(1, "%");
 			}
 			if (param.getCoordinate_id() != null) {
-				pStmt.setString(2, "%" + param.getCoordinate_id() + "%");
+				pStmt.setString(2,param.getCoordinate_id());
 			}
 			else {
 				pStmt.setString(2, "%");
