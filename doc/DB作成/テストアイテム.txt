@@ -40,3 +40,17 @@ UPDATE COORDINATE SET COORDINATE_IMAGE = 'C:/dojo6/src/WebContent/coordinateimag
 UPDATE COORDINATE SET COORDINATE_IMAGE = 'C:/dojo6/src/WebContent/coordinateimage/コーデ3.png' WHERE COORDINATE_ID = '3';
 UPDATE COORDINATE SET COORDINATE_IMAGE = 'C:/dojo6/src/WebContent/coordinateimage/コーデ4.png' WHERE COORDINATE_ID = '5';
 UPDATE COORDINATE SET COORDINATE_IMAGE = 'C:/dojo6/src/WebContent/coordinateimage/スーツ1.png' WHERE COORDINATE_ID = '4';
+
+
+
+UPDATE ITEM SET ITEM_IMAGE = '././itemimage/白T.jpg' WHERE ITEM_ID = '1';
+UPDATE ITEM SET ITEM_IMAGE = '././itemimage/白パーカー.jpg' WHERE ITEM_ID = '2';
+UPDATE ITEM SET ITEM_IMAGE = '././itemimage/シャツ.jpg' WHERE ITEM_ID = '3';
+UPDATE ITEM SET ITEM_IMAGE = '././itemimage/ワンピース.jpg' WHERE ITEM_ID = '4';
+UPDATE ITEM SET ITEM_IMAGE = '././itemimage/茶パンツ.jpg' WHERE ITEM_ID = '5';
+UPDATE ITEM SET ITEM_IMAGE = '././itemimage/紫パンツ.jpg' WHERE ITEM_ID = '6';
+UPDATE ITEM SET ITEM_IMAGE = '././itemimage/ベージュスカート.jpg' WHERE ITEM_ID = '7';
+UPDATE ITEM SET ITEM_IMAGE = '././itemimage/水色スカート.jpg' WHERE ITEM_ID = '8';
+UPDATE ITEM SET ITEM_IMAGE = '././itemimage/スーツ上.jpg' WHERE ITEM_ID = '9';
+UPDATE ITEM SET ITEM_IMAGE = '././itemimage/スーツ下.jpg' WHERE ITEM_ID = '10';
+

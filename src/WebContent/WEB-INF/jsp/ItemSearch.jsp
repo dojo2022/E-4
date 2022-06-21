@@ -4,7 +4,7 @@
 <title>CCC｜アイテム検索</title>
 	<main>
 		<c:forEach var="e" items="${itemList}">
-			<img src="${e.item_image}">
+			<a href="/CCC/ItemDetailServlet?q=${e.item_id}"><img src="${e.item_image}"></a>
 		</c:forEach>
 		<input id="search_input" class="search_hidden" type="checkbox">
 		<div class="search_content">
@@ -13,6 +13,9 @@
 					<tr>
 						<td><p>SEARCH ITEMS</p></td>
 						<td><label for="search_input" class="btn"><span>×</span></label></td>
+					</tr>
+					<tr>
+						<td><input type="text" name="search_word"></td>
 					</tr>
 					<tr>
 						<th><p>カテゴリー</p></th>
