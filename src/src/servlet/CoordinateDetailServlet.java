@@ -33,23 +33,6 @@ public class CoordinateDetailServlet extends HttpServlet {
         // 検索結果をリクエストスコープに格納する
         request.setAttribute("CoordinateList", CoordinateList);
 
-        //アイテム情報
-        /*UsedItemDAO UseditemDAO = new UsedItemDAO();
-        List<Coordinate_Item> selectCoordinateItem = UsedItemDAO.select(new selectCoordinateItem(Coordinate_id,""));
-        CoordinateItemDAO ItemDAO = new CoordinateItemDAO();
-        for(int i=0;i<selectCoordinateItem.size;i++){
-            String codeitem = selectCoordinateItem[i];
-            if(i==0){
-                List<ItemList> selectItem = ItemDAO.select(new selectItem(codeitem,"","","",""));
-            }else{
-                selectItem.add(codeitem,"","","","");
-            }
-        }
-
-        request.setAttribute("selectitem", selectItem);
-*/
-
-
          // 結果ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/CoordinateDetail.jsp");
 		dispatcher.forward(request, response);
@@ -70,22 +53,22 @@ public class CoordinateDetailServlet extends HttpServlet {
 
         if(request.getParameter("submit").equals("アイテム削除")){
             if (coordinateDao.delete(useditem_id)) { // 削除成功
-                request.setAttribute("result",
-                new Result("レコードを削除しました。", "/CCC/CoordinateDetailServlet"));
+            	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ItemList.jsp");
+            	dispatcher.forward(request, response);
             }
             else {                      // 削除失敗
-                request.setAttribute("result",
-                new Result("レコードを削除できませんでした。", "/CCC/itemDetailServlet"));
+            	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ItemList.jsp");
+            	dispatcher.forward(request, response);
             }
         }
         else if(request.getParameter("submit").equals("コーディネート削除")){
             if (coordinateDao.delete(coordinate_id)) { // 削除成功
-                request.setAttribute("result",
-                new Result("レコードを削除しました。", "/CCC/CoordinateListServlet"));
+            	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ItemList.jsp");
+            	dispatcher.forward(request, response);
             }
             else {                      // 削除失敗
-                request.setAttribute("result",
-                new Result("レコードを削除できませんでした。", "/CCC/itemDetailServlet"));
+            	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ItemList.jsp");
+            	dispatcher.forward(request, response);
             }
         }
 

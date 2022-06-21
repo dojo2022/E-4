@@ -8,12 +8,15 @@
             <!-- fromの始まり -->
             <form action="test.html" method="post" enctype="multipart/form-data" >
             <!--fileのupload-->
-            <div>
-                <input type="file" id="item_upload" onchange="upimage(this)">
-            </div>
             <!--選択された画像の表示枠-->
-            <img id="uploadimage">
-
+            <div id="imageplace">
+            	<img id="uploadimage">
+			</div>
+			<div id="uploadbutton">
+				<label class="label" id="upbtn">upload
+                	<input type="file" id="item_upload" onchange="upimage(this)">
+                </label>
+            </div>
             <!--破線-->
             <hr id="line">
             <!--カテゴリーのプルダウンメニュー-->
@@ -31,19 +34,24 @@
             </div>
             <!--ブランド入力欄-->
             <div id="brand">
-                <p>ブランド：<input type="text" name="brand"></p>
+                <p>ブランド：<input type="text" name="brand" style="width: 500px;" placeholder="ブランドを入力してください
+                "></p>
             </div>
             <!--サイズ入力欄-->
             <div id="size">
-                <p>サイズ：<input type="text" name="size"></p>
+                <p>　サイズ：<input type="text" name="size" style="width: 500px;" placeholder="サイズを入力してください"></p>
             </div>
             <!--サイズ入力欄-->
             <div id = "remarks">
-                <p id="memo">メモ：</p>
-                <textarea name="remarks" rows="8" cols="30"></textarea>
+            	<div>
+                	<p id="memo">　　メモ：</p>
+                </div>
+                <div>
+                	<textarea name="remarks" rows="8" cols="30"></textarea>
+                </div>
             </div>
             <!--コーディネート登録ボタン-->
-            <div>
+            <div id = "regibtn">
                 <input type="submit" id="coordinate_add" value="register">
             </div>
             </form>

@@ -1,1 +1,32 @@
 @charset "UTF-8";
+#side_by_side{
+	display: flex;
+}
+#itemform{
+	width: 50%;
+}
+#allitemimage{
+	width: 50%;
+}
+#uploadbutton{
+	text-align: right;
+}
+#imageplace{
+	text-align: center;
+}
+#uploadimage{
+	width: 200px;
+	height: 200px;
+}
+
+.label#upbtn{
+
+    padding: 10px 40px;
+    color: #ffffff;
+    background-color: #C0C0C0;
+    cursor: pointer;
+}
+
+input[type="file"] {
+    display: none;
+}

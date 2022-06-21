@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.CoordinateItemDAO;
+import model.CoordinateItemModel;
+import model.DeleteFlagModel;
 
 /**
  * Servlet implementation class ItemDetailServlet
@@ -26,7 +29,7 @@ public class ItemDetailServlet extends HttpServlet {
         String item_id = request.getParameter("q");
         // 検索処理を行う
         CoordinateItemDAO itemDao = new CoordinateItemDAO();
-        List<Coordinate_Item> itemList = itemDao.select(new Coordinate_Item("", item_id,  "",  "",  "",  "",  "",  "",  ""));
+        List<CoordinateItemModel> itemList = itemDao.select(new CoordinateItemModel("", item_id,  "",  "",  "",  "",  "",  "",  ""));
         // 検索結果をリクエストスコープに格納する
         request.setAttribute("itemList", itemList);
         // 結果ページにフォワードする
@@ -48,23 +51,23 @@ public class ItemDetailServlet extends HttpServlet {
         // 更新または削除を行う
         CoordinateItemDAO itemDao = new CoordinateItemDAO();
         if (request.getParameter("submit").equals("更新")) {
-            if (itemDao.update(new Coordinate_Item(item_id, brand, size, remarks))) {  // 更新成功
-                request.setAttribute("result",
-                new Result("レコードを更新しました。", "/CCC/itemDetailServlet"));
+            if (itemDao.update(new CoordinateItemModel("",item_id, "", "", "", brand, size, remarks,""))) {  // 更新成功
+            	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ItemList.jsp");
+            	dispatcher.forward(request, response);
             }
             else {                                              // 更新失敗
-                request.setAttribute("result",
-                new Result("レコードを更新できませんでした。", "/CCC/itemDetailServlet"));
+            	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ItemList.jsp");
+            	dispatcher.forward(request, response);
             }
         }
         else if(request.getParameter("submit").equals("削除")){
-            if (itemDao.delete(item_id)) { // 削除成功
-                request.setAttribute("result",
-                new Result("レコードを削除しました。", "/CCC/itemDetailServlet"));
+            if (itemDao.updateflag(new DeleteFlagModel("","",""))) { // 削除成功
+            	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ItemList.jsp");
+            	dispatcher.forward(request, response);
             }
             else {                      // 削除失敗
-                request.setAttribute("result",
-                new Result("レコードを削除できませんでした。", "/CCC/itemDetailServlet"));
+            	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ItemList.jsp");
+            	dispatcher.forward(request, response);
             }
         }
         // 結果ページにフォワードする
