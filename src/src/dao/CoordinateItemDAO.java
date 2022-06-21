@@ -373,10 +373,26 @@ public class CoordinateItemDAO {
 
 
 				// SQL文を準備する
-				String sql = "update item set date=? where user_id=?,item_id=?";
+			String sql = "update item set date=CAST(GETDATE() as date where user_id=?,item_id=?";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
-				// SQL文を実行する
+
+				//SQL文を完成させる
+				if (card.getUser_id() != null && !card.getUser_id().equals("")) {
+					pStmt.setString(1, card.getUser_id());
+				}
+				else {
+					pStmt.setString(1, null);
+
+				}
+				if (card.getItem_id() != null && !card.getItem_id().equals("")) {
+					pStmt.setString(2, card.getItem_id());
+				}
+				else {
+					pStmt.setString(2, null);
+				}
+
+				// SQL文を実行する()
 				if (pStmt.executeUpdate() == 1) {
 					result = true;
 				}
