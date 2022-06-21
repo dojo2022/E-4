@@ -51,7 +51,7 @@
                 </div>
             </div>
             <!--コーディネート登録ボタン-->
-            <div>
+            <div id = "regibtn">
                 <input type="submit" id="coordinate_add" value="register">
             </div>
             </form>
