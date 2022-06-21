@@ -1,5 +1,6 @@
- <%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="/WEB-INF/jsp/Header.jsp" %>
 <link rel="stylesheet" href="././css/NewCoordinate.css">
 <title>CCC｜コーディネート登録</title>
@@ -51,7 +52,15 @@
 		            	</div>
 					</div>
 		        	<div id="allitemimage"><!-- 画像一覧表示枠 -->
-
+						<table>
+							<tbody>
+								<c:forEach var="e" items="${ItemList}">
+									<td>
+										<img src="${e.item_image}">
+									</td>
+								</c:forEach>
+    						</tbody>
+						</table>
 		        	</div>
 		        </div>
 	        </form>
