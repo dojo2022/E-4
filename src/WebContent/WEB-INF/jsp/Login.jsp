@@ -8,8 +8,8 @@
             <!--action空白-->
             <form id="login_form" method="POST" action="/CCC/LoginServlet">
                 <table>
-                    <tr><td class="data">ID</td><td><input class = "box" type="text" name="ID"></td></tr>
-                    <tr><td class="data">Password</td><td><input class = "box" type="password" name="PW"></td></tr>
+                    <tr><td class="data">ID</td><td><input class = "box" type="text" name="user_id"></td></tr>
+                    <tr><td class="data">Password</td><td><input class = "box" type="password" name="password"></td></tr>
                   <tr>
                     <td colspan="2">
                       <input type="submit" name="submit" value="Login">
