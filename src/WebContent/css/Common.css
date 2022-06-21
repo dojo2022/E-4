@@ -73,16 +73,16 @@ li {
 }
 
 /*ハンバーガーメニューのリンクの色*/
-a:link {
+#id:link {
 	color: white;
 }
-a:visited {
+#id:visited {
 	color: white;
 }
-a.hover:hover {
+#id.hover:hover {
 	color: white;
 }
-a:active {
+#id:active {
 	color:white;
 }
 
@@ -167,3 +167,4 @@ label{
 	 margin-left: auto;
 	 margin-right: 0;
 }
+
