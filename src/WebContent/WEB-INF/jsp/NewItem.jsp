@@ -8,12 +8,15 @@
             <!-- fromの始まり -->
             <form action="test.html" method="post" enctype="multipart/form-data" >
             <!--fileのupload-->
-            <div>
-                <input type="file" id="item_upload" onchange="upimage(this)">
-            </div>
             <!--選択された画像の表示枠-->
-            <img id="uploadimage">
-
+            <div id="imageplace">
+            	<img id="uploadimage">
+			</div>
+			<div id="uploadbutton">
+				<label class="label" id="upbtn">upload
+                	<input type="file" id="item_upload" onchange="upimage(this)">
+                </label>
+            </div>
             <!--破線-->
             <hr id="line">
             <!--カテゴリーのプルダウンメニュー-->
