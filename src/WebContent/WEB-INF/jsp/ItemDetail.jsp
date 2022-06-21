@@ -6,7 +6,9 @@
         <main>
         <c:forEach var="e" items="${itemList}" begin="0" end="0">
             <h1>アイテム画像</h1>
-            <img src="${e.item_image}">
+            <c:forEach var="e" items="${ModelList}">
+			<a href="/CCC/ItemDetailServlet?q=${e.item_id}"><img src="${e.item_image}"></a>
+		</c:forEach>
             <hr id="line">
             <p>アイテム情報</p>
             <p>ブランド:</p><input type="text" size="30" value="${e.brand}"><br>

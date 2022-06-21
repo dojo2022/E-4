@@ -6,6 +6,11 @@
         <main>
         <h1 class="Title_Result">Results</h1>
     <p id="searchword">検索タグ</p>
+    <h1>コーディネート画像</h1>
+
+                <c:forEach var="i" items="${ciModel}">
+			<a href="/CCC/ItemDetailServlet?q=${e.item_id}"><img src="${e.item_image}"></a>
+		</c:forEach>
     <%--
      <table border="1" style="border-collapse: collapse">
       <c:forEach items="${ requestScope.imgtableList }" var="item">
@@ -15,6 +20,7 @@
         <td><a href="#"><img style="width: 100px; height: 100px" src="getImage?id=${ imgtable.id }"></a></td>
         </tr> </c:forEach> </table>
         --%>
+
         </main>
 
 <%@ include file="/WEB-INF/jsp/Footer.jsp" %>

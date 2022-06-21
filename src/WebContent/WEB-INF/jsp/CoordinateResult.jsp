@@ -5,6 +5,9 @@
         <main>
     　　<h1 class="Title_Result">Results</h1>
     <p id="searchword">検索タグ</p>
+    <c:forEach var="c" items="${}">
+			<a href="/CCC/CoordinateDetailServlet?q=${e.coordinate_id}"><img src="${e.coordinate_image}"></a>
+		</c:forEach>
     <%--
      <table border="1" style="border-collapse: collapse">
       <c:forEach items="${ requestScope.imgtableList }" var="item">
