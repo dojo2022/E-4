@@ -31,7 +31,7 @@ public class CoordinateListServlet extends HttpServlet {
 
 		// 検索処理を行う
 		CoordinateDAO cDao = new CoordinateDAO();
-		List<Coordinate> CoordinateList = cDao.CoordinateSearch(new Coordinate("", "", "", "", ""));
+		List<Coordinate> CoordinateList = cDao.CoordinateSearch(new Coordinate(user_id, "", "", "", ""));
 
 		// 検索結果をリクエストスコープに格納する
 		request.setAttribute("CoordinateList", CoordinateList);
