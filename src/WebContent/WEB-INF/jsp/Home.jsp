@@ -2,10 +2,11 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/jsp/Header.jsp" %>
     <title>CCC｜ホーム</title>
-       <img src="" alt="コーディネート画像">
+      <link rel="stylesheet" href="././css/Home.css">
+      <img src="" alt="コーディネート画像">
         <!--javascriptで触る？-->
         <main>
-        <p>Business</p>
-        <p>Private</p>
+        <p id = "changeable">Business</p>
+        <p id = "changeable">Private</p>
         </main>
 <%@ include file="/WEB-INF/jsp/Footer.jsp" %>
