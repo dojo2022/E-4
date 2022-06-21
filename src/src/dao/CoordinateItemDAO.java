@@ -25,7 +25,8 @@ public class CoordinateItemDAO {
     			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/CCC", "sa", "ccc");
 
     			// SQL文を準備(検索）
-    			String sql = "select category,brand from item where  category= ?  brand = ? and flag_no='Delete'";
+    			String sql = "select category,brand,item_image,item_id,size,remarks,day,flag "
+    					+ "from item where  category like ? and brand like ? and item_id like ? and flag != 'Delete' and user_id like ?";
     			PreparedStatement pStmt = conn.prepareStatement(sql);
 
     			// SQL文を完成させる
@@ -35,49 +36,24 @@ public class CoordinateItemDAO {
     			else {
     				pStmt.setString(1, "%");
     			}
-    			if (param.getCategory() != null) {
-    				pStmt.setString(2, "%" + param.getCategory() + "%");
+    			if (param.getBrand() != null) {
+    				pStmt.setString(2, "%" + param.getBrand() + "%");
     			}
     			else {
     				pStmt.setString(2, "%");
     			}
-    			if (param.getCategory() != null) {
-    				pStmt.setString(3, "%" + param.getCategory() + "%");
+    			if (param.getItem_id() != null) {
+    				pStmt.setString(3, "%" + param.getItem_id() + "%");
     			}
     			else {
     				pStmt.setString(3, "%");
     			}
-    			if (param.getCategory() != null) {
-    				pStmt.setString(4, "%" + param.getCategory() + "%");
+    			if (param.getUser_id() != null) {
+    				pStmt.setString(4, "%" + param.getUser_id() + "%");
     			}
     			else {
     				pStmt.setString(4, "%");
     			}
-    			if (param.getCategory() != null) {
-    				pStmt.setString(5, "%" + param.getCategory() + "%");
-    			}
-    			else {
-    				pStmt.setString(5, "%");
-    			}
-    			if (param.getCategory() != null) {
-    				pStmt.setString(6, "%" + param.getCategory() + "%");
-    			}
-    			else {
-    				pStmt.setString(6, "%");
-    			}
-    			if (param.getCategory() != null) {
-    				pStmt.setString(7, "%" + param.getCategory() + "%");
-    			}
-    			else {
-    				pStmt.setString(7, "%");
-    			}
-    			if (param.getBrand() != null) {
-    				pStmt.setString(8, "%" + param.getBrand() + "%");
-    			}
-    			else {
-    				pStmt.setString(8, "%");
-    			}
-
 
 
     			// SQL文を実行し、結果表を取得する
@@ -86,7 +62,7 @@ public class CoordinateItemDAO {
     			// 結果表をコレクションにコピーする
     			while (rs.next()) {
     				CoordinateItemModel card = new CoordinateItemModel(
-    				rs.getString("user_id"),
+    				param.getUser_id(),
     				rs.getString("item_id"),
     				rs.getString("item_image"),
     				rs.getString("category"),
@@ -94,7 +70,7 @@ public class CoordinateItemDAO {
     				rs.getString("size"),
     				rs.getString("flag"),
     				rs.getString("remarks"),
-    				rs.getString("date")
+    				rs.getString("day")
     				);
     				cardList.add(card);
     			}
@@ -191,8 +167,8 @@ public class CoordinateItemDAO {
 					else {
 						pStmt.setString(8, null);
 					}
-					if (card.getDate() != null && !card.getDate().equals("")) {
-						pStmt.setString(9, card.getDate());
+					if (card.getDay() != null && !card.getDay().equals("")) {
+						pStmt.setString(9, card.getDay());
 					}
 					else {
 						pStmt.setString(9, null);
@@ -286,8 +262,8 @@ public class CoordinateItemDAO {
     					else {
     						pStmt.setString(7, null);
     					}
-    					if (card.getDate() != null && !card.getDate().equals("")) {
-    						pStmt.setString(8, card.getDate());
+    					if (card.getDay() != null && !card.getDay().equals("")) {
+    						pStmt.setString(8, card.getDay());
     					}
     					else {
     						pStmt.setString(8, null);
@@ -336,8 +312,23 @@ public class CoordinateItemDAO {
 
 
 				// SQL文を準備する
-				String sql = "update item set flag=? where user_id=?,item_id=?";
+				String sql = "update item set flag=delete where user_id=?,item_id=?";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
+
+				//SQL文を完成させる
+				if (card.getUser_id() != null && !card.getUser_id().equals("")) {
+					pStmt.setString(1, card.getUser_id());
+				}
+				else {
+					pStmt.setString(1, null);
+
+				}
+				if (card.getItem_id() != null && !card.getItem_id().equals("")) {
+					pStmt.setString(2, card.getItem_id());
+				}
+				else {
+					pStmt.setString(2, null);
+				}
 
 				// SQL文を実行する
 				if (pStmt.executeUpdate() == 1) {
