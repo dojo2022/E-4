@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import dao.CoordinateDAO;
 import model.Coordinate;
+import model.LoginUser;
 
 /**
  * Servlet implementation class ItemDetailServlet
@@ -27,7 +28,9 @@ public class CoordinateListServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		HttpSession session = request.getSession();
-		String user_id = (String)session.getAttribute("user_id");
+
+		LoginUser user = (LoginUser)session.getAttribute("user_id");
+		String user_id = user.getUser_id();
 
 		// 検索処理を行う
 		CoordinateDAO cDao = new CoordinateDAO();
@@ -47,9 +50,13 @@ public class CoordinateListServlet extends HttpServlet {
 		String season = request.getParameter("search_season");
 		String purpose = request.getParameter("search_purpose");
 
+		HttpSession session = request.getSession();
+
+		LoginUser user = (LoginUser)session.getAttribute("user_id");
+		String user_id = user.getUser_id();
 		// 検索処理を行う
 		CoordinateDAO cDao = new CoordinateDAO();
-		List<Coordinate> CoordinateList = cDao.CoordinateSearch(new Coordinate("", "", season, purpose, ""));
+		List<Coordinate> CoordinateList = cDao.CoordinateSearch(new Coordinate(user_id, "", season, purpose, ""));
 
 		// 検索結果をリクエストスコープに格納する
 		request.setAttribute("CoordinateList", CoordinateList);
