@@ -12,10 +12,10 @@ public class CoordinateItemModel  implements Serializable{
 	private String flag;
 	private String remarks;
 	//date入れときました
-	private String date;
+	private String day;
 
 	public CoordinateItemModel(String user_id, String item_id, String item_image, String category, String brand, String size,
-			String flag, String remarks, String date) {
+			String flag, String remarks, String day) {
 		super();
 		this.user_id = user_id;
 		this.item_id = item_id;
@@ -25,7 +25,7 @@ public class CoordinateItemModel  implements Serializable{
 		this.size = size;
 		this.flag = flag;
 		this.remarks = remarks;
-		this.date = date;
+		this.day = day;
 	}
 
 	public CoordinateItemModel() {
@@ -38,7 +38,7 @@ public class CoordinateItemModel  implements Serializable{
 		this.size = "";
 		this.flag = "";
 		this.remarks = "";
-		this.date = "";
+		this.day = "";
 	}
 
 	public String getUser_id() {
@@ -89,11 +89,11 @@ public class CoordinateItemModel  implements Serializable{
 	public void setRemarks(String remarks) {
 		this.remarks = remarks;
 	}
-	public String getDate() {
-		return date;
+	public String getDay() {
+		return day;
 	}
-	public void setDate(String date) {
-		this.date = date;
+	public void setDay(String day) {
+		this.day = day;
 	}
 
 }

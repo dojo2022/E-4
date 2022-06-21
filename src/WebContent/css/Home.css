@@ -1,0 +1,8 @@
+@charset "UTF-8";
+
+#changeable {
+	font-size: 50px;
+	font-family: "Segoe Print";
+	margin-left: auto;
+	writing-mode: vertical-rl;
+}
