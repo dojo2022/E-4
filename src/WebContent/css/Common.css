@@ -49,11 +49,14 @@
     height: 100%;
     position: fixed;
     top: 0;
-    left: -100vw; /* メニューを画面の外に飛ばす */
+    left: 100vw; /* メニューを画面の外に飛ばす (―をなくした)*/
     z-index: 99;
     background: #000;
     transition: .5s;
     font-size: 40px;
+
+	background: rgb(110, 110, 110);/*追加*/
+	padding-top: 20px;
   }
 /*ハンバーガーメニューの間隔*/
 li {
@@ -96,8 +99,11 @@ li {
 
   /* アイコンがクリックされたらメニューを表示 */
   #drawer_input:checked ~ .nav_content {
-	-webkit-transform: translateX(30vw);
-	        transform: translateX(30vw);
+	/*-webkit-transform: translateX(30vw);
+	        transform: translateX(30vw) 二行無効化とleft追加;*/
+
+	        left: 0;
+
 
     /*left: 0;/* メニューを画面に入れる */
   }
