@@ -73,16 +73,16 @@ li {
 }
 
 /*ハンバーガーメニューのリンクの色*/
-a:link {
+#id:link {
 	color: white;
 }
-a:visited {
+#id:visited {
 	color: white;
 }
-a.hover:hover {
+#id.hover:hover {
 	color: white;
 }
-a:active {
+#id:active {
 	color:white;
 }
 
@@ -139,7 +139,7 @@ img {
 }
 
 #weather {
-	text-align: right
+	text-align: right;
 }
 .mark{
 	text-align: right;
@@ -150,20 +150,32 @@ img {
 	height: 30px;
 
 }
+/*メイン（フッター調整）*/
+main{
+	margin: 0 auto;
+
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
 
 /*フッター*/
 footer {
 	width: 100%;
-	position: absolute;
+	/*position: absolute;
+	bottom: 0; /*下に固定*/
 	background-color: #C0C0C0;
-	height: 80px;
-    bottom: 0; /*下に固定*/
+	height: 15px;
     left: 0;
     text-align: center;
     color: white;
+    padding: 30px 0;
+    margin-top: auto;
 }
 /*ハンバーガーアイコン*/
 label{
 	 margin-left: auto;
 	 margin-right: 0;
 }
+

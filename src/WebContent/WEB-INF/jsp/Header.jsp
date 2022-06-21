@@ -26,10 +26,10 @@
             <!-- メニュー -->
             <nav class="nav_content">
             <ul class="nav_list">
-				<li class="nav_item"><a href="/CCC/CoordinateListServlet">Your Outfits</a></li>
-                <li class="nav_item"><a href="/CCC/ItemListServlet">Your Items</a></li>
-                <li class="nav_item"><a href="/CCC/NewCoordinateServlet">Add New Outfit</a></li>
-                <li class="nav_item"><a href="/CCC/NewItemtServlet">Add New Item</a></li>
+				<li class="nav_item"><a id="ham" href="/CCC/CoordinateListServlet">Your Outfits</a></li>
+                <li class="nav_item"><a id="ham" href="/CCC/ItemListServlet">Your Items</a></li>
+                <li class="nav_item"><a id="ham" href="/CCC/NewCoordinateServlet">Add New Outfit</a></li>
+                <li class="nav_item"><a id="ham" href="/CCC/NewItemtServlet">Add New Item</a></li>
             </ul>
             </nav>
         </div>
