@@ -25,7 +25,7 @@ public class CoordinateListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
+		request.getAttribute("user_id");
 		// 検索処理を行う
 		CoordinateDAO cDao = new CoordinateDAO();
 		List<Coordinate> CoordinateList = cDao.CoordinateSearch(new Coordinate("", "", "", "", ""));
