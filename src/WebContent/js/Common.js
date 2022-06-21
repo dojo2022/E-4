@@ -21,40 +21,40 @@ fetch(url).then(data => data.json())
     function weatherset(){ //ウェザーコードに応じた画像をHTMLに挿入するfunction
         if(weather === 0){
             weathertext = "快晴";
-            weatherposition.innerHTML += "<div class = 'mark'><img src='././image/快晴.png' alt = '天気マーク' id = 'mark'></div>";
+            weatherposition.innerHTML += "<div class = 'ten'><img src='././image/快晴.png' alt = '天気マーク' id = 'mark'></div>";
         }else if(weather === 1){
             weathertext = "晴れ";
-            weatherposition.innerHTML += "<div class = 'mark'><img src='././image/晴れ.png' alt = '天気マーク' id = 'mark'></div>";
+            weatherposition.innerHTML += "<div class = 'ten'><img src='././image/晴れ.png' alt = '天気マーク' id = 'mark'></div>";
         }else if(weather === 2){
             weathertext = "一部曇";
-            weatherposition.innerHTML += "<div class = 'mark'><img src='././image/一部曇り.png' alt = '天気マーク' id = 'mark'></div>";
+            weatherposition.innerHTML += "<div class = 'ten'><img src='././image/一部曇り.png' alt = '天気マーク' id = 'mark'></div>";
         }else if(weather === 3){
             weathertext = "曇り";
             weatherposition.innerHTML += "<div class = 'ten'><img src='././image/曇り.png' alt = '天気マーク' id = 'mark'></div>";
         }else if(weather <= 49){
             weathertext = "霧";
-            weatherposition.innerHTML += "<div class = 'mark'><img src='././image/霧.png' alt = '天気マーク' id = 'mark'></div>";
+            weatherposition.innerHTML += "<div class = 'ten'><img src='././image/霧.png' alt = '天気マーク' id = 'mark'></div>";
         }else if(weather <= 59){
             weathertext = "小雨";
-            weatherposition.innerHTML += "<div class = 'mark'><img src='././image/小雨1.png' alt = '天気マーク' id = 'mark'></div>";
+            weatherposition.innerHTML += "<div class = 'ten'><img src='././image/小雨1.png' alt = '天気マーク' id = 'mark'></div>";
         }else if(weather <= 69){
             weathertext = "雨";
-            weatherposition.innerHTML += "<div class = 'mark'><img src='././image/雨.png' alt = '天気マーク' id = 'mark'></div>";
+            weatherposition.innerHTML += "<div class = 'ten'><img src='././image/雨.png' alt = '天気マーク' id = 'mark'></div>";
         }else if(weather <= 79){
             weathertext = "雪";
-            weatherposition.innerHTML += "<div class = 'mark'><img src='././image/雪.png' alt = '天気マーク' id = 'mark'></div>";
+            weatherposition.innerHTML += "<div class = 'ten'><img src='././image/雪.png' alt = '天気マーク' id = 'mark'></div>";
         }else if(weather <= 84){
             weathertext = "小雨";
-            weatherposition.innerHTML += "<div class = 'mark'><img src='././image/小雨.png' alt = '天気マーク' id = 'mark'></div>";
+            weatherposition.innerHTML += "<div class = 'ten'><img src='././image/小雨.png' alt = '天気マーク' id = 'mark'></div>";
         }else if(weather <= 94){
             weathertext = "雪・雹";
-            weatherposition.innerHTML += "<div class = 'mark'><img src='././image/雹.png' alt = '天気マーク' id = 'mark'></div>";
+            weatherposition.innerHTML += "<div class = 'ten'><img src='././image/雹.png' alt = '天気マーク' id = 'mark'></div>";
         }else if(weather <= 99){
             weathertext = "雷雨";
-            weatherposition.innerHTML += "<div class = 'mark'><img src='././image/雷雨.png' alt = '天気マーク' id = 'mark'></div>";
+            weatherposition.innerHTML += "<div class = 'ten'><img src='././image/雷雨.png' alt = '天気マーク' id = 'mark'></div>";
         }else{
             weathertext = "不明";
-            weatherposition.innerHTML += "<div class = 'mark'><img src='././image/不明.png' alt = '天気マーク'></div>";
+            weatherposition.innerHTML += "<div class = 'ten'><img src='././image/不明.png' alt = '天気マーク'></div>";
         }
     }
 

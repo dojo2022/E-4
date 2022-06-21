@@ -8,10 +8,12 @@
 	<link rel="stylesheet" href="././css/Common.css">
 </head>
 	<body>
+		<header>
     	<h1 class="logo2"><img src="././image/ccc.png" alt=""></h1>
         <!-- ヘッダーロゴ -->
 		<div id = "weather">
 		</div>
         <hr>
+        </header>
     <div class="container">
 

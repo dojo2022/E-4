@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/jsp/Header2.jsp" %>
     <title>CCC｜新規登録</title>
+    <link rel="stylesheet" href="././css/NewUser.css">
     	<main>
 	        <p>新規登録</p>
 	        <form id="newregistration_form" method="POST" action="/CCC/NewUserServlet">

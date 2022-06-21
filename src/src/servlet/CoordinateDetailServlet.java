@@ -53,22 +53,22 @@ public class CoordinateDetailServlet extends HttpServlet {
 
         if(request.getParameter("submit").equals("アイテム削除")){
             if (coordinateDao.delete(useditem_id)) { // 削除成功
-                request.setAttribute("result",
-                new Result("レコードを削除しました。", "/CCC/CoordinateDetailServlet"));
+            	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ItemList.jsp");
+            	dispatcher.forward(request, response);
             }
             else {                      // 削除失敗
-                request.setAttribute("result",
-                new Result("レコードを削除できませんでした。", "/CCC/itemDetailServlet"));
+            	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ItemList.jsp");
+            	dispatcher.forward(request, response);
             }
         }
         else if(request.getParameter("submit").equals("コーディネート削除")){
             if (coordinateDao.delete(coordinate_id)) { // 削除成功
-                request.setAttribute("result",
-                new Result("レコードを削除しました。", "/CCC/CoordinateListServlet"));
+            	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ItemList.jsp");
+            	dispatcher.forward(request, response);
             }
             else {                      // 削除失敗
-                request.setAttribute("result",
-                new Result("レコードを削除できませんでした。", "/CCC/itemDetailServlet"));
+            	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ItemList.jsp");
+            	dispatcher.forward(request, response);
             }
         }
 

@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.CoordinateItemModel;
+import model.DeleteFlagModel;
 
 public class CoordinateItemDAO {
 
@@ -299,7 +300,7 @@ public class CoordinateItemDAO {
 
 
     	//フラグ更新
-     	public boolean updateflag(CoordinateItemModel card) {
+     	public boolean updateflag(DeleteFlagModel card) {
 			Connection conn = null;
 			boolean result = false;
 

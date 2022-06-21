@@ -37,6 +37,8 @@ public class NewCoordinateServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
+		//登録情報の取得
+		// リクエストパラメータを取得する
         String user_id = request.getParameter("user_id");
         String coordinate_id = request.getParameter("coordinate_id");
         String season = request.getParameter("season");
@@ -44,7 +46,7 @@ public class NewCoordinateServlet extends HttpServlet {
         String coordinate_image = request.getParameter("coordinate_image");
         String item_id = request.getParameter("item_id");
 
-
+		// 登録処理を行う
 		CoordinateDAO bDao = new CoordinateDAO();
 		if (bDao.insert(new CoordinateModel(user_id, coordinate_id, season, purpose, coordinate_image, "", "", "", "", "", "", "", ""))) {	// 登録成功
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/NewCoordinateSuccess.jsp");
