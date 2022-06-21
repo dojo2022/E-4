@@ -10,6 +10,7 @@ import java.util.List;
 
 import model.Coordinate;
 import model.CoordinateModel;
+
 public class CoordinateDAO{
 	//季節にあった服装をランダムで3件ずつ選択する。
 	//日付取得CAST(GETDATE() as date)、日付に関するソート　 DATE_SUB(CAST(GETDATE() as date), INTERVAL 3 DAY)
