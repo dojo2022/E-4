@@ -2,12 +2,14 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/jsp/Header2.jsp" %>
     <title>CCC｜ログイン</title>
+    	<link rel="stylesheet" href="././css/Login.css">
         <main>
+        <p class="login">Login</p>
             <!--action空白-->
             <form id="login_form" method="POST" action="/CCC/LoginServlet">
                 <table>
-                    <tr><td class="data">ID</td><td><input type="text" name="ID"></td></tr>
-                    <tr><td class="data">PW</td><td><input type="password" name="PW"></td></tr>
+                    <tr><td class="data">ID</td><td><input class = "box" type="text" name="ID"></td></tr>
+                    <tr><td class="data">Password</td><td><input class = "box" type="password" name="PW"></td></tr>
                   <tr>
                     <td colspan="2">
                       <input type="submit" name="submit" value="Login">
@@ -16,9 +18,10 @@
                   </tr>
                 </table>
               </form>
-            <hr id = "line">
-            <a href = "C:\Users\User\Documents\justlooking\newuser.html">新規登録</a>
-
+			<p class = "line"></p>
+            <div class = "href">
+            <a class="newuser" href = "/CCC/NewUserServlet">新規登録</a>
+			</div>
         </main>
 
 <%@ include file="/WEB-INF/jsp/Footer.jsp" %>
