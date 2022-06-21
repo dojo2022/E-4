@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.CoordinateItemDAO;
 import model.CoordinateItemModel;
+import model.DeleteFlagModel;
 
 /**
  * Servlet implementation class ItemDetailServlet
@@ -50,23 +51,23 @@ public class ItemDetailServlet extends HttpServlet {
         // 更新または削除を行う
         CoordinateItemDAO itemDao = new CoordinateItemDAO();
         if (request.getParameter("submit").equals("更新")) {
-            if (itemDao.update(new CoordinateItemModel(item_id, brand, size, remarks,"","","","",""))) {  // 更新成功
-                request.setAttribute("result",
-                new Result("レコードを更新しました。", "/CCC/itemDetailServlet"));
+            if (itemDao.update(new CoordinateItemModel("",item_id, "", "", "", brand, size, remarks,""))) {  // 更新成功
+            	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ItemList.jsp");
+            	dispatcher.forward(request, response);
             }
             else {                                              // 更新失敗
-                request.setAttribute("result",
-                new Result("レコードを更新できませんでした。", "/CCC/itemDetailServlet"));
+            	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ItemList.jsp");
+            	dispatcher.forward(request, response);
             }
         }
         else if(request.getParameter("submit").equals("削除")){
-            if (itemDao.updateflag(item_id)) { // 削除成功
-                request.setAttribute("result",
-                new Result("レコードを削除しました。", "/CCC/itemDetailServlet"));
+            if (itemDao.updateflag(new DeleteFlagModel("","",""))) { // 削除成功
+            	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ItemList.jsp");
+            	dispatcher.forward(request, response);
             }
             else {                      // 削除失敗
-                request.setAttribute("result",
-                new Result("レコードを削除できませんでした。", "/CCC/itemDetailServlet"));
+            	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ItemList.jsp");
+            	dispatcher.forward(request, response);
             }
         }
         // 結果ページにフォワードする

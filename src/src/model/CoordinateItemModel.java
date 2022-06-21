@@ -11,7 +11,7 @@ public class CoordinateItemModel  implements Serializable{
 	private String size;
 	private String flag;
 	private String remarks;
-	//date入れときました
+	//day入れときました
 	private String day;
 
 	public CoordinateItemModel(String user_id, String item_id, String item_image, String category, String brand, String size,
