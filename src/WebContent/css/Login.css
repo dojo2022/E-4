@@ -40,6 +40,10 @@ table {
 	text-decoration: underline;
 }
 
+a:hover {
+	color:  #808080;
+}
+
 .newuser {
 	color: black;
 	font-size: 12px

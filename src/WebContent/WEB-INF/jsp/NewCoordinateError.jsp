@@ -6,7 +6,9 @@
 	        <main>
 				<h50>Oops！</h50>
 				<p><h30>コーディネート登録に失敗しました</h30></p>
+				<div class="buttonBack">
 				<button onclick="location.href='./NewCoordinateServlet'">Back to Add New Outfit</button>
+	        	</div>
 	        </main>
 
 <%@ include file="/WEB-INF/jsp/Footer.jsp" %>

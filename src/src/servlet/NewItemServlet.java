@@ -14,7 +14,7 @@ import model.CoordinateItemModel;
 /**
  * Servlet implementation class NewUserErrorServlet
  */
-@WebServlet("/NewItemtServlet")
+@WebServlet("/NewItemServlet")
 public class NewItemServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
