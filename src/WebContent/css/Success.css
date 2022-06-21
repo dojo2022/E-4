@@ -1,0 +1,26 @@
+@charset "UTF-8";
+@import url(http://fonts.googleapis.com/earlyaccess/notosansjapanese.css);
+
+#hurray {
+	font-family: "Segoe Print";
+	font-size:5.6rem;
+	text-align: center;
+	color:#222222;
+	margin-bottom: 0;
+}
+
+p {
+	font-family: 'Noto Sans Japanese', sans-serif;
+	font-size:1.0rem;
+	margin-top: 0;
+
+}
+.buttonBack{
+	font-family: "Calibri";
+	position:relative;
+	top:75px;
+
+}
+main{
+	text-align: center;
+}
