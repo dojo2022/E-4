@@ -4,6 +4,8 @@
     <title>CCC｜ホーム</title>
        <img src="" alt="コーディネート画像">
         <!--javascriptで触る？-->
+        <main>
         <p>Business</p>
         <p>Private</p>
+        </main>
 <%@ include file="/WEB-INF/jsp/Footer.jsp" %>
