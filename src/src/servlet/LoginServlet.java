@@ -8,8 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.UserDAO;
+import model.LoginUser;
 import model.UserModel;
 
 /**
@@ -40,11 +42,11 @@ public class LoginServlet extends HttpServlet {
 			// ログイン処理を行う
 			UserDAO userDao = new UserDAO();
 			if (userDao.isLoginOK(new UserModel(user_id, password))) {	// ログイン成功
-				/*
+
 				// セッションスコープにIDを格納する
 				HttpSession session = request.getSession();
-				session.setAttribute("user_id", new LoginUser(id));
-				*/
+				session.setAttribute("user_id", new LoginUser(user_id));
+
 
 				// ホームサーブレットにリダイレクトする
 				response.sendRedirect("/CCC/HomeServlet");

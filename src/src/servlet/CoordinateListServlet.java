@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.CoordinateDAO;
 import model.Coordinate;
@@ -25,7 +26,9 @@ public class CoordinateListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		request.getAttribute("user_id");
+		HttpSession session = request.getSession();
+		String user_id = (String)session.getAttribute("user_id");
+
 		// 検索処理を行う
 		CoordinateDAO cDao = new CoordinateDAO();
 		List<Coordinate> CoordinateList = cDao.CoordinateSearch(new Coordinate("", "", "", "", ""));
