@@ -25,8 +25,8 @@ public class CoordinateItemDAO {
     			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/CCC", "sa", "ccc");
 
     			// SQL文を準備(検索）
-    			String sql = "select category,brand,item_image,item_id,size,remarks,day "
-    					+ "from item where  category= ? and brand = ? and item_id = ? and flag != Delete and user_id = ?";
+    			String sql = "select category,brand,item_image,item_id,size,remarks,day,flag "
+    					+ "from item where  category like ? and brand like ? and item_id like ? and flag != 'Delete' and user_id like ?";
     			PreparedStatement pStmt = conn.prepareStatement(sql);
 
     			// SQL文を完成させる
