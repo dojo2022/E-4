@@ -158,8 +158,7 @@ main{
 	margin: 0 auto;
 
 	display: flex;
-	flex-flow: row wrap;
-	align-content: flex-start;
+	flex-flow: column;
 	min-height: 100vh;
 }
 
