@@ -29,10 +29,10 @@ public class CoordinateDAO{
 			// SELECT文を準備する
 			String sql ="select COORDINATE.USER_ID, COORDINATE.COORDINATE_ID, COORDINATE.SEASON, COORDINATE.PURPOSE, COORDINATE.COORDINATE_IMAGE, DAY "
 					+ "FROM ((COORDINATE left outer join USED_ITEM on COORDINATE.COORDINATE_ID = USED_ITEM.COORDINATE_ID) left outer join ITEM on USED_ITEM.ITEM_ID = ITEM.ITEM_ID) "
-					+ "where SEASON = ? and PURPOSE = bussines and DATE < DATE_SUB(CAST(GETDATE() as date), INTERVAL 3 DAY) ORDER BY RAND() LIMIT 3 ";
+					+ "where SEASON = ? and PURPOSE = bussines and DAY < DATE_SUB(CAST(GETDATE() as date), INTERVAL 3 DAY) ORDER BY RAND() LIMIT 3 ";
 			String sql2 ="select COORDINATE.USER_ID, COORDINATE.COORDINATE_ID, COORDINATE.SEASON, COORDINATE.PURPOSE, COORDINATE.COORDINATE_IMAGE, DAY "
 					+ "FROM ((COORDINATE left outer join USED_ITEM on COORDINATE.COORDINATE_ID = USED_ITEM.COORDINATE_ID) left outer join ITEM on USED_ITEM.ITEM_ID = ITEM.ITEM_ID) "
-					+ "where SEASON = ? and PURPOSE = private and DATE < DATE_SUB(CAST(GETDATE() as date), INTERVAL 3 DAY) ORDER BY RAND() LIMIT 3 ";
+					+ "where SEASON = ? and PURPOSE = private and DAY < DATE_SUB(CAST(GETDATE() as date), INTERVAL 3 DAY) ORDER BY RAND() LIMIT 3 ";
 			//SQLで日付取得
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			PreparedStatement pStmt2 = conn.prepareStatement(sql2);
@@ -47,14 +47,14 @@ public class CoordinateDAO{
 				pStmt2.setString(1, "%");
 			}
 
-			if(param.getDay() != null) {
+			/*if(param.getDay() != null) {
 				pStmt.setString(2,param.getDay());
 				pStmt2.setString(2,param.getDay());
 			}
 			else {
 				pStmt.setString(2, "%");
 				pStmt2.setString(2, "%");
-			}
+			}*/
 
 
 			/*
