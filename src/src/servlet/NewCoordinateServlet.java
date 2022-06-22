@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.CoordinateDAO;
+import dao.CoordinateItemDAO;
 import dao.UsedItemDAO;
+import model.CoordinateItemModel;
 import model.CoordinateModel;
 import model.UsedItemModel;
 
@@ -27,6 +30,14 @@ public class NewCoordinateServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		//アイテムを全件取得
+		CoordinateItemDAO itemdao = new CoordinateItemDAO();
+		List <CoordinateItemModel> modelList = itemdao.select (new CoordinateItemModel("","","","","","","","",""));
+
+		//リクエストスコープに格納する
+		request.setAttribute("modelList",modelList);
+
+		//jspにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/NewCoordinate.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -71,4 +82,4 @@ public class NewCoordinateServlet extends HttpServlet {
 
 
 	}
-}
+}
