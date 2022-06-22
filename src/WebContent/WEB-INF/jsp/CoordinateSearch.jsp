@@ -30,6 +30,6 @@
 				</table>
 			</form>
 		</div>
-		<label for="search_input" class="container"><span>検索</span></label>
+		<label for="search_input"><span id="container">検索</span></label>
 	</main>
 <%@ include file="/WEB-INF/jsp/Footer.jsp" %>

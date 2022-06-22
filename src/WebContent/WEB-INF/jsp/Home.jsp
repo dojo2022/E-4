@@ -5,7 +5,7 @@
     <title>CCC｜ホーム</title>
       <link rel="stylesheet" href="././css/Home.css">
 
-		<c:forEach var="e" items="${coordinateList}">
+		<c:forEach var="e" items="${cModel}">
 			<a href="/CCC/CoordinateDetailServlet?q=${e.coordinate_id}"><img src="${e.coordinate_image}"></a>
 		</c:forEach>
 

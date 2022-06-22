@@ -54,7 +54,7 @@
 		        	<div id="allitemimage"><!-- 画像一覧表示枠 -->
 						<table>
 							<tbody>
-								<c:forEach var="e" items="${ItemList}">
+								<c:forEach var="e" items="${modelList}">
 									<td>
 										<img src="${e.item_image}">
 									</td>
