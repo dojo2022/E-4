@@ -10,7 +10,7 @@ import java.util.List;
 
 import model.CoordinateItemModel;
 import model.DeleteFlagModel;
-import model.UsedItemModel;
+
 
 public class CoordinateItemDAO {
 
