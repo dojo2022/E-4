@@ -13,8 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import dao.CoordinateDAO;
 import dao.CoordinateItemDAO;
 import dao.UsedItemDAO;
+import model.CoordinateInsertModel;
 import model.CoordinateItemModel;
-import model.CoordinateModel;
 import model.UsedItemModel;
 
 /**
@@ -59,7 +59,7 @@ public class NewCoordinateServlet extends HttpServlet {
 
 		// 登録処理を行う
 		CoordinateDAO bDao = new CoordinateDAO();
-		if (bDao.insert(new CoordinateModel(user_id, coordinate_id, season, purpose, coordinate_image, "", "", "", "", "", "", "", ""))) {	// 登録成功
+		if (bDao.insert(new CoordinateInsertModel(user_id, coordinate_id, season, purpose, coordinate_image, "", "", "", "", "", "", "", ""))) {	// 登録成功
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/NewCoordinateSuccess.jsp");
 			dispatcher.forward(request, response);
 		}
