@@ -48,3 +48,8 @@ a:hover {
 	color: black;
 	font-size: 12px
 }
+
+#error_message {
+	color: red;
+	font-size: 15px;
+}
