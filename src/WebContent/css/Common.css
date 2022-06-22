@@ -45,23 +45,28 @@
 
   /* メニューのデザイン*/
  .nav_content {
-    width: 100%;
+    width: 50%;
     height: 100%;
     position: fixed;
     top: 0;
-    left: 100vw; /* メニューを画面の外に飛ばす (―をなくした)*/
+    right: 0;
+    /*left: 100vw; /* メニューを画面の外に飛ばす (―をなくした)*/
     z-index: 99;
     background: #000;
-    transition: .5s;
+    transition:.7s;
     font-size: 40px;
 
-	background: rgb(110, 110, 110);/*追加*/
+    /*background-position:right right;                     /* 画像の表示位置を指定  */
+   /* background-size:50%*/;
+
+    transform: translateX(110%);
+
 	padding-top: 20px;
   }
 /*ハンバーガーメニューの間隔*/
 li {
 	margin-bottom:30px;
-	margin-right: 10px;
+	margin-right: 20px;
 	text-align: right;
 	opacity: 1.0;
 }
@@ -99,10 +104,10 @@ li {
 
   /* アイコンがクリックされたらメニューを表示 */
   #drawer_input:checked ~ .nav_content {
-	/*-webkit-transform: translateX(30vw);
-	        transform: translateX(30vw) 二行無効化とleft追加;*/
+	webkit-transform:translateX(50vw);
+	       transform: translateX(50vw);
 
-	      left: 0;/* メニューを画面に入れる */
+	      left:0;/* メニューを画面に入れる */
   }
 
 /*全体に適用*/
@@ -159,6 +164,7 @@ main{
 
 	display: flex;
 	flex-flow: column;
+	/*align-content: flex-start;*/
 	min-height: 100vh;
 }
 
