@@ -17,7 +17,7 @@
 	top: 50%;
 }
 
-#container {
+.search {
 	background-color: #ffb6c1;
 	width: 50px;
 	height: 50px;
@@ -26,6 +26,9 @@
 	justify-content: center;
 	border-radius: 50%;
 	z-index: 97;
+	position: fixed;
+	bottom: 50px;
+	right: 50px;
 }
 
 .btn {
@@ -48,4 +51,21 @@
 
 .search_submit:hover {
 	box-shadow: 0 0 10px rgba(0,0,0,0);
+}
+
+main img {
+	width:200px;
+	height:200px;
+}
+.searchmemu{
+	margin: 0 auto;
+	display: flex;
+	flex-flow: row wrap;
+	align-content: flex-start;
+	justify-content: space-between;
+
+}
+.searchitems{
+	border: 1px solid #333;
+
 }
