@@ -9,10 +9,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.CoordinateItemDAO;
 import model.CoordinateItemModel;
 import model.DeleteFlagModel;
+import model.LoginUser;
 
 /**
  * Servlet implementation class ItemDetailServlet
@@ -27,9 +29,15 @@ public class ItemDetailServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         String item_id = request.getParameter("q");
+
+		HttpSession session = request.getSession();
+
+		LoginUser user = (LoginUser)session.getAttribute("user_id");
+		String user_id = user.getUser_id();
+
         // 検索処理を行う
         CoordinateItemDAO itemDao = new CoordinateItemDAO();
-        List<CoordinateItemModel> itemList = itemDao.select(new CoordinateItemModel("", item_id,  "",  "",  "",  "",  "",  "",  ""));
+        List<CoordinateItemModel> itemList = itemDao.select(new CoordinateItemModel(user_id, item_id,  "",  "",  "",  "",  "",  "",  ""));
         // 検索結果をリクエストスコープに格納する
         request.setAttribute("itemList", itemList);
         // 結果ページにフォワードする
