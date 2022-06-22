@@ -9,9 +9,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.CoordinateItemDAO;
 import model.CoordinateItemModel;
+import model.LoginUser;
 
 /**
  * Servlet implementation class ItemDetailServlet
@@ -25,9 +27,15 @@ public class ItemListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		HttpSession session = request.getSession();
+
+		LoginUser user = (LoginUser)session.getAttribute("user_id");
+		String user_id = user.getUser_id();
+
+
 		//検索処理を行う
 		CoordinateItemDAO itemDao = new CoordinateItemDAO();
-		List<CoordinateItemModel> ModelList = itemDao.select(new CoordinateItemModel("","","","","","","","",""));
+		List<CoordinateItemModel> ModelList = itemDao.select(new CoordinateItemModel(user_id,"","","","","","","",""));
 
 		//検索結果をリクエストスコープに格納する
 		request.setAttribute("ModelList", ModelList);
@@ -45,9 +53,14 @@ public class ItemListServlet extends HttpServlet {
 		String category =request.getParameter("search_category");
 		String brand =request.getParameter("search_brand");
 
+		HttpSession session = request.getSession();
+
+		LoginUser user = (LoginUser)session.getAttribute("user_id");
+		String user_id = user.getUser_id();
+
 		//検索処理を行う
 		CoordinateItemDAO itemDao = new CoordinateItemDAO();
-		List<CoordinateItemModel> CoordinateItemList = itemDao.select(new CoordinateItemModel("","","",category,brand,"","","",""));
+		List<CoordinateItemModel> CoordinateItemList = itemDao.select(new CoordinateItemModel(user_id,"","",category,brand,"","","",""));
 
 		//検索結果をリクエストスコープに格納する
 		request.setAttribute("CoordinateItemList", CoordinateItemList);
