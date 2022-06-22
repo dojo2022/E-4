@@ -58,6 +58,8 @@ public class CoordinateListServlet extends HttpServlet {
 		// 検索処理を行う
 		CoordinateDAO cDao = new CoordinateDAO();
 		List<Coordinate> CoordinateList = cDao.CoordinateSearch(new Coordinate(user_id, "", season, purpose, ""));
+
+		//タグをArrayListに格納
 		List<String> tagList = new ArrayList<String>();
 		tagList.add(season);
 		tagList.add(purpose);

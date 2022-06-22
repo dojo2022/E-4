@@ -13,8 +13,8 @@ String brand = (String)request.getAttribute("search_brand");
 
         <h1 class="Title_Result">Results</h1>
 
-     <c:forEach var="tag" items="${tag_list}">
-      <p class="search_tag"><%=category %></p>
+     <c:forEach var="tag" items="${iTagList}">
+      <p class="search_tag"><c:out value="${tag}"></c:out></p>
     </c:forEach>
 
     <h1>アイテム画像</h1>
