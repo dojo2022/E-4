@@ -7,7 +7,7 @@
 			<h50>Oops！</h50>
 			<p><h30>登録に失敗しました</h30></p>
 			<div class="buttonBack">
-			<button onclick="location.href='./NewUserServlet'">Back to Login</button>
+			<button onclick="location.href='./NewUserServlet'">Back to Sign up</button>
 	    	</div>
 	    </main>
 
