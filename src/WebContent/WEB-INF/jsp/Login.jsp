@@ -12,7 +12,7 @@
                     <tr><td class="data">Password</td><td><input class = "box" type="password" name="password"></td></tr>
                   <tr>
                     <td colspan="2">
-                      <input type="submit" name="submit" value="Login">
+                      <input type="submit" name="submit" value="Login"><br>
                       <span id="error_message"></span>
                     <td>
                   </tr>
@@ -23,5 +23,6 @@
             <a class="newuser" href = "/CCC/NewUserServlet">新規登録</a>
 			</div>
         </main>
+        <script src = "././js/Login.js"></script>
 
 <%@ include file="/WEB-INF/jsp/Footer.jsp" %>
