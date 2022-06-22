@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -62,8 +63,15 @@ public class ItemListServlet extends HttpServlet {
 		CoordinateItemDAO itemDao = new CoordinateItemDAO();
 		List<CoordinateItemModel> CoordinateItemList = itemDao.select(new CoordinateItemModel(user_id,"","",category,brand,"","","",""));
 
+		//タグをArrayListに格納
+		List<String> iTagList = new ArrayList<>();
+	    iTagList.add(category);
+	    iTagList.add(brand);
+
 		//検索結果をリクエストスコープに格納する
 		request.setAttribute("CoordinateItemList", CoordinateItemList);
+
+		request.setAttribute("iTagList", iTagList);
 
 		//結果ページにフォワードする
 		RequestDispatcher dispatcher =request.getRequestDispatcher("/WEB-INF/jsp/ItemResult.jsp");

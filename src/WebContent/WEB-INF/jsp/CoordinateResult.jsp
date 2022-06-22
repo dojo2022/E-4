@@ -7,13 +7,12 @@
         <main>
     　　<h1 class="Title_Result">Results</h1>
     <p id="search_content">
-     <c:forEach var="tag" items="${CoordinateItemList}">
+     <c:forEach var="tag" items="${tag_list}">
+     <p><c:out value="${tag}" /></p>
     </c:forEach>
     </p>
     <h1>コーディネート画像</h1>
-    <c:forEach var="c" items="${}">
-			<a href="/CCC/CoordinateDetailServlet?q=${e.coordinate_id}"><img src="${e.coordinate_image}"></a>
-		</c:forEach>
+
     <%--
      <table border="1" style="border-collapse: collapse">
       <c:forEach items="${ requestScope.imgtableList }" var="item">
