@@ -11,23 +11,33 @@
 	                    <tr>
 	                      <td>
 	                        <label>ID<br>
-	                        <input class = "box" type="text" name="user_id">
+	                        <input id = "box" type="text" name="user_id">
 	                        </label>
 	                      </td>
 	                    </tr>
 	                    <tr>
 	                      <td>
-	                        <label>Password<br>
-	                        <input class = "box"  type="password" name="password"><br>
-	                        <input class = "box"  type="password" name="password" placeholder="確認のため再入力してください">
+	                        <label for = "pass1">Password<br>
+	                        <input class = "form-control" type="password" name="password" id = "password"><br>
+	                        <!--<input class = "box"  type="password" name="password" placeholder="確認のため再入力してください">-->
 	                        </label>
 	                      </td>
 	                    </tr>
+
+	                    <tr>
+	                    	<td>
+								<label for = "pass2">
+	                    		<input class = "form-control" type="password" name="password" oninput="CheckPassword(this)" placeholder="確認のため再入力してください">
+	                    		</label>
+	                    	</td>
+	                    </tr>
 	                      <tr><td class = "button" colspan="2">
 	                        <input type="submit" name="submit" value="sign up">
+                            <span id="error_message"></span>
 	                    </td>
 	                </tr>
 	            </table>
 	        </form>
         </main>
+        <script src = "././js/NewUser.js"></script>
 <%@ include file="/WEB-INF/jsp/Footer.jsp" %>
