@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -57,9 +58,13 @@ public class CoordinateListServlet extends HttpServlet {
 		// 検索処理を行う
 		CoordinateDAO cDao = new CoordinateDAO();
 		List<Coordinate> CoordinateList = cDao.CoordinateSearch(new Coordinate(user_id, "", season, purpose, ""));
+		List<String> tagList = new ArrayList<String>();
+		tagList.add(season);
+		tagList.add(purpose);
 
 		// 検索結果をリクエストスコープに格納する
 		request.setAttribute("CoordinateList", CoordinateList);
+		request.setAttribute("tag_list", tagList);
 
 		// 結果ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/CoordinateResult.jsp");

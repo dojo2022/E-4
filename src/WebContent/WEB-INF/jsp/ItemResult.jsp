@@ -13,7 +13,7 @@ String brand = (String)request.getAttribute("search_brand");
 
         <h1 class="Title_Result">Results</h1>
 
-     <c:forEach var="tag" items="${ciModel}">
+     <c:forEach var="tag" items="${tag_list}">
       <p class="search_tag"><%=category %></p>
     </c:forEach>
 
