@@ -59,7 +59,7 @@ public class NewCoordinateServlet extends HttpServlet {
 
 		// 登録処理を行う
 		CoordinateDAO bDao = new CoordinateDAO();
-		if (bDao.insert(new CoordinateInsertModel(user_id, coordinate_id, season, purpose, coordinate_image, "", "", "", "", "", "", "", ""))) {	// 登録成功
+		if (bDao.insert(new CoordinateInsertModel(user_id, coordinate_id, season, purpose, coordinate_image))) {	// 登録成功
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/NewCoordinateSuccess.jsp");
 			dispatcher.forward(request, response);
 		}
@@ -69,7 +69,7 @@ public class NewCoordinateServlet extends HttpServlet {
 		}
 
 		UsedItemDAO iDao = new UsedItemDAO();
-		if (iDao.insert(new UsedItemModel(user_id, item_id, coordinate_id))) {	// 登録成功
+		if (iDao.insertId(new List<UsedItemModel>(user_id, item_id, coordinate_id))) {	// 登録成功
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/NewCoordinateSuccess.jsp");
 			dispatcher.forward(request, response);
 		}
