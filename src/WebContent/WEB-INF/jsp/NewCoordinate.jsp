@@ -7,19 +7,24 @@
     <main>
         <div>
             <!-- fromの始まり -->
-            <form action="test.html" method="post" enctype="multipart/form-data" >
+            <form action="NewCoordinateServlet" method="post" enctype="multipart/form-data" >
 	            <!--fileのupload-->
 	            <div>
 	                <input type="file" id="coordinate_upload">
 	            </div>
 	            <!--選択された画像の表示枠-->
 	            <div id="imageplace">
-	            	<img id="uploadimage">
+	            	<img id="uploadimage" src="././image/白.jpg">
 				</div>
 				<div id="uploadbutton">
 					<label class="label" id="upbtn">upload
 	                	<input type="file" id="item_upload" onchange="upimage(this)">
 	                </label>
+	            </div>
+	            <div>
+	            	<div id ="imageError">
+	            		<p id = error2>test</p>
+	            	</div>
 	            </div>
 	            <!--破線-->
 	            <hr id="line">
@@ -48,7 +53,7 @@
 
 		            	<!--コーディネート登録ボタン-->
 		            	<div id="coordinate_add">
-		                	<input type="submit" id="coordinate_add" value="register">
+		                	<input type="submit" onclick="imageError()" id="coordinate_add" value="register">
 		            	</div>
 					</div>
 		        	<div id="allitemimage"><!-- 画像一覧表示枠 -->
@@ -68,5 +73,5 @@
 
     </main>
 
-
+<script src ="././js/NewCoordinate.js"></script>
 <%@ include file="/WEB-INF/jsp/Footer.jsp" %>
