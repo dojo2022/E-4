@@ -28,6 +28,10 @@ public class CoordinateListServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		HttpSession session = request.getSession();
+		if (session.getAttribute("user_id") == null) {
+			response.sendRedirect("/CCC/LoginServlet");
+			return;
+		}
 
 		LoginUser user = (LoginUser)session.getAttribute("user_id");
 		String user_id = user.getUser_id();
