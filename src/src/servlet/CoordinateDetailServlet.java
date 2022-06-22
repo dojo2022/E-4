@@ -9,10 +9,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.CoordinateDAO;
 import model.CoordinateInsertModel;
 import model.CoordinateModel;
+import model.LoginUser;
 
 /**
  * Servlet implementation class CoordinateDetailServlet
@@ -27,9 +29,15 @@ public class CoordinateDetailServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         String coordinate_id = request.getParameter("q");
+
+		HttpSession session = request.getSession();
+
+		LoginUser user = (LoginUser)session.getAttribute("user_id");
+		String user_id = user.getUser_id();
+
         // 検索処理を行う
         CoordinateDAO cDao = new CoordinateDAO();
-        List<CoordinateModel> CoordinateList = cDao.search(new CoordinateModel("", coordinate_id, "", "", "", "", "", "", "", "", "", "", ""));//コーディネートの画像のみ
+        List<CoordinateModel> CoordinateList = cDao.search(new CoordinateModel(user_id, coordinate_id, "", "", "", "", "", "", "", "", "", "", ""));//コーディネートの画像のみ
         // 検索結果をリクエストスコープに格納する
         request.setAttribute("CoordinateList", CoordinateList);
 
