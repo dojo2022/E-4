@@ -4,8 +4,9 @@
 <link rel="stylesheet" href="././css/CoordinateSearch.css">
 <title>CCC｜コーディネート検索</title>
 	<main>
+	<div class = searchmemu>
 		<c:forEach var="e" items="${CoordinateList}">
-			<a href="/CCC/CoordinateDetailServlet?q=${e.coordinate_id}"><img src="${e.coordinate_image}"></a>
+			<a href="/CCC/CoordinateDetailServlet?q=${e.coordinate_id}"><img src="${e.coordinate_image}" class= "searchitems"></a>
 		</c:forEach>
 		<input id="search_input" class="search_hidden" type="checkbox">
 		<div class="search_content">
@@ -30,6 +31,7 @@
 				</table>
 			</form>
 		</div>
-		<label for="search_input"><span id="container">検索</span></label>
+		<label for="search_input"><span class="search">検索</span></label>
+		</div>
 	</main>
 <%@ include file="/WEB-INF/jsp/Footer.jsp" %>
