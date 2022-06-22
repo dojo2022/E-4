@@ -10,6 +10,7 @@ import java.util.List;
 
 import model.CoordinateItemModel;
 import model.DeleteFlagModel;
+import model.UsedItemModel;
 
 public class CoordinateItemDAO {
 
@@ -360,7 +361,7 @@ public class CoordinateItemDAO {
 
      	//着用日付の更新
 
-    	public boolean updateDate(CoordinateItemModel card) {
+    	public boolean updateDate(List<CoordinateItemModel> card) {
 			Connection conn = null;
 			boolean result = false;
 
@@ -373,20 +374,22 @@ public class CoordinateItemDAO {
 
 
 				// SQL文を準備する
-			String sql = "update item set date=CAST(GETDATE() as date where user_id=?,item_id=?";
+				//ここからループ
+				for(CoordinateItemModel param:card) {
+				String sql = "update item set date=CAST(GETDATE() as date where user_id=?,item_id=?";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 
 				//SQL文を完成させる
-				if (card.getUser_id() != null && !card.getUser_id().equals("")) {
-					pStmt.setString(1, card.getUser_id());
+				if (param.getUser_id() != null && !param.getUser_id().equals("")) {
+					pStmt.setString(1, param.getUser_id());
 				}
 				else {
 					pStmt.setString(1, null);
 
 				}
-				if (card.getItem_id() != null && !card.getItem_id().equals("")) {
-					pStmt.setString(2, card.getItem_id());
+				if (param.getItem_id() != null && !param.getItem_id().equals("")) {
+					pStmt.setString(2, param.getItem_id());
 				}
 				else {
 					pStmt.setString(2, null);
@@ -395,6 +398,7 @@ public class CoordinateItemDAO {
 				// SQL文を実行する()
 				if (pStmt.executeUpdate() == 1) {
 					result = true;
+				}
 				}
 			}
 			catch (SQLException e) {
