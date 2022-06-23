@@ -11,8 +11,6 @@
 	z-index: 97;
 	background: #fff;
 	transition: .3s;
-	display: block;
-
 }
 
 #search_input:checked ~ .search_content {
@@ -41,15 +39,22 @@
 	border-radius: 50%;
 	display: flex;
 	justify-content: center;
+	position: absolute;
+	top: 10px;
+	right:-15px;
 }
 
 .search_submit {
 	color: #333;
+	width: 40px;
 	background: lightgray;
 	transition: .4s;
 	border: none;
 	color: white;
 	box-shadow: 7px 7px 7px rgba(0,0,0,0.6);
+	position: absolute;
+	top: 290px;
+	right:20px;
 }
 
 .search_submit:hover {
@@ -57,11 +62,12 @@
 }
 
 #ItemSearch{
-	margin: 0 200px;
+	margin: 0;
 	display: flex;
 	flex-flow: column;
 	text-align: center;
 	justify-content: space-around;
+	border: 1px solid #C0C0C0;
 }
 main img {
 	width:200px;
@@ -77,4 +83,35 @@ main img {
 .searchlist{
 	border: 1px solid #333;
 	margin: 2px 5px;
+}
+.searchitems{
+	border-bottom: 1px dashed #C0C0C0;
+}
+
+td label{
+	margin: 0 25px;
+}
+#searchtop{
+	height: 70px;
+}
+#searchtext{
+	height: 70px;
+}
+.searchtitle{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	color: white;
+	background: #333;
+	font-size:25px;
+	width:300px;
+}
+.category{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	color: white;
+	background: #333;
+	font-size:1em;
+	width:300px;
 }
