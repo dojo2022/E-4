@@ -114,6 +114,8 @@ li {
 * {
   font-family: 'Alegreya Sans SC', sans-serif;;
   text-decoration:none;
+  padding: 0;
+  margin: 0;
 }
 /*ロゴの位置を真ん中に指定*/
 .logo {

@@ -26,11 +26,13 @@
 	                        </label>
 	                      </td>
 	                    </tr>
-	                      <tr><td class = "button" colspan="2">
+	            </table>
+	            	<div class = "login"><tr><td class = "button" colspan="2">
 	                        <input type="submit" name="submit" value="sign up">
 	                    </td>
 	                </tr>
-	            </table>
+	                </div>
+
 	            <div class="warning">
 	            <span id = "warning">
 	            </span>
