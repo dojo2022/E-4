@@ -10,13 +10,15 @@
                 <table>
                     <tr><td class="data">ID</td><td><input class = "box" type="text" name="user_id"></td></tr>
                     <tr><td class="data">Password</td><td><input class = "box" type="password" name="password"></td></tr>
+                </table>
+                <div class = "login2">
                   <tr>
                     <td colspan="2">
                       <input type="submit" name="submit" value="Login"><br>
                       <span id="error_message"></span>
                     <td>
                   </tr>
-                </table>
+				</div>
               </form>
 			<p class = "line"></p>
             <div class = "href">

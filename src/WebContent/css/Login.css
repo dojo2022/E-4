@@ -10,11 +10,17 @@ main {
 	font-size: 20px
 }
 
+.login2 {
+	padding-left: 420px;
+	margin-bottom: 50px;
+}
+
 table {
 	text-align: right;
 	padding-right: 55px;
 	margin: auto;
 	margin-bottom: 35px;
+	margin-top: 30px;
 }
 
 .box {
@@ -38,6 +44,7 @@ table {
 .href {
 	text-align: center;
 	text-decoration: underline;
+	padding-top: 15px;
 }
 
 a:hover {

@@ -18,11 +18,12 @@
 
 }
 .switch__content {
+	border: 2px solid #333;
     display: block;
     cursor: pointer;
     position: relative;
     border-radius: 30px;
-    height: 31px;
+    height: 27px;
     overflow: hidden;
 }
 .switch__content:before {
@@ -67,7 +68,7 @@
     height: 27px;
     -webkit-border-radius: 20px;
             border-radius: 20px;
-    background-color: #fff;
+    background-color: black;
     -webkit-transition: all .5s;
        -moz-transition: all .5s;
         -ms-transition: all .5s;
