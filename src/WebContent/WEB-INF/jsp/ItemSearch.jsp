@@ -14,7 +14,7 @@
 			<form id="ItemSearch" method="POST" action="/CCC/ItemListServlet">
 				<table>
 					<tr>
-						<td><p>SEARCH ITEMS</p></td>
+						<td><p class="searchtitle">SEARCH ITEMS</p></td>
 						<td><label for="search_input" class="btn"><span>×</span></label></td>
 					</tr>
 					<tr>
