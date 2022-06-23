@@ -57,13 +57,22 @@
 		            	</div>
 					</div>
 		        	<div id="allitemimage"><!-- 画像一覧表示枠 -->
+		        	<c:set var="cnt" value="0"/>
 						<table>
 							<tbody>
 								<c:forEach var="e" items="${modelList}">
-									<td>
-										<img src="${e.item_image}">
-									</td>
-								</c:forEach>
+ 									<c:if test="${cnt%3==0}">
+										<tr>
+									</c:if>
+										<td>
+											<img src="${e.item_image}">
+										</td>
+
+									<c:set var="cnt" value="${cnt+1}"/>
+									<c:if test="${cnt%3==0}">
+										</tr>
+									</c:if>
+									</c:forEach>
     						</tbody>
 						</table>
 		        	</div>
