@@ -13,6 +13,10 @@
     </p>
     <h1>コーディネート画像</h1>
 
+    <c:forEach var="li" items="${cImgList}">
+    <a id="coordinate_img" href="/CCC/CoordinateDetailServlet?q=${e.item_id}"><img src="${li}"></a>
+		</c:forEach>
+
     <%--
      <table border="1" style="border-collapse: collapse">
       <c:forEach items="${ requestScope.imgtableList }" var="item">
