@@ -39,9 +39,11 @@ table {
 .button {
 	text-align: right;
 }
-
+.login {
+	padding-left: 420px;
+}
 #warning {
 	color: red;
-	padding-left: 225px;
+	padding-left: 240px;
 	font-size: 15px
 }
