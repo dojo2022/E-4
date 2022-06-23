@@ -42,6 +42,7 @@
 				</table>
 			</form>
 		</div>
-		<label for="search_input"><span  class="search"></span></label>
+		<label for="search_input"><span  class="search" id="searchBtn"></span></label>
 	</main>
+
 <%@ include file="/WEB-INF/jsp/Footer.jsp" %>
