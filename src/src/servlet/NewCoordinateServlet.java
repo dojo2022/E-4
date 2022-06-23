@@ -46,6 +46,7 @@ public class NewCoordinateServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 
+	@SuppressWarnings("unchecked")
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
 		//登録情報の取得
@@ -69,7 +70,7 @@ public class NewCoordinateServlet extends HttpServlet {
 		}
 
 		UsedItemDAO iDao = new UsedItemDAO();
-		if (iDao.insertId(new List<UsedItemModel>(user_id, item_id, coordinate_id))) {	// 登録成功
+		if (iDao.insertId((List<UsedItemModel>) new UsedItemModel(user_id, item_id, coordinate_id))) {	// 登録成功
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/NewCoordinateSuccess.jsp");
 			dispatcher.forward(request, response);
 		}
