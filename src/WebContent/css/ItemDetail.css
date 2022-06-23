@@ -1,1 +1,21 @@
 @charset "UTF-8";
+
+
+.item_place {
+    width: 200px;
+    height: 200px;
+}
+
+#item_image {
+    text-align: center;
+}
+
+div p {
+
+  display: inline-block;
+
+}
+
+.categorybox {
+	text-align: center;
+}
