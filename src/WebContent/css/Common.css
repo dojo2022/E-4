@@ -107,7 +107,7 @@ li {
 	webkit-transform:translateX(50vw);
 	       transform: translateX(50vw);
 
-	      left:0;/* メニューを画面に入れる */
+	      right: 50%;
   }
 
 /*全体に適用*/

@@ -1,1 +1,10 @@
 @charset "UTF-8";
+
+#coordinateImage {
+    width: 200px;
+    height: 200px;
+}
+
+#coordinateImage {
+    text-align: center;
+}
