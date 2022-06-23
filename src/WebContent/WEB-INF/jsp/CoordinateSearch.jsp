@@ -14,8 +14,8 @@
 			<form id="CoordinateSearch" method="POST" action="/CCC/CoordinateListServlet">
 				<table>
 					<tr>
-						<td class="searchitems"><p>SEARCH COORDINATE</p></td>
-						<td><label for="search_input" class="btn"><span>×</span></label></td>
+						<td class="searchitems"><p class="searchtitle">SEARCH COORDINATE</p>
+						<label for="search_input" class="btn"><span>×</span></label></td>
 					</tr>
 					<tr>
 						<td class="searchitems"><label><input type="radio" name="search_purpose" value="兼用" checked>兼用</label>
@@ -23,11 +23,11 @@
 						<label><input type="radio" name="search_purpose" value="プライベート">プライベート</label></td>
 					</tr>
 					<tr>
-						<td class="searchitems"><label><input type="checkbox" name="search_season" value="春">春</label>
+						<td><label><input type="checkbox" name="search_season" value="春">春</label>
 						<label><input type="checkbox" name="search_season" value="夏">夏</label>
 						<label><input type="checkbox" name="search_season" value="秋">秋</label>
-						<label><input type="checkbox" name="search_season" value="冬">冬</label></td>
-						<td><input type="submit" name="search" value="GO" class="search_submit"></td>
+						<label><input type="checkbox" name="search_season" value="冬">冬</label>
+						<input type="submit" name="search" value="GO" class="search_submit"></td>
 					</tr>
 				</table>
 			</form>
