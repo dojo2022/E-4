@@ -14,7 +14,6 @@ import javax.servlet.http.HttpSession;
 
 import dao.CoordinateDAO;
 import model.Coordinate;
-import model.CoordinateModel;
 import model.LoginUser;
 
 /**
@@ -62,8 +61,8 @@ public class CoordinateListServlet extends HttpServlet {
 		LoginUser user = (LoginUser)session.getAttribute("user_id");
 		String user_id = user.getUser_id();
 
-		CoordinateModel coordinate = (CoordinateModel)session.getAttribute("coordinate_image");
-		String coordinate_image = coordinate.getCoordinate_image();
+		//CoordinateModel coordinate = (CoordinateModel)session.getAttribute("coordinate_image");
+		//String coordinate_image = coordinate.getCoordinate_image();
 
 		// 検索処理を行う
 		CoordinateDAO cDao = new CoordinateDAO();
@@ -71,18 +70,19 @@ public class CoordinateListServlet extends HttpServlet {
 
 		//タグをArrayListに格納
 		List<String> tagList = new ArrayList<String>();
-		List<String> cImgList = new ArrayList<String>();
+		//List<String> cImgList = new ArrayList<String>();
 		tagList.add(season);
 		tagList.add(purpose);
-		cImgList.add(coordinate_image);
+		//cImgList.add(coordinate_image);
 
 		// 検索結果をリクエストスコープに格納する
 		request.setAttribute("CoordinateList", CoordinateList);
 		request.setAttribute("tag_list", tagList);
-		request.setAttribute("cImgList", cImgList);
+		//request.setAttribute("cImgList", cImgList);
 
 		// 結果ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/CoordinateResult.jsp");
 		dispatcher.forward(request, response);
+
 	}
 }
