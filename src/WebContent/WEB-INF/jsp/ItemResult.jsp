@@ -6,7 +6,7 @@
 String category = (String)request.getAttribute("search_category");
 String brand = (String)request.getAttribute("search_brand");
 %>
-<link rel="stylesheet" href="././cssItemResult.css">
+<link rel="stylesheet" href="././css/ItemResult.css">
     <title>CCC｜検索結果</title>
 
         <main>
@@ -17,10 +17,10 @@ String brand = (String)request.getAttribute("search_brand");
       <p class="search_tag"><c:out value="${tag}"></c:out></p>
     </c:forEach>
 
-    <h1>アイテム画像</h1>
+    <h1 class="img_title">アイテム画像</h1>
 
-        <c:forEach var="i" items="${iImgList}">
-			<a id="item_img" href="/CCC/ItemDetailServlet?q=${e.item_id}"><img src="${i}"></a>
+        <c:forEach var="e" items="${CoordinateItemList}">
+			<a id="item_img" href="/CCC/ItemDetailServlet?q=${e.item_id}"><img src="${e.item_image}"></a>
 		</c:forEach>
 
 

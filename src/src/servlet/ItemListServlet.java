@@ -31,8 +31,8 @@ public class ItemListServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 
 		LoginUser user = (LoginUser)session.getAttribute("user_id");
-		String user_id = user.getUser_id();
-
+		//String user_id = user.getUser_id();
+		String user_id = "takahashi";
 
 		//検索処理を行う
 		CoordinateItemDAO itemDao = new CoordinateItemDAO();
@@ -57,10 +57,11 @@ public class ItemListServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 
 		LoginUser user = (LoginUser)session.getAttribute("user_id");
-		String user_id = user.getUser_id();
-
+		// String user_id = user.getUser_id();
+		String user_id = "takahashi";
+		
 		CoordinateItemModel itemModel = (CoordinateItemModel)session.getAttribute("item_image");
-		String item_image = itemModel.getItem_image();
+	/*	String item_image = itemModel.getItem_image();*/
 
 		//検索処理を行う
 		CoordinateItemDAO itemDao = new CoordinateItemDAO();
@@ -68,10 +69,8 @@ public class ItemListServlet extends HttpServlet {
 
 		//タグをArrayListに格納
 		List<String> iTagList = new ArrayList<>();
-		List<String> iImgList = new ArrayList<>();
 		iTagList.add(category);
 	    iTagList.add(brand);
-	    iImgList.add(item_image);
 
 		//検索結果をリクエストスコープに格納する
 		request.setAttribute("CoordinateItemList", CoordinateItemList);

@@ -5,27 +5,26 @@
     <title>CCC｜検索結果</title>
     <link rel="stylesheet" href="././css/CoordinateResult.css">
         <main>
-    　　<h1 class="Title_Result">Results</h1>
-    <p id="search_content">
+        
+        <div class="title">
+    　　<h2 class="Title_Result">Results</h2>
+    </div>
+    
      <c:forEach var="tag" items="${tag_list}">
-     <p><c:out value="${tag}" /></p>
+     <p id="search_content"><c:out value="${tag}" /></p>
     </c:forEach>
-    </p>
-    <h1>コーディネート画像</h1>
+    
+    <h2 class="img_title">コーディネート画像</h2>
 
     <c:forEach var="li" items="${cImgList}">
-    <a id="coordinate_img" href="/CCC/CoordinateDetailServlet?q=${e.item_id}"><img src="${li}"></a>
+    <table>
+    <tr>
+      <td>
+        <a id="coordinate_img" href="/CCC/CoordinateDetailServlet?q=${e.item_id}"><img src="${li}"></a>
+      </td>
+    </tr>
+    </table>
 		</c:forEach>
-
-    <%--
-     <table border="1" style="border-collapse: collapse">
-      <c:forEach items="${ requestScope.imgtableList }" var="item">
-       <tr>
-       <td><c:out value="${ imgtable.id }" /></td>
-       <td><c:out value="${ imgtable.faleName }" /></td>
-        <td><a href="#"><img style="width: 100px; height: 100px" src="getImage?id=${ imgtable.id }"></a></td>
-        </tr> </c:forEach> </table>
-        --%>
         </main>
 
 <%@ include file="/WEB-INF/jsp/Footer.jsp" %>
