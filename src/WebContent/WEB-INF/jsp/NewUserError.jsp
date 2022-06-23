@@ -4,7 +4,7 @@
 	<title>CCC｜エラー</title>
 	<link rel="stylesheet" type="text/css" href="././css/Error.css">
 		<main>
-			<h50>Oops！</h50>
+			<h50>Oops!</h50>
 			<p><h30>登録に失敗しました</h30></p>
 			<div class="buttonBack">
 			<button onclick="location.href='./NewUserServlet'">Back to Sign up</button>

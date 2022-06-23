@@ -19,8 +19,8 @@ String brand = (String)request.getAttribute("search_brand");
 
     <h1>アイテム画像</h1>
 
-        <c:forEach var="i" items="${ciModel}">
-			<a id="item_img" href="/CCC/ItemDetailServlet?q=${e.item_id}"><img src="${e.item_image}"></a>
+        <c:forEach var="i" items="${iImgList}">
+			<a id="item_img" href="/CCC/ItemDetailServlet?q=${e.item_id}"><img src="${i}"></a>
 		</c:forEach>
 
 
