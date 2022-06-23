@@ -46,10 +46,36 @@
 		                	<input type="radio" name="scene_select" value="private">プライベート<br>
 		                	<input type="radio" name="scene_select" value="combination" checked>兼用
 		            	</div>
-	            		<!--コーディネートアイテム追加ボタン-->
-	            		<div>
-	                		<input type="button" id="item_add" value="+">
-	            		</div>
+<!--
+コーディネートアイテム追加ボタン
+<div>
+<input type="button" id="item_add" value="+">
+</div>
+-->
+
+						<div>
+						<p>カテゴリー</p>
+						<label><input type="checkbox" name="search_category" value="tops">トップス</label>
+						<label><input type="checkbox" name="search_category" value="outer">アウター</label>
+						<label><input type="checkbox" name="search_category" value="pants">パンツ</label>
+						<label><input type="checkbox" name="search_category" value="skirt">スカート</label>
+						<label><input type="checkbox" name="search_category" value="onepiece">ワンピース</label>
+						<label><input type="checkbox" name="search_category" value="shoes">シューズ</label>
+						<label><input type="checkbox" name="search_category" value="accessories">小物</label>
+						</div>
+
+						<select name="search_brand">
+							<option value="">ブランド</option>
+							<c:forEach var="e" items="${ModelList}">
+								<option value="${e.brand}">${e.brand}</option>
+							</c:forEach>
+						</select>
+
+
+
+
+
+
 
 		            	<!--コーディネート登録ボタン-->
 		            	<div id="coordinate_add">
@@ -57,13 +83,22 @@
 		            	</div>
 					</div>
 		        	<div id="allitemimage"><!-- 画像一覧表示枠 -->
+		        	<c:set var="cnt" value="0"/>
 						<table>
 							<tbody>
 								<c:forEach var="e" items="${modelList}">
-									<td>
-										<img src="${e.item_image}">
-									</td>
-								</c:forEach>
+ 									<c:if test="${cnt%3==0}">
+										<tr>
+									</c:if>
+										<td>
+											<img src="${e.item_image}">
+										</td>
+
+									<c:set var="cnt" value="${cnt+1}"/>
+									<c:if test="${cnt%3==0}">
+										</tr>
+									</c:if>
+									</c:forEach>
     						</tbody>
 						</table>
 		        	</div>

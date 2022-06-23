@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ include file="/WEB-INF/jsp/Header.jsp" %>
+<%@ include file="/WEB-INF/jsp/Header_Home.jsp" %>
     <title>CCC｜ホーム</title>
       <link rel="stylesheet" href="././css/Home.css">
 
@@ -13,6 +13,6 @@
         <!--javascriptで触る？-->
         <main>
         <p id = "changeable">Business</p>
-        <p id = "changeable">Private</p>
+        <p id = "changeable">Casual</p>
         </main>
 <%@ include file="/WEB-INF/jsp/Footer.jsp" %>
