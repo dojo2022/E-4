@@ -42,7 +42,6 @@
 	position: absolute;
 	top: 10px;
 	right:-15px;
-
 }
 
 .search_submit {
@@ -106,5 +105,4 @@ td label{
 	background: #333;
 	font-size:2em;
 	width:300px;
-
 }
