@@ -1,1 +1,21 @@
 @charset "UTF-8";
+
+#search_content {
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	background-color: #5f9ea0;
+	display: flex;
+	color: white;
+}
+
+.Title_Result {
+	font-family: "Segoe Print";
+	text-align: center;
+	color: #2f4f4f;
+	
+}
+.title {
+	border-top: 3px solid black;
+	border-bottom: 3px solid black;
+}
