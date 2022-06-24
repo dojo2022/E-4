@@ -280,10 +280,34 @@ public class CoordinateItemDAO {
 
 
     					// SQL文を準備する
-    					String sql = "update item set item_id=?,item_image=?,category=?,brand=?,size=?,flag=?, remarks=?,date=? where user_id=?";
+    					String sql = "update item set brand='?',size='?' where user_id='?' and item_id = '?'";
     					PreparedStatement pStmt = conn.prepareStatement(sql);
 
     					// SQL文を完成させる
+    					if (card.getBrand() != null && !card.getBrand().equals("")) {
+    						pStmt.setString(1, card.getBrand());
+    					}
+    					else {
+    						pStmt.setString(1, null);
+    					}
+
+    					if (card.getSize() != null && !card.getSize().equals("")) {
+    						pStmt.setString(2, card.getSize());
+    					}
+    					else {
+    						pStmt.setString(2, null);
+    					}
+
+    					pStmt.setString(3, card.getUser_id());
+
+    					if (card.getItem_id() != null && !card.getItem_id().equals("")) {
+    						pStmt.setString(4, card.getItem_id());
+    					}
+    					else {
+    						pStmt.setString(4, null);
+    					}
+
+    					/*
     					if (card.getItem_id() != null && !card.getItem_id().equals("")) {
     						pStmt.setString(1, card.getItem_id());
     					}
@@ -333,6 +357,7 @@ public class CoordinateItemDAO {
     						pStmt.setString(8, null);
     					}
     					pStmt.setString(9, card.getUser_id());
+    					*/
 
     					// SQL文を実行する
     					if (pStmt.executeUpdate() == 1) {
