@@ -3,11 +3,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="/WEB-INF/jsp/Header.jsp" %>
 <link rel="stylesheet" href="././css/NewCoordinate.css">
+
 <title>CCC｜コーディネート登録</title>
     <main>
         <div>
             <!-- fromの始まり -->
-            <form action="NewCoordinateServlet" method="post" enctype="multipart/form-data" >
+            <form action="NewCoordinateServlet" method="post" enctype="multipart/form-data" name="coordinateregister">
 	            <!--fileのupload-->
 	            <div>
 	                <input type="file" id="coordinate_upload">
@@ -55,7 +56,7 @@
 
 						<div>
 						<p>カテゴリー</p>
-						<label><input type="checkbox" name="search_category" value="tops">トップス</label>
+						<label><input type="checkbox" name="search_category" value="tops" onchange="itemsearch()">トップス</label>
 						<label><input type="checkbox" name="search_category" value="outer">アウター</label>
 						<label><input type="checkbox" name="search_category" value="pants">パンツ</label>
 						<label><input type="checkbox" name="search_category" value="skirt">スカート</label>
@@ -64,7 +65,7 @@
 						<label><input type="checkbox" name="search_category" value="accessories">小物</label>
 						</div>
 
-						<select name="search_brand">
+						<select name="search_brand" onchange="itemsearch()">
 							<option value="">ブランド</option>
 							<c:forEach var="e" items="${ModelList}">
 								<option value="${e.brand}">${e.brand}</option>
@@ -84,14 +85,15 @@
 					</div>
 		        	<div id="allitemimage"><!-- 画像一覧表示枠 -->
 		        	<c:set var="cnt" value="0"/>
-						<table>
-							<tbody>
+						<table id = "searchimage">
+							<tbody id = "search-tbody">
 								<c:forEach var="e" items="${modelList}">
  									<c:if test="${cnt%3==0}">
 										<tr>
 									</c:if>
 										<td>
-											<img src="${e.item_image}">
+											<input type="hidden" value="${e.category}">
+											<img src="${e.item_image}" id = "itemimage">
 										</td>
 
 									<c:set var="cnt" value="${cnt+1}"/>
@@ -109,4 +111,5 @@
     </main>
 
 <script src ="././js/NewCoordinate.js"></script>
+<script src="././js/RealTimeSort.js"></script>
 <%@ include file="/WEB-INF/jsp/Footer.jsp" %>
