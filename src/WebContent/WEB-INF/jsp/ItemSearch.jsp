@@ -18,7 +18,7 @@
 						<label for="search_input" class="btn"><span>×</span></label></td>
 					</tr>
 					<tr>
-						<td class="searchitems" id= "searchtext"><input type="text" name="search_word"></td>
+						<td class="searchitems"><input type="text" name="search_word"></td>
 					</tr>
 					<tr>
 						<td class="searchitems"><p class="category">カテゴリー</p>
@@ -31,7 +31,7 @@
 						<label><input type="checkbox" name="search_category" value="accessories">小物</label></td>
 					</tr>
 					<tr>
-						<td id= "searchtop"><select name="search_brand">
+						<td><select name="search_brand">
 								<option value="">ブランド</option>
 								<c:forEach var="e" items="${ModelList}">
 									<option value="${e.brand}">${e.brand}</option>
@@ -44,5 +44,25 @@
 		</div>
 		<label for="search_input"><span  class="search" id="searchBtn"></span></label>
 	</main>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $(window).on("scroll", function() {
+        scrollHeight = $(document).height(); //ドキュメントの高さ
+        scrollPosition = $(window).height() + $(window).scrollTop(); //現在地
+        footHeight = $("footer").innerHeight(); //footerの高さ（＝止めたい位置）
+        if ( scrollHeight - scrollPosition <= footHeight ) { //ドキュメントの高さと現在地の差がfooterの高さ以下になったら
+            $("#searchBtn").css({
+                "position":"relative",
+                "bottom": footHeight + -60 + 'px'
+            });
+        } else { //それ以外の場合は
+            $("#searchBtn").css({
+                "position":"fixed", //固定表示
+                "bottom": "15px"
+            });
+        }
+    });
+});
+</script>
 <%@ include file="/WEB-INF/jsp/Footer.jsp" %>
