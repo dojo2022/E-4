@@ -11,13 +11,15 @@ String brand = (String)request.getAttribute("search_brand");
 
         <main>
 
+		<div class="title">
         <h1 class="Title_Result">Results</h1>
+        </div>
 
      <c:forEach var="tag" items="${iTagList}">
-      <p class="search_tag"><c:out value="${tag}"></c:out></p>
+      <p id="search_tag"><c:out value="${tag}"></c:out></p>
     </c:forEach>
 
-    <h1 class="img_title">アイテム画像</h1>
+    <h1 class="img_title">Item Image</h1>
 
         <c:forEach var="e" items="${CoordinateItemList}">
 			<a id="item_img" href="/CCC/ItemDetailServlet?q=${e.item_id}"><img src="${e.item_image}"></a>

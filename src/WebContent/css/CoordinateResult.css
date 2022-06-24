@@ -1,21 +1,37 @@
 @charset "UTF-8";
 
-#search_content {
-	height: 100%;
-	width: 100%;
-	position: fixed;
+#search_tag {
 	background-color: #5f9ea0;
 	display: flex;
 	color: white;
+	border: 1px 1px 1px 1px;
+	margin-top: 1em;
+
 }
 
 .Title_Result {
 	font-family: "Segoe Print";
 	text-align: center;
 	color: #2f4f4f;
-	
+
 }
 .title {
 	border-top: 3px solid black;
 	border-bottom: 3px solid black;
+}
+
+.img_title {
+	font-family: "Segoe Print";
+	color: #2f4f4f;
+}
+
+#coordinate_img {
+	width: 50px;
+	height: 50px;
+	margin-right: 50px;
+	display: flex;
+	justify-content: center;
+	border-radius: 50%;
+	z-index: 97;
+	flex-wrap:wrap
 }

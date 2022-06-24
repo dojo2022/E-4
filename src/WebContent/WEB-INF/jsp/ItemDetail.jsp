@@ -16,29 +16,27 @@
 				<div>
 					<p class = "iteminfo">アイテム情報</p>
 				</div><br>
-					<form id="update" method="POST" action="/CCC/ItemDetailServlet">
-						<table>
-		                    <tr>
-			                    <td class="category">ブランド:</td>
-			                    <td><input class = "box" type="text" name="brand" value="${e.brand}"></td>
-			                    <td></td>
-		                    </tr>
-		                    <tr>
-		                    	<td class="category">サイズ:</td>
-		                    	<td><input class = "box" type="text" name="size" value="${e.size}"></td>
-		                    	<td></td>
-		                    </tr>
-		                    <tr>
-		                    	<td></td>
-		                    	<td></td>
-		                    	<td><input type="submit" name="更新" value="update"><br>
-					        		<input type="submit" name="削除" value="Delete">
-					        	</td>
-		                    </tr>
-	                	</table>
-
-				    </form>
-
+				<form id="update" method="POST" action="/CCC/ItemDetailServlet">
+					<table>
+						<tr>
+							<td class="category">ブランド:</td>
+							<td><input class = "box" type="text" name="brand" value="${e.brand}"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td class="category">サイズ:</td>
+							<td><input class = "box" type="text" name="size" value="${e.size}"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td><input type="submit" name="submit" value="update"><br>
+								<input type="submit" name="submit" value="delete">
+					        </td>
+						</tr>
+	                </table>
+				</form>
 			</c:forEach>
         </main>
 

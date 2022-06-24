@@ -87,19 +87,49 @@ li {
 #ham:visited {
 	color: white;
 }
-#ham.hover:hover {
-	color: white;
-}
 #ham:active {
 	color:white;
 }
 
+/*ハンバーガーメニューhoverのエフェクト*/
+#ham {
+position: relative;
+}
+
+#ham::after {
+position: absolute;
+left: 0;
+content: '';
+width: 100%;
+height: 2px;
+background: #000000;
+}
+
+#ham::after {
+position: absolute;
+left: 0;
+content: '';
+width: 100%;
+height: 2px;
+background: #C0C0C0;
+bottom: 0px;
+opacity: 0;
+visibility: hidden;
+transition: 0.3s;
+}
+
+#ham:hover::after {
+visibility: visible;
+bottom: 3px;
+opacity: 1;
+}
 .nav_item {
 	color: white;
 }
   /* メニュー黒ポチを消す */
   .nav_list {
     list-style: none;
+    margin-top: 30px;
   }
 
   /* アイコンがクリックされたらメニューを表示 */
@@ -155,9 +185,10 @@ img {
 	text-align: right;
 }
 #mark{
-	margin-left: auto;
+	margin-left:0;
 	width: 40px;
 	height: 30px;
+
 
 }
 /*メイン（フッター調整）*/

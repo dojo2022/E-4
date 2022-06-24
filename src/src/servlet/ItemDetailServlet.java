@@ -58,7 +58,7 @@ public class ItemDetailServlet extends HttpServlet {
 
         // 更新または削除を行う
         CoordinateItemDAO itemDao = new CoordinateItemDAO();
-        if (request.getParameter("submit").equals("更新")) {
+        if (request.getParameter("submit").equals("update")) {
             if (itemDao.update(new CoordinateItemModel("",item_id, "", "", "", brand, size, remarks,""))) {  // 更新成功
             	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ItemList.jsp");
             	dispatcher.forward(request, response);
@@ -68,7 +68,7 @@ public class ItemDetailServlet extends HttpServlet {
             	dispatcher.forward(request, response);
             }
         }
-        else if(request.getParameter("submit").equals("削除")){
+        else if(request.getParameter("submit").equals("delete")){
             if (itemDao.updateflag(new DeleteFlagModel("","",""))) { // 削除成功
             	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ItemList.jsp");
             	dispatcher.forward(request, response);
