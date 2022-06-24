@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 
 import dao.CoordinateItemDAO;
 import model.CoordinateItemModel;
+import model.ItemBrandModel;
 import model.LoginUser;
 
 /**
@@ -41,6 +42,12 @@ public class ItemListServlet extends HttpServlet {
 		//検索結果をリクエストスコープに格納する
 		request.setAttribute("ModelList", ModelList);
 
+		CoordinateItemDAO bDao = new CoordinateItemDAO();
+		List<ItemBrandModel> brandList = bDao.selectBrand(new ItemBrandModel(user_id,""));
+
+		//検索結果をリクエストスコープに格納する
+		request.setAttribute("brandList", brandList);
+
 		//結果ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ItemSearch.jsp");
 		dispatcher.forward(request, response);
@@ -59,7 +66,7 @@ public class ItemListServlet extends HttpServlet {
 		LoginUser user = (LoginUser)session.getAttribute("user_id");
 		// String user_id = user.getUser_id();
 		String user_id = "takahashi";
-		
+
 		CoordinateItemModel itemModel = (CoordinateItemModel)session.getAttribute("item_image");
 	/*	String item_image = itemModel.getItem_image();*/
 
