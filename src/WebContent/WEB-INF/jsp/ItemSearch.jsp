@@ -33,7 +33,7 @@
 					<tr>
 						<td><select name="search_brand">
 								<option value="">ブランド</option>
-								<c:forEach var="e" items="${ModelList}">
+								<c:forEach var="e" items="${brandList}">
 									<option value="${e.brand}">${e.brand}</option>
 								</c:forEach>
 							</select>
