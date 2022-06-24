@@ -1,8 +1,17 @@
 @charset "UTF-8";
 
+
+
 main{
 	text-align: center;
 }
+
+.article{
+	text-align: left;
+	font-family:"Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体";
+}
+
+
 
 .picbox{
 	padding: 0.5em 1em;
@@ -13,11 +22,12 @@ main{
     height:35%;
 }
 
-.photo{
-	width: auto;
+.picbox img{
+	width: 100px;
 	height: auto;
 	object-fit:  contain;
 }
+
 
 .line{
 	border-bottom-width: 1px;
@@ -26,7 +36,50 @@ main{
     text-align: center;
 }
 
-.sub{
-	text-align: reft;
+.text{
+	 text-align: center;
+}
 
+.td{
+    padding: 10px;
+    border-bottom: 1px solid #EEE;
+}
+.th{
+    padding: 15px;
+    border-bottom: 1px solid #EEE;
+    text-align: left;
+    font-weight: normal;
+    vertical-align: top;
+    width: 5em;
+}
+
+.box{
+	 text-align: left;
+}
+
+.brand,.size{
+    padding-right: 4em;
+    position: relative;
+}
+
+.photo{
+	text-align: center;
+	width: 100px;
+	height: auto;
+	object-fit:  contain;
+}
+
+.delete{
+	text-align: right;
+}
+
+.plus{
+		width: 20px;
+		height: 20px;
+}
+
+.minus{
+		width: 100px;
+		height: 30px;
+		text-align: right;
 }

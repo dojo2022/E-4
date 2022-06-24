@@ -8,21 +8,32 @@
 			<c:forEach var="e" items="${CoordinateList}" begin="0" end="0">
             <h1>コーディネート画像</h1>
             <div class="picbox">
-	            <img class="photo" src="${e.coordinate_image}" >
+	            <img src="${e.coordinate_image}" >
 	         </div>
 	         <!-- 点線 -->
 			<p class = "line"></p>
-            </c:forEach>
-            <p>アイテム情報</p>
+			</c:forEach>
+			<!-- アイテム情報 -->
+            <p class="article">アイテム情報</p>
             <div id= "iteminfo">
-	            <c:forEach var="e" items="${CoordinateList}">
-	            <p>ブランド:</p><input type="text" size="30" value="${e.brand}"><br>
-	            <p>サイズ:</p><input type="text" size="30" value="${e.size}"><br>
-	            <p>アイテム画像</p><img src="${e.item_image}">
-	            <input type="submit" value="Delete"><br>
-            </c:forEach>
+		    	<c:forEach var="e" items="${CoordinateList}">
+		    	<div class="box">
+				<tr>
+					<th class="brand"><label>ブランド:</label></th>
+					<td><input class="text" type="text" size="30" value="${e.brand}"></td>
+				</tr>
+				<br>
+				<tr>
+		            <th class="size"><label>サイズ:</label></th>
+		            <td><input class="text" type="text" size="30" value="${e.size}"></td>
+				</tr>
+				<br>
+				</div>
+		            <p >アイテム画像</p><img class="photo" src="${e.item_image}">
+		            <input class="delete" type="submit" value="Delete"><br>
+	            </c:forEach>
             </div>
-            <input type="submit" value="+">
-            <input type="submit" value="Delete this look">
+            <input class="plus" type="submit" value="+">
+            <input class="minus" type="submit" value="Delete this look">
         </main>
 <%@ include file="/WEB-INF/jsp/Footer.jsp" %>
