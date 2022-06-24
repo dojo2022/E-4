@@ -34,13 +34,13 @@
             </nav>
         </div>
 		<div id = "weather">
-		    <nav class = "switch">
+		    <div class = "switch">
 	            <label class="switch__label">
-		        <input type="checkbox" class="switch__input" onclick="confirmChecked();">
+		        <input type="checkbox" class="switch__input" id= "count_up" onclick="clickSwitch();">
 		        <span class="switch__content"></span>
 		        <span class="switch__circle"></span>
 			    </label>
-            </nav>
+            </div>
 
 		</div>
         <hr>
