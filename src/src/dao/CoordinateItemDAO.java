@@ -10,6 +10,7 @@ import java.util.List;
 
 import model.CoordinateItemModel;
 import model.DeleteFlagModel;
+import model.ItemBrandModel;
 
 
 public class CoordinateItemDAO {
@@ -103,6 +104,67 @@ public class CoordinateItemDAO {
 
     	}
 
+    	public List<ItemBrandModel> selectBrand(ItemBrandModel param) {
+    		Connection conn = null;
+    		List<ItemBrandModel> cardList = new ArrayList<ItemBrandModel>();
+
+    		try {
+    			// JDBCドライバを読み込む
+    			Class.forName("org.h2.Driver");
+
+    			// データベースに接続する
+    			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/CCC", "sa", "ccc");
+
+    			// SQL文を準備(検索）
+    			String sql = "select distinct brand from item where flag != 'Delete' and user_id like ? and brand != ''";
+    			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+    			// SQL文を完成させる
+    			if (param.getUser_id() != null) {
+    				pStmt.setString(1, "%" + param.getUser_id() + "%");
+    			}
+    			else {
+    				pStmt.setString(1, "%");
+    			}
+
+
+    			// SQL文を実行し、結果表を取得する
+    			ResultSet rs = pStmt.executeQuery();
+
+    			// 結果表をコレクションにコピーする
+    			while (rs.next()) {
+    				ItemBrandModel card = new ItemBrandModel(
+    				param.getUser_id(),
+    				rs.getString("brand")
+    				);
+    				cardList.add(card);
+    			}
+    		}
+    		catch (SQLException e) {
+    			e.printStackTrace();
+    			cardList = null;
+    		}
+    		catch (ClassNotFoundException e) {
+    			e.printStackTrace();
+    			cardList = null;
+    		}
+			finally {
+    				// データベースを切断
+    				if (conn != null) {
+    					try {
+    						conn.close();
+    					}
+    					catch (SQLException e) {
+    						e.printStackTrace();
+    						cardList = null;
+    				}
+    			}
+    		}
+
+    			// 結果を返す(どのようにデータを返せばいいかわからない)
+    			return cardList;
+
+    	}
 
     	//アイテムを登録する 引数cardで指定されたレコードを登録し、成功したらtrueを返す(修正）
     		public boolean insert(CoordinateItemModel card) {
