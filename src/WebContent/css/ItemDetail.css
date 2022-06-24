@@ -1,1 +1,35 @@
 @charset "UTF-8";
+
+
+.item_place {
+    width: 200px;
+    height: 200px;
+}
+
+#item_image {
+    text-align: center;
+}
+
+.category {
+
+	display: inline-block;
+
+}
+
+.categorybox {
+	text-align: center;
+}
+
+.text {
+	float:left;
+	margin-right: 5px;
+	margin-left: 300px;
+}
+
+table {
+	margin: auto;
+}
+
+.iteminfo {
+	font-family: "bold";
+}

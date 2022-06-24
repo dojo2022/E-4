@@ -201,12 +201,13 @@ main{
 	min-height: 100vh;
 }
 
-
+html body{
+	height:100%;
+}
 /*フッター*/
 footer {
 	width: 100%;
-	/*position: absolute;
-	bottom: 0; /*下に固定*/
+	position: relative;
 	background-color: #C0C0C0;
 	height: 15px;
     left: 0;

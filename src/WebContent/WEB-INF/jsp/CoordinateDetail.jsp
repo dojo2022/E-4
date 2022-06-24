@@ -7,10 +7,11 @@
 	<main>
 			<c:forEach var="e" items="${CoordinateList}" begin="0" end="0">
             <h1>コーディネート画像</h1>
-            <div id ="image">
-	            <img src="${e.coordinate_image}">
+            <div class="picbox">
+	            <img class="photo" src="${e.coordinate_image}" >
 	         </div>
-            <hr  id="line">
+	         <!-- 点線 -->
+			<p class = "line"></p>
             </c:forEach>
             <p>アイテム情報</p>
             <div id= "iteminfo">
