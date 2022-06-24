@@ -1,11 +1,11 @@
 @charset "UTF-8";
 
-.search_tag {
-
+#search_tag {
 	position: fixed;
 	background-color: #5f9ea0;
 	display: flex;
 	color: white;
+	border: 1px 1px 1px 1px;
 }
 
 #item_img {
@@ -18,3 +18,18 @@
 	z-index: 97;
 }
 
+.Title_Result {
+	font-family: "Segoe Print";
+	text-align: center;
+	color: #2f4f4f;
+
+}
+.title {
+	border-top: 3px solid black;
+	border-bottom: 3px solid black;
+}
+
+.img_title {
+	font-family: "Segoe Print";
+	color: #2f4f4f;
+}
