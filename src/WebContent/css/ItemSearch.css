@@ -86,15 +86,12 @@ main img {
 .searchitems{
 	border-bottom: 1px dashed #C0C0C0;
 }
+td{
+	height: 72px;
 
+}
 td label{
 	margin: 0 25px;
-}
-#searchtop{
-	height: 70px;
-}
-#searchtext{
-	height: 70px;
 }
 .searchtitle{
 	display: block;
@@ -113,4 +110,6 @@ td label{
 	background: #333;
 	font-size:1em;
 	width:300px;
+	margin-top: 20px;
+	margin-bottom: 23px;
 }
