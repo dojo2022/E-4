@@ -1,13 +1,32 @@
 @charset "UTF-8";
 
-
 main{
 	text-align: center;
 }
 
-.image{
-	text-align: center;
-	width: 200px;
-	height: 200px;
+.picbox{
+	padding: 0.5em 1em;
+    margin: .5em 0;
+    font-weight: bold;
+    border: solid 1px #808080;
+ 	width:100%;
+    height:35%;
 }
 
+.photo{
+	width: auto;
+	height: auto;
+	object-fit:  contain;
+}
+
+.line{
+	border-bottom-width: 1px;
+    border-bottom-style: dashed;
+    border-bottom-color: #808080;
+    text-align: center;
+}
+
+.sub{
+	text-align: reft;
+
+}
