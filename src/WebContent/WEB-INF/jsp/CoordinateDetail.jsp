@@ -35,4 +35,5 @@
             <input class="plus" type="submit" value="+">
             <input class="minus" type="submit" value="Delete this look">
         </main>
+        <!-- 変更確認 -->
 <%@ include file="/WEB-INF/jsp/Footer.jsp" %>
