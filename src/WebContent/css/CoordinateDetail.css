@@ -69,8 +69,10 @@ main{
 	object-fit:  contain;
 }
 
-.delete{
-	text-align: right;
+input.delete{
+	text-align:right;
+	position:relative;
+	left: 46.5%;
 }
 
 .plus{
@@ -79,7 +81,10 @@ main{
 }
 
 .minus{
-		width: 100px;
-		height: 30px;
-		text-align: right;
+		width: 7rem;
+		height: 2rem;
+		text-align: center;
+		position:relative;
+		left: 80%;
+		margin:3%;
 }
