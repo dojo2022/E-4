@@ -67,6 +67,7 @@ main{
 	width: 100px;
 	height: auto;
 	object-fit:  contain;
+
 }
 
 .delete{
@@ -82,4 +83,8 @@ main{
 		width: 100px;
 		height: 30px;
 		text-align: right;
+}
+
+#iteminfo {
+	 display: flex;
 }

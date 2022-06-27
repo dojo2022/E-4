@@ -13,7 +13,6 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <!--==============レイアウトを制御する独自のCSSを読み込み===============-->
 <link rel="stylesheet" type="text/css" href="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/reset.css">
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
 <link rel="stylesheet" type="text/css" href="Home.css">
 </head>
 
@@ -64,5 +63,5 @@
         <p id = "switch1">Business</p>
         <p id = "switch2">Casual</p>
         </main>
- -->        <script src = "././js/Home.js"></script>
+ -->       <script src = "././js/Home.js"></script>
 <%@ include file="/WEB-INF/jsp/Footer.jsp" %>

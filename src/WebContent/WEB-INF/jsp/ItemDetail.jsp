@@ -18,7 +18,7 @@
 					<p class = "iteminfo">アイテム情報</p>
 				</div><br>
 				<form id="update" method="POST" action="/CCC/ItemDetailServlet">
-					<input type="text" name="item_id" value="${e.item_id}" readonly>
+					<!-- <input type="text" name="item_id" value="${e.item_id}" readonly> -->
 					<table>
 						<tr>
 							<td class="category">ブランド:</td>
