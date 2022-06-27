@@ -63,7 +63,7 @@ public class CoordinateDetailServlet extends HttpServlet {
         CoordinateDAO coordinateDao = new CoordinateDAO();
         //CoordinateItemDAO itemDao = new CoordinateItemDAO();
 
-        if(request.getParameter("submit").equals("アイテム削除")){
+        if(request.getParameter("submit").equals("Delete")){
             if (coordinateDao.delete(useditem_id)) { // 削除成功
             	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ItemList.jsp");
             	dispatcher.forward(request, response);
@@ -73,9 +73,9 @@ public class CoordinateDetailServlet extends HttpServlet {
             	dispatcher.forward(request, response);
             }
         }
-        else if(request.getParameter("submit").equals("コーディネート削除")){
+        else if(request.getParameter("submit").equals("Delete this look")){
             if (coordinateDao.delete(coordinate_id)) { // 削除成功
-            	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ItemList.jsp");
+            	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ItemResult.jsp");
             	dispatcher.forward(request, response);
             }
             else {                      // 削除失敗
@@ -84,10 +84,10 @@ public class CoordinateDetailServlet extends HttpServlet {
             }
         }
 
-        else if(request.getParameter("submit").equals("コーディネートアイテム追加")){
+        else if(request.getParameter("submit").equals("Update this look")){
         	// 追加成功
             if (coordinateDao.insert(new CoordinateInsertModel(user_id, coordinate_id, season, purpose, coordinate_image))) {
-            	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/CoordinateList.jsp");
+            	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/CoordinateResult.jsp");
             	dispatcher.forward(request, response);
             }
             else {                      // 削除失敗
