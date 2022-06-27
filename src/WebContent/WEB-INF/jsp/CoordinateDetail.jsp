@@ -15,9 +15,9 @@
 			</c:forEach>
 			<!-- アイテム情報 -->
             <p class="article">アイテム情報</p>
+            <c:forEach var="e" items="${CoordinateList}">
             <div id= "iteminfo">
-		    	<c:forEach var="e" items="${CoordinateList}">
-		    	<div class="box">
+            <div class = "box">
 				<tr>
 					<th class="brand"><label>ブランド:</label></th>
 					<td><input class="text" type="text" size="30" value="${e.brand}"></td>
@@ -26,13 +26,12 @@
 				<tr>
 		            <th class="size"><label>サイズ:</label></th>
 		            <td><input class="text" type="text" size="30" value="${e.size}"></td>
-				</tr>
+				</tr></div>
 				<br>
-				</div>
-		            <p >アイテム画像</p><img class="photo" src="${e.item_image}">
+		            <div class = "float"><img class="photo" src="${e.item_image}"></div>
+		            </div>
 		            <input class="delete" type="submit" value="Delete"><br>
 	            </c:forEach>
-            </div>
             <input class="plus" type="submit" value="+">
             <input class="minus" type="submit" value="Delete this look">
         </main>
