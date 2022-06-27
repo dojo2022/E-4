@@ -15,9 +15,11 @@ String brand = (String)request.getAttribute("search_brand");
         <h1 class="Title_Result">Results</h1>
         </div>
 
+     <!--
      <c:forEach var="tag" items="${iTagList}">
       <p id="search_tag"><c:out value="${tag}"></c:out></p>
     </c:forEach>
+    -->
 
     <h1 class="img_title">Item Image</h1>
 

@@ -1,7 +1,6 @@
 @charset "UTF-8";
 
 #search_tag {
-	position: fixed;
 	background-color: #5f9ea0;
 	display: flex;
 	color: white;
