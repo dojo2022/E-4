@@ -6,7 +6,7 @@
     <main>
         <div>
             <!-- fromの始まり -->
-            <form action="NewItemServlet" method="post" enctype="multipart/form-data" >
+            <form action="test.html" method="post" enctype="multipart/form-data" >
             <!--fileのupload-->
             <!--選択された画像の表示枠-->
             <div id="imageplace">
@@ -14,7 +14,7 @@
 			</div>
 			<div id="uploadbutton">
 				<label class="label" id="upbtn">upload
-                	<input type="file" id="item_upload" onchange="upimage(this)">
+                	<input type="file" id="item_upload" onchange="upimage(this)" name="item_image">
                 </label>
             </div>
             <!--破線-->
@@ -22,7 +22,7 @@
             <!--カテゴリーのプルダウンメニュー-->
             <div>
                 <p id="iteminfo">アイテム情報</p>
-                <select id="category">
+                <select id="category" name="category">
                     <option value="tops">トップス</option>
                     <option value="outer">アウター</option>
                     <option value="pants">パンツ</option>
@@ -57,5 +57,8 @@
             </form>
         </div>
     </main>
+
+
+    <!-- 更新のためにコメントアウト -->
 
 <%@ include file="/WEB-INF/jsp/Footer.jsp" %>
