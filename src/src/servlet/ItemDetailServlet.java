@@ -66,16 +66,17 @@ public class ItemDetailServlet extends HttpServlet {
 	        // 検索結果をリクエストスコープに格納する
 	        request.setAttribute("itemList", itemList);
 
+		CoordinateItemDAO itemDao1 = new CoordinateItemDAO();
+		List<CoordinateItemModel> ModelList = itemDao1.select(new CoordinateItemModel(user_id,item_id,"","","","","","",""));
+
+		//検索結果をリクエストスコープに格納する
+		request.setAttribute("ModelList", ModelList);
+
         // 更新または削除を行う
 		//検索しておく
         CoordinateItemDAO itemDao2 = new CoordinateItemDAO();
         if (request.getParameter("submit").equals("update")) {
-            if (itemDao2.update(new CoordinateItemModel(user_id,item_id, "", "", brand, size, "", remarks, ""))) {  // 更新成功
-
-            	CoordinateItemDAO itemDao1 = new CoordinateItemDAO();
-        		List<CoordinateItemModel> itemList2 = itemDao1.select(new CoordinateItemModel(user_id,item_id,"","","","","","",""));
-        		//検索結果をリクエストスコープに格納する
-        		request.setAttribute("itemList", itemList2);
+            if (itemDao2.update(new CoordinateItemModel(user_id,item_id, "", "", "", brand, size, remarks,""))) {  // 更新成功
             	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ItemDetail.jsp");
             	dispatcher.forward(request, response);
             	return;
@@ -87,12 +88,7 @@ public class ItemDetailServlet extends HttpServlet {
             }
         }
         else if(request.getParameter("submit").equals("delete")){
-            if (itemDao.updateflag(new DeleteFlagModel(user_id,item_id,"delete"))) { // 削除成功
-            	CoordinateItemDAO itemDao1 = new CoordinateItemDAO();
-        		List<CoordinateItemModel> ModelList = itemDao1.select(new CoordinateItemModel(user_id,"","","","","","","",""));
-
-        		//検索結果をリクエストスコープに格納する
-        		request.setAttribute("ModelList", ModelList);
+            if (itemDao.updateflag(new DeleteFlagModel("","",""))) { // 削除成功
             	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ItemSearch.jsp");
             	dispatcher.forward(request, response);
             	return;
