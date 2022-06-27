@@ -104,6 +104,84 @@ public class CoordinateItemDAO {
 
     	}
 
+    	//アイテム検索
+    	public List<CoordinateItemModel> select2(CoordinateItemModel param) {
+    		Connection conn = null;
+    		List<CoordinateItemModel> cardList = new ArrayList<CoordinateItemModel>();
+
+    		try {
+    			// JDBCドライバを読み込む
+    			Class.forName("org.h2.Driver");
+
+    			// データベースに接続する
+    			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/CCC", "sa", "ccc");
+
+    			// SQL文を準備(検索）
+    			String sql = "select category,brand,item_image,item_id,size,remarks,day,flag "
+    					+ "from item where  category like ? and brand like ? and flag != 'delete'";
+    			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+    			// SQL文を完成させる
+    			if (param.getCategory() != null) {
+    				pStmt.setString(1, "%" + param.getCategory() + "%");
+    			}
+    			else {
+    				pStmt.setString(1, "%");
+    			}
+    			if (param.getBrand() != null) {
+    				pStmt.setString(2, "%" + param.getBrand() + "%");
+    			}
+    			else {
+    				pStmt.setString(2, "%");
+    			}
+
+    			// SQL文を実行し、結果表を取得する
+    			ResultSet rs = pStmt.executeQuery();
+
+    			// 結果表をコレクションにコピーする
+    			while (rs.next()) {
+    				CoordinateItemModel card = new CoordinateItemModel(
+    				param.getUser_id(),
+    				rs.getString("item_id"),
+    				rs.getString("item_image"),
+    				rs.getString("category"),
+    				rs.getString("brand"),
+    				rs.getString("size"),
+    				rs.getString("flag"),
+    				rs.getString("remarks"),
+    				rs.getString("day")
+    				);
+    				cardList.add(card);
+    			}
+    		}
+    		catch (SQLException e) {
+    			e.printStackTrace();
+    			cardList = null;
+    		}
+    		catch (ClassNotFoundException e) {
+    			e.printStackTrace();
+    			cardList = null;
+    		}
+			finally {
+    				// データベースを切断
+    				if (conn != null) {
+    					try {
+    						conn.close();
+    					}
+    					catch (SQLException e) {
+    						e.printStackTrace();
+    						cardList = null;
+    				}
+    			}
+    		}
+
+    			// 結果を返す(どのようにデータを返せばいいかわからない)
+    			return cardList;
+
+    	}
+
+
+
     	public List<ItemBrandModel> selectBrand(ItemBrandModel param) {
     		Connection conn = null;
     		List<ItemBrandModel> cardList = new ArrayList<ItemBrandModel>();

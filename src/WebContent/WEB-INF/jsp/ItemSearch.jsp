@@ -22,13 +22,13 @@
 					</tr>
 					<tr>
 						  <td class="searchitems"><p class="category">カテゴリー</p>
-						<label><input type="checkbox" name="search_category" value="tops">トップス</label>
-						<label><input type="checkbox" name="search_category" value="outer">アウター</label>
-						<label><input type="checkbox" name="search_category" value="pants">パンツ</label>
-						<label><input type="checkbox" name="search_category" value="skirt">スカート</label>
-						<label><input type="checkbox" name="search_category" value="onepiece">ワンピース</label>
-						<label><input type="checkbox" name="search_category" value="shoes">シューズ</label>
-						<label><input type="checkbox" name="search_category" value="accessories">小物</label></td>
+						<label><input type="checkbox" name="search_category" value="トップス">トップス</label>
+						<label><input type="checkbox" name="search_category" value="アウター">アウター</label>
+						<label><input type="checkbox" name="search_category" value="パンツ">パンツ</label>
+						<label><input type="checkbox" name="search_category" value="スカート">スカート</label>
+						<label><input type="checkbox" name="search_category" value="ワンピース">ワンピース</label>
+						<label><input type="checkbox" name="search_category" value="シューズ">シューズ</label>
+						<label><input type="checkbox" name="search_category" value="小物">小物</label></td>
 
 
 					</tr>
