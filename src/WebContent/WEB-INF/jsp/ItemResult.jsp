@@ -21,10 +21,11 @@ String brand = (String)request.getAttribute("search_brand");
 
     <h1 class="img_title">Item Image</h1>
 
+	<div class="item_img">
         <c:forEach var="e" items="${CoordinateItemList}">
-			<a id="item_img" href="/CCC/ItemDetailServlet?q=${e.item_id}"><img src="${e.item_image}"></a>
+			<a href="/CCC/ItemDetailServlet?q=${e.item_id}"><img src="${e.item_image}"></a>
 		</c:forEach>
-
+</div>
 
         </main>
 
