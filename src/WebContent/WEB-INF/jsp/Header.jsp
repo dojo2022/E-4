@@ -10,7 +10,6 @@
 	-->
 	<!-- cssやjsは、Servlet名やjsp名から自動追加することが多い -->
 	<link rel="stylesheet" href="././css/Common.css">
-	<link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300&display=swap" rel="stylesheet">
 </head>
 	<body>
 		<header>

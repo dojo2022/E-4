@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.CoordinateDAO;
+import dao.UsedItemDAO;
 import model.CoordinateInsertModel;
 import model.CoordinateModel;
 import model.LoginUser;
@@ -61,6 +62,7 @@ public class CoordinateDetailServlet extends HttpServlet {
 
         //アイテム情報追加、アイテム、コーディネート削除
         CoordinateDAO coordinateDao = new CoordinateDAO();
+        UsedItemDAO useditemDao = new UsedItemDAO();
         //CoordinateItemDAO itemDao = new CoordinateItemDAO();
 
         if(request.getParameter("submit").equals("Delete")){
@@ -74,7 +76,7 @@ public class CoordinateDetailServlet extends HttpServlet {
             }
         }
         else if(request.getParameter("submit").equals("Delete this look")){
-            if (coordinateDao.delete(coordinate_id)) { // 削除成功
+            if (useditemDao.delete(coordinate_id)) { // 削除成功
             	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ItemResult.jsp");
             	dispatcher.forward(request, response);
             }

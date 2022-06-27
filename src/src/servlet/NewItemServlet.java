@@ -8,9 +8,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.CoordinateItemDAO;
 import model.CoordinateItemModel;
+import model.LoginUser;
 /**
  * Servlet implementation class NewUserErrorServlet
  */
@@ -37,33 +39,36 @@ public class NewItemServlet extends HttpServlet {
 		//登録情報の取得
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-		String user_id = request.getParameter("user_id");
-		String item_id = request.getParameter("item_id");
+		//String user_id = request.getParameter("user_id");
+		HttpSession session = request.getSession();
+
+		LoginUser user = (LoginUser)session.getAttribute("user_id");
+		String user_id = user.getUser_id();
+
+		//String item_id = request.getParameter("item_id");
 		String item_image = request.getParameter("item_image");
 		String category = request.getParameter("category");
 		String brand = request.getParameter("brand");
 		String size = request.getParameter("size");
-		String flag = request.getParameter("flag");
+		//String flag = request.getParameter("flag");
 		String remarks = request.getParameter("remarks");
-		String date = request.getParameter("date");
+		//String date = request.getParameter("date");
 
 
 		// 登録処理を行う
 		CoordinateItemDAO nDao = new CoordinateItemDAO();
-		if (nDao.insert(new CoordinateItemModel(user_id,item_id,item_image,category, brand,size,flag,remarks,date))) {	// 登録成功
+		if (nDao.insert(new CoordinateItemModel(user_id,"",item_image,category, brand,size,"",remarks,""))) {	// 登録成功
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/NewItemSuccess.jsp");
 			dispatcher.forward(request, response);
-			doGet(request, response);
 		}
 		else {	// 登録失敗
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/NewItemError.jsp");
 			dispatcher.forward(request, response);
-			doGet(request, response);
 		}
 
 		// 結果ページにフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
+		/*RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
 		dispatcher.forward(request, response);
-		doGet(request, response);
+		doGet(request, response);*/
 	}
  }

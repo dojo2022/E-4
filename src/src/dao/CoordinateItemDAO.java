@@ -29,7 +29,7 @@ public class CoordinateItemDAO {
 
     			// SQL文を準備(検索）
     			String sql = "select category,brand,item_image,item_id,size,remarks,day,flag "
-    					+ "from item where  category like ? and brand like ? and item_id like ? and flag != 'delete' and user_id like ?";
+    					+ "from item where  category like ? and brand like ? and item_id like ? and flag != 'Delete' and user_id like ?";
     			PreparedStatement pStmt = conn.prepareStatement(sql);
 
     			// SQL文を完成させる
@@ -116,7 +116,7 @@ public class CoordinateItemDAO {
     			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/CCC", "sa", "ccc");
 
     			// SQL文を準備(検索）
-    			String sql = "select distinct brand from item where flag != 'delete' and user_id like ? and brand != ''";
+    			String sql = "select distinct brand from item where flag != 'Delete' and user_id like ? and brand != ''";
     			PreparedStatement pStmt = conn.prepareStatement(sql);
 
     			// SQL文を完成させる
@@ -179,7 +179,7 @@ public class CoordinateItemDAO {
     				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/CCC", "sa", "ccc");
 
     				// SQL文を準備する
-    				String sql = "insert into item (user_id,item_id,item_image,category, brand,size,flag,remarks,date) values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    				String sql = "insert into item (user_id,item_id,item_image,category, brand,size,flag,remarks,day) values (?, ?, ././itemimage/?, ?, ?, ?, ?, ?, CURDATE())";
     				PreparedStatement pStmt = conn.prepareStatement(sql);
 
  					// SQL文を完成させる
@@ -231,12 +231,12 @@ public class CoordinateItemDAO {
 					else {
 						pStmt.setString(8, null);
 					}
-					if (card.getDay() != null && !card.getDay().equals("")) {
+					/*if (card.getDay() != null && !card.getDay().equals("")) {
 						pStmt.setString(9, card.getDay());
 					}
 					else {
 						pStmt.setString(9, null);
-					}
+					}*/
 
         			// SQL文を実行する
         			if (pStmt.executeUpdate() == 1) {
@@ -280,37 +280,84 @@ public class CoordinateItemDAO {
 
 
     					// SQL文を準備する
-    					String sql = "update item set category=?, brand=?, size=?, remarks=? where user_id=? and item_id =? ";
+    					String sql = "update item set brand='?',size='?' where user_id='?' and item_id = '?'";
     					PreparedStatement pStmt = conn.prepareStatement(sql);
 
     					// SQL文を完成させる
-    					if (card.getCategory() != null && !card.getCategory().equals("")) {
-    						pStmt.setString(1, card.getCategory());
-    					}
-    					else {
-    						pStmt.setString(1, "");
-    					}
     					if (card.getBrand() != null && !card.getBrand().equals("")) {
-    						pStmt.setString(2, card.getBrand());
+    						pStmt.setString(1, card.getBrand());
     					}
     					else {
-    						pStmt.setString(2, "");
-    					}
-    					if (card.getSize() != null && !card.getSize().equals("")) {
-    						pStmt.setString(3, card.getSize());
-    					}
-    					else {
-    						pStmt.setString(3, "");
-    					}
-    					if (card.getRemarks() != null && !card.getRemarks().equals("")) {
-    						pStmt.setString(4, card.getRemarks());
-    					}
-    					else {
-    						pStmt.setString(4, "");
+    						pStmt.setString(1, null);
     					}
 
-    					pStmt.setString(5, card.getUser_id());
-    					pStmt.setString(6, card.getItem_id());
+    					if (card.getSize() != null && !card.getSize().equals("")) {
+    						pStmt.setString(2, card.getSize());
+    					}
+    					else {
+    						pStmt.setString(2, null);
+    					}
+
+    					pStmt.setString(3, card.getUser_id());
+
+    					if (card.getItem_id() != null && !card.getItem_id().equals("")) {
+    						pStmt.setString(4, card.getItem_id());
+    					}
+    					else {
+    						pStmt.setString(4, null);
+    					}
+
+    					/*
+    					if (card.getItem_id() != null && !card.getItem_id().equals("")) {
+    						pStmt.setString(1, card.getItem_id());
+    					}
+    					else {
+    						pStmt.setString(1, null);
+    					}
+    					if (card.getItem_image() != null && !card.getItem_image().equals("")) {
+    						pStmt.setString(2, card.getItem_image());
+    					}
+    					else {
+    						pStmt.setString(2, null);
+    					}
+    					if (card.getCategory() != null && !card.getCategory().equals("")) {
+    						pStmt.setString(3, card.getCategory());
+    					}
+    					else {
+    						pStmt.setString(3, null);
+    					}
+    					if (card.getBrand() != null && !card.getBrand().equals("")) {
+    						pStmt.setString(4, card.getBrand());
+    					}
+    					else {
+    						pStmt.setString(4, null);
+    					}
+    					if (card.getSize() != null && !card.getSize().equals("")) {
+    						pStmt.setString(5, card.getSize());
+    					}
+    					else {
+    						pStmt.setString(5, null);
+    					}
+    					if (card.getFlag() != null && !card.getFlag().equals("")) {
+    						pStmt.setString(6, card.getFlag());
+    					}
+    					else {
+    						pStmt.setString(6, null);
+    					}
+    					if (card.getRemarks() != null && !card.getRemarks().equals("")) {
+    						pStmt.setString(7, card.getRemarks());
+    					}
+    					else {
+    						pStmt.setString(7, null);
+    					}
+    					if (card.getDay() != null && !card.getDay().equals("")) {
+    						pStmt.setString(8, card.getDay());
+    					}
+    					else {
+    						pStmt.setString(8, null);
+    					}
+    					pStmt.setString(9, card.getUser_id());
+    					*/
 
     					// SQL文を実行する
     					if (pStmt.executeUpdate() == 1) {
@@ -354,19 +401,23 @@ public class CoordinateItemDAO {
 
 
 				// SQL文を準備する
-				String sql = "update item set flag=? where user_id=? and item_id=?";
+				String sql = "update item set flag=delete where user_id=?,item_id=?";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				//SQL文を完成させる
-				if (card.getFlag() != null && !card.getFlag().equals("")) {
-					pStmt.setString(1, card.getFlag());
+				if (card.getUser_id() != null && !card.getUser_id().equals("")) {
+					pStmt.setString(1, card.getUser_id());
 				}
 				else {
 					pStmt.setString(1, null);
 
 				}
-				pStmt.setString(2, card.getUser_id());
-				pStmt.setString(3, card.getItem_id());
+				if (card.getItem_id() != null && !card.getItem_id().equals("")) {
+					pStmt.setString(2, card.getItem_id());
+				}
+				else {
+					pStmt.setString(2, null);
+				}
 
 				// SQL文を実行する
 				if (pStmt.executeUpdate() == 1) {
