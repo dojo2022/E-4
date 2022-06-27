@@ -29,7 +29,7 @@ public class CoordinateItemDAO {
 
     			// SQL文を準備(検索）
     			String sql = "select category,brand,item_image,item_id,size,remarks,day,flag "
-    					+ "from item where  category like ? and brand like ? and item_id like ? and flag != 'Delete' and user_id like ?";
+    					+ "from item where  category like ? and brand like ? and item_id like ? and flag != 'delete' and user_id like ?";
     			PreparedStatement pStmt = conn.prepareStatement(sql);
 
     			// SQL文を完成させる
@@ -116,7 +116,7 @@ public class CoordinateItemDAO {
     			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/CCC", "sa", "ccc");
 
     			// SQL文を準備(検索）
-    			String sql = "select distinct brand from item where flag != 'Delete' and user_id like ? and brand != ''";
+    			String sql = "select distinct brand from item where flag != 'delete' and user_id like ? and brand != ''";
     			PreparedStatement pStmt = conn.prepareStatement(sql);
 
     			// SQL文を完成させる
@@ -179,7 +179,8 @@ public class CoordinateItemDAO {
     				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/CCC", "sa", "ccc");
 
     				// SQL文を準備する
-    				String sql = "insert into item (user_id,item_id,item_image,category, brand,size,flag,remarks,day) values (?, ?, ././itemimage/?, ?, ?, ?, ?, ?, CURDATE())";
+    				String sql = "insert into item (user_id,item_id,item_image,category, brand,size,flag,remarks,date) "
+    						+ "values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
     				PreparedStatement pStmt = conn.prepareStatement(sql);
 
  					// SQL文を完成させる
@@ -231,12 +232,12 @@ public class CoordinateItemDAO {
 					else {
 						pStmt.setString(8, null);
 					}
-					/*if (card.getDay() != null && !card.getDay().equals("")) {
+					if (card.getDay() != null && !card.getDay().equals("")) {
 						pStmt.setString(9, card.getDay());
 					}
 					else {
 						pStmt.setString(9, null);
-					}*/
+					}
 
         			// SQL文を実行する
         			if (pStmt.executeUpdate() == 1) {
@@ -280,7 +281,7 @@ public class CoordinateItemDAO {
 
 
     					// SQL文を準備する
-    					String sql = "update item set brand='?',size='?' where user_id='?' and item_id = '?'";
+    					String sql = "update item set category=?, brand=?, size=?, remarks=? where user_id=? and item_id =? ";
     					PreparedStatement pStmt = conn.prepareStatement(sql);
 
     					// SQL文を完成させる
