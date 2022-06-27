@@ -58,4 +58,7 @@
         </div>
     </main>
 
+
+    <!-- 更新のためにコメントアウト -->
+
 <%@ include file="/WEB-INF/jsp/Footer.jsp" %>
