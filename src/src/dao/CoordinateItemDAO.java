@@ -29,7 +29,7 @@ public class CoordinateItemDAO {
 
     			// SQL文を準備(検索）
     			String sql = "select category,brand,item_image,item_id,size,remarks,day,flag "
-    					+ "from item where  category like ? and brand like ? and item_id like ? and flag != 'Delete' and user_id like ?";
+    					+ "from item where  category like ? and brand like ? and item_id like ? and flag != 'delete' and user_id like ?";
     			PreparedStatement pStmt = conn.prepareStatement(sql);
 
     			// SQL文を完成させる
@@ -116,7 +116,7 @@ public class CoordinateItemDAO {
     			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/CCC", "sa", "ccc");
 
     			// SQL文を準備(検索）
-    			String sql = "select distinct brand from item where flag != 'Delete' and user_id like ? and brand != ''";
+    			String sql = "select distinct brand from item where flag != 'delete' and user_id like ? and brand != ''";
     			PreparedStatement pStmt = conn.prepareStatement(sql);
 
     			// SQL文を完成させる
@@ -280,7 +280,7 @@ public class CoordinateItemDAO {
 
 
     					// SQL文を準備する
-    					String sql = "update item set category=?, brand=?, size=?, remarks=?, day=? where user_id=? and item_id =? ";
+    					String sql = "update item set category=?, brand=?, size=?, remarks=? where user_id=? and item_id =? ";
     					PreparedStatement pStmt = conn.prepareStatement(sql);
 
     					// SQL文を完成させる
@@ -294,28 +294,23 @@ public class CoordinateItemDAO {
     						pStmt.setString(2, card.getBrand());
     					}
     					else {
-    						pStmt.setString(2, null);
+    						pStmt.setString(2, "");
     					}
     					if (card.getSize() != null && !card.getSize().equals("")) {
     						pStmt.setString(3, card.getSize());
     					}
     					else {
-    						pStmt.setString(3, null);
+    						pStmt.setString(3, "");
     					}
     					if (card.getRemarks() != null && !card.getRemarks().equals("")) {
     						pStmt.setString(4, card.getRemarks());
     					}
     					else {
-    						pStmt.setString(4, null);
+    						pStmt.setString(4, "");
     					}
-    					if (card.getDay() != null && !card.getDay().equals("")) {
-    						pStmt.setString(5, card.getDay());
-    					}
-    					else {
-    						pStmt.setString(5, null);
-    					}
-    					pStmt.setString(6, card.getUser_id());
-    					pStmt.setString(7, card.getItem_id());
+
+    					pStmt.setString(5, card.getUser_id());
+    					pStmt.setString(6, card.getItem_id());
 
     					// SQL文を実行する
     					if (pStmt.executeUpdate() == 1) {
@@ -359,23 +354,19 @@ public class CoordinateItemDAO {
 
 
 				// SQL文を準備する
-				String sql = "update item set flag=delete where user_id=?,item_id=?";
+				String sql = "update item set flag=? where user_id=? and item_id=?";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				//SQL文を完成させる
-				if (card.getUser_id() != null && !card.getUser_id().equals("")) {
-					pStmt.setString(1, card.getUser_id());
+				if (card.getFlag() != null && !card.getFlag().equals("")) {
+					pStmt.setString(1, card.getFlag());
 				}
 				else {
 					pStmt.setString(1, null);
 
 				}
-				if (card.getItem_id() != null && !card.getItem_id().equals("")) {
-					pStmt.setString(2, card.getItem_id());
-				}
-				else {
-					pStmt.setString(2, null);
-				}
+				pStmt.setString(2, card.getUser_id());
+				pStmt.setString(3, card.getItem_id());
 
 				// SQL文を実行する
 				if (pStmt.executeUpdate() == 1) {
