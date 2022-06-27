@@ -63,5 +63,5 @@
         <p id = "switch1">Business</p>
         <p id = "switch2">Casual</p>
         </main>
- -->        <script src = "././js/Home.js"></script>
+ -->       <script src = "././js/Home.js"></script>
 <%@ include file="/WEB-INF/jsp/Footer.jsp" %>
