@@ -57,12 +57,12 @@
 						<div>
 						<p>カテゴリー</p>
 						<label><input type="checkbox" name="search_category" value="tops" onchange="itemsearch()">トップス</label>
-						<label><input type="checkbox" name="search_category" value="outer">アウター</label>
-						<label><input type="checkbox" name="search_category" value="pants">パンツ</label>
-						<label><input type="checkbox" name="search_category" value="skirt">スカート</label>
-						<label><input type="checkbox" name="search_category" value="onepiece">ワンピース</label>
-						<label><input type="checkbox" name="search_category" value="shoes">シューズ</label>
-						<label><input type="checkbox" name="search_category" value="accessories">小物</label>
+						<label><input type="checkbox" name="search_category" value="outer" onchange="itemsearch()">アウター</label>
+						<label><input type="checkbox" name="search_category" value="pants" onchange="itemsearch()">パンツ</label>
+						<label><input type="checkbox" name="search_category" value="skirt" onchange="itemsearch()">スカート</label>
+						<label><input type="checkbox" name="search_category" value="onepiece" onchange="itemsearch()">ワンピース</label>
+						<label><input type="checkbox" name="search_category" value="shoes" onchange="itemsearch()">シューズ</label>
+						<label><input type="checkbox" name="search_category" value="accessories" onchange="itemsearch()">小物</label>
 						</div>
 
 						<select name="search_brand" onchange="itemsearch()">
