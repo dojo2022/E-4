@@ -76,7 +76,11 @@ public class ItemDetailServlet extends HttpServlet {
 		//検索しておく
         CoordinateItemDAO itemDao2 = new CoordinateItemDAO();
         if (request.getParameter("submit").equals("update")) {
-            if (itemDao2.update(new CoordinateItemModel(user_id,item_id, "", "", "", brand, size, remarks,""))) {  // 更新成功
+            if (itemDao2.update(new CoordinateItemModel(user_id,item_id, "", "", brand, size, "", remarks,""))) {  // 更新成功
+
+        		List<CoordinateItemModel> itemList2 = itemDao1.select(new CoordinateItemModel(user_id,item_id,"","","","","","",""));
+        		//検索結果をリクエストスコープに格納する
+        		request.setAttribute("itemList", itemList2);
             	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ItemDetail.jsp");
             	dispatcher.forward(request, response);
             	return;
@@ -88,7 +92,11 @@ public class ItemDetailServlet extends HttpServlet {
             }
         }
         else if(request.getParameter("submit").equals("delete")){
-            if (itemDao.updateflag(new DeleteFlagModel("","",""))) { // 削除成功
+        	if (itemDao.updateflag(new DeleteFlagModel(user_id,item_id,"delete"))) { // 削除成功
+        		List<CoordinateItemModel> ModelList2 = itemDao1.select(new CoordinateItemModel(user_id,"","","","","","","",""));
+
+        		//検索結果をリクエストスコープに格納する
+        		request.setAttribute("ModelList", ModelList2);
             	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ItemSearch.jsp");
             	dispatcher.forward(request, response);
             	return;
