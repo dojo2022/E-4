@@ -25,13 +25,13 @@
 					<div class="box">
 						<tr>
 							<th class="brand"><label>ブランド:</label></th>
-							<td><input class="text" type="text" size="30" value="${e.brand}"></td>
+							<td><input class="text" type="text" size="30" value="${e.brand}" readonly="readonly" ></td>
 						</tr>
 						<br>
 
 						<tr>
 							<th class="size"><label>サイズ:</label></th>
-							<td><input class="text" type="text" size="30" value="${e.size}"></td>
+							<td><input class="text" type="text" size="30" value="${e.size}" readonly="readonly" ></td>
 						</tr>
 						<br>
 					</div>

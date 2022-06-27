@@ -32,8 +32,8 @@ public class ItemListServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 
 		LoginUser user = (LoginUser)session.getAttribute("user_id");
-		//String user_id = user.getUser_id();
-		String user_id = "takahashi";
+		String user_id = user.getUser_id();
+		
 
 		//検索処理を行う
 		CoordinateItemDAO itemDao = new CoordinateItemDAO();
