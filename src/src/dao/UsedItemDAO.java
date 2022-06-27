@@ -81,54 +81,54 @@ public class UsedItemDAO {
 		return result;
 	}
 
-	//アイテムの削除
-		public boolean deleteI(UsedItemModel Item_ID) {
-			Connection conn = null;
-			boolean result = false;
 
-			try {
-				// JDBCドライバを読み込む
-				Class.forName("org.h2.Driver");
+	//アイテムIDの削除
+	public boolean delete(String Coordinate_ID) {
+		Connection conn = null;
+		boolean result = false;
 
-				// データベースに接続する
-				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/CCC", "sa", "ccc");
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
 
-				// SQL文を準備する
-				String sql = "delete from Used_Item where user_id=? and item_id=?";
-				PreparedStatement pStmt = conn.prepareStatement(sql);
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/CCC", "sa", "ccc");
 
-				// SQL文を完成させる
-				pStmt.setString(1, Item_ID.getUser_id());
-				pStmt.setString(2, Item_ID.getItem_id());
+			// SQL文を準備する
+			String sql = "delete from UsedItem where COORDINATE_id=?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
 
-				// SQL文を実行する
-				if (pStmt.executeUpdate() == 1) {
-					result = true;
-				}
+			// SQL文を完成させる
+			pStmt.setString(1, Coordinate_ID);
+
+			// SQL文を実行する
+			if (pStmt.executeUpdate() == 1) {
+				result = true;
 			}
-
-			catch (SQLException e) {
-				e.printStackTrace();
-			}
-
-			catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			}
-
-			finally {
-				// データベースを切断
-				if (conn != null) {
-					try {
-						conn.close();
-					}
-					catch (SQLException e) {
-						e.printStackTrace();
-					}
-				}
-			}
-
-			// 結果を返す
-			return result;
-
 		}
+
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+		// 結果を返す
+		return result;
+
+	}
 }

@@ -12,11 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.CoordinateDAO;
-import dao.UsedItemDAO;
-import model.Coordinate;
+import model.CoordinateInsertModel;
 import model.CoordinateModel;
 import model.LoginUser;
-import model.UsedItemModel;
 
 /**
  * Servlet implementation class CoordinateDetailServlet
@@ -55,54 +53,41 @@ public class CoordinateDetailServlet extends HttpServlet {
         // リクエストパラメータを取得する
         request.setCharacterEncoding("UTF-8");
         String coordinate_id = request.getParameter("coordinate_id");
-        String item_id = request.getParameter("item_id");
-
-        HttpSession session = request.getSession();
-		LoginUser user = (LoginUser)session.getAttribute("user_id");
-		String user_id = user.getUser_id();
+        String useditem_id = request.getParameter("item_id");
+        String user_id = request.getParameter("user_id");
+        String season = request.getParameter("season");
+        String purpose = request.getParameter("porpose");
+        String coordinate_image = request.getParameter("coordinate_image");
 
         //アイテム情報追加、アイテム、コーディネート削除
-		UsedItemDAO usedItemDAO = new UsedItemDAO();
-		CoordinateDAO cDao = new CoordinateDAO();
+        CoordinateDAO coordinateDao = new CoordinateDAO();
+        //CoordinateItemDAO itemDao = new CoordinateItemDAO();
 
-        if(request.getParameter("submit").equals("delete")){
-            if (usedItemDAO.deleteI(new UsedItemModel(user_id, "",item_id))) { // 削除成功
-
-            	List<CoordinateModel> CoordinateList = cDao.search(new CoordinateModel(user_id, coordinate_id, "", "", "", "", "", "", "", "", "", "", ""));//コーディネートの画像のみ
-                // 検索結果をリクエストスコープに格納する
-                request.setAttribute("CoordinateList", CoordinateList);
-            	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/CoordinateDetail.jsp");
+        if(request.getParameter("submit").equals("アイテム削除")){
+            if (coordinateDao.delete(useditem_id)) { // 削除成功
+            	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ItemList.jsp");
             	dispatcher.forward(request, response);
-            	return;
             }
             else {                      // 削除失敗
-            	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/CoordinateDetail.jsp");
+            	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ItemList.jsp");
             	dispatcher.forward(request, response);
-            	return;
             }
         }
-        else if(request.getParameter("submit").equals("Delete this look")){
-            if (cDao.delete(new Coordinate(user_id, coordinate_id, "", "", ""))) { // 削除成功
-
-        		List<Coordinate> CoordinateList = cDao.CoordinateSearch(new Coordinate(user_id, "", "", "", ""));
-
-        		// 検索結果をリクエストスコープに格納する
-        		request.setAttribute("CoordinateList", CoordinateList);
-        		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/CoordinateSearch.jsp");
-        		dispatcher.forward(request, response);
-            	return;
+        else if(request.getParameter("submit").equals("コーディネート削除")){
+            if (coordinateDao.delete(coordinate_id)) { // 削除成功
+            	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ItemList.jsp");
+            	dispatcher.forward(request, response);
             }
             else {                      // 削除失敗
-            	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/CoordinateSearch.jsp");
+            	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ItemList.jsp");
             	dispatcher.forward(request, response);
-            	return;
             }
         }
 
-         /* else if(request.getParameter("submit").equals("Update this look")){
+        else if(request.getParameter("submit").equals("コーディネートアイテム追加")){
         	// 追加成功
             if (coordinateDao.insert(new CoordinateInsertModel(user_id, coordinate_id, season, purpose, coordinate_image))) {
-            	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/CoordinateResult.jsp");
+            	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/CoordinateList.jsp");
             	dispatcher.forward(request, response);
             }
             else {                      // 削除失敗
@@ -112,7 +97,7 @@ public class CoordinateDetailServlet extends HttpServlet {
         }
 
         // 結果ページにフォワードする
-
+        /*
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/NewCoordinateError.jsp");
         dispatcher.forward(request, response);
         */

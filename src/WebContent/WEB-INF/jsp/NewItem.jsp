@@ -6,7 +6,7 @@
     <main>
         <div>
             <!-- fromの始まり -->
-            <form action="NewItemServlet" method="post" enctype="multipart/form-data" >
+            <form action="test.html" method="post" enctype="multipart/form-data" >
             <!--fileのupload-->
             <!--選択された画像の表示枠-->
             <div id="imageplace">

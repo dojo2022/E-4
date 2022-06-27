@@ -56,47 +56,26 @@ public class ItemDetailServlet extends HttpServlet {
         String size = request.getParameter("size");
         String remarks = request.getParameter("remarks");
 
-        HttpSession session = request.getSession();
-
-		LoginUser user = (LoginUser)session.getAttribute("user_id");
-		String user_id = user.getUser_id();
-
-		 CoordinateItemDAO itemDao = new CoordinateItemDAO();
-	        List<CoordinateItemModel> itemList = itemDao.select(new CoordinateItemModel(user_id, item_id,  "",  "",  "",  "",  "",  "",  ""));
-	        // 検索結果をリクエストスコープに格納する
-	        request.setAttribute("itemList", itemList);
-
-		CoordinateItemDAO itemDao1 = new CoordinateItemDAO();
-		List<CoordinateItemModel> ModelList = itemDao1.select(new CoordinateItemModel(user_id,item_id,"","","","","","",""));
-
-		//検索結果をリクエストスコープに格納する
-		request.setAttribute("ModelList", ModelList);
-
         // 更新または削除を行う
-		//検索しておく
-        CoordinateItemDAO itemDao2 = new CoordinateItemDAO();
+        CoordinateItemDAO itemDao = new CoordinateItemDAO();
         if (request.getParameter("submit").equals("update")) {
-            if (itemDao2.update(new CoordinateItemModel(user_id,item_id, "", "", "", brand, size, remarks,""))) {  // 更新成功
-            	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ItemDetail.jsp");
+            if (itemDao.update(new CoordinateItemModel("",item_id, "", "", "", brand, size, remarks,""))) {  // 更新成功
+            	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ItemList.jsp");
             	dispatcher.forward(request, response);
-            	return;
             }
             else {                                              // 更新失敗
-            	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ItemDetail.jsp");
+            	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ItemList.jsp");
             	dispatcher.forward(request, response);
-            	return;
             }
         }
         else if(request.getParameter("submit").equals("delete")){
             if (itemDao.updateflag(new DeleteFlagModel("","",""))) { // 削除成功
-            	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ItemSearch.jsp");
+            	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ItemList.jsp");
             	dispatcher.forward(request, response);
-            	return;
             }
             else {                      // 削除失敗
-            	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ItemSearch.jsp");
+            	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ItemList.jsp");
             	dispatcher.forward(request, response);
-            	return;
             }
         }
         // 結果ページにフォワードする
