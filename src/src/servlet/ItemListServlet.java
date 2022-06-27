@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -32,7 +33,7 @@ public class ItemListServlet extends HttpServlet {
 
 		LoginUser user = (LoginUser)session.getAttribute("user_id");
 		String user_id = user.getUser_id();
-
+		
 
 
 		//検索処理を行う
@@ -58,10 +59,17 @@ public class ItemListServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+		String category1 =request.getParameter("search_category1");
+		String category2 =request.getParameter("search_category2");
+		String category3 =request.getParameter("search_category3");
+		String category4 =request.getParameter("search_category4");
+		String category5 =request.getParameter("search_category5");
+		String category6 =request.getParameter("search_category6");
+		String category7 = request.getParameter("search_category7");
 
 
 
-		String category = request.getParameter("search_category");
+
 		String brand =request.getParameter("search_brand");
 
 		HttpSession session = request.getSession();
@@ -70,6 +78,7 @@ public class ItemListServlet extends HttpServlet {
 		 String user_id = user.getUser_id();
 
 
+<<<<<<< HEAD
 
 
 		//List<String> category =new ArrayList<>();
@@ -77,15 +86,87 @@ public class ItemListServlet extends HttpServlet {
 		//検索処理を行う
 		CoordinateItemDAO itemDao = new CoordinateItemDAO();
 		List<CoordinateItemModel> CoordinateItemList = itemDao.select2(new CoordinateItemModel(user_id,"","",category,brand,"","","",""));
-		//List<CoordinateItemModel> CoordinateItemList = itemDao.select(new CoordinateItemModel(user_id,"","",category,brand,"","","",""));
-		//タグをArrayListに格納
+=======
+		CoordinateItemModel itemModel = (CoordinateItemModel)session.getAttribute("item_image");
+	/*	String item_image = itemModel.getItem_image();*/
 
+		//検索処理を行う
+		CoordinateItemDAO itemDao = new CoordinateItemDAO();
+>>>>>>> e16f95851769ec999a06046cb0a23ae894721a62
+		//List<CoordinateItemModel> CoordinateItemList = itemDao.select(new CoordinateItemModel(user_id,"","",category,brand,"","","",""));
+		List<CoordinateItemModel> CoordinateItemList = itemDao.select(new CoordinateItemModel(user_id,"","",category1,brand,"","","",""));
+		//タグをArrayListに格納
+		List<String> iTagList = new ArrayList<>();
+		if(session.getAttribute("catagory1") == null) {
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ItemResult.jsp");
+			dispatcher.forward(request, response);
+		}
+		else {
+			iTagList.add(category1);
+		}
+
+<<<<<<< HEAD
 		//CoordinateItemModel itemModel = (CoordinateItemModel)session.getAttribute("item_image");
 		//String item_image = itemModel.getItem_image();
 
+=======
+		if(session.getAttribute("catagory2") == null) {
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ItemResult.jsp");
+			dispatcher.forward(request, response);
+		}
+		else {
+			iTagList.add(category2);
+		}
+		if(session.getAttribute("catagory3") == null) {
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ItemResult.jsp");
+			dispatcher.forward(request, response);
+		}
+		else {
+			iTagList.add(category3);
+		}
+		if(session.getAttribute("catagory4") == null) {
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ItemResult.jsp");
+			dispatcher.forward(request, response);
+		}
+		else {
+			iTagList.add(category4);
+		}
+		if(session.getAttribute("catagory5") == null) {
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ItemResult.jsp");
+			dispatcher.forward(request, response);
+		}
+		else {
+			iTagList.add(category5);
+		}
+		if(session.getAttribute("catagory6") == null) {
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ItemResult.jsp");
+			dispatcher.forward(request, response);
+		}
+		else {
+			iTagList.add(category6);
+		}
+		if(session.getAttribute("catagory7") == null) {
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ItemResult.jsp");
+			dispatcher.forward(request, response);
+		}
+		else {
+			iTagList.add(category7);
+		}
+		/*iTagList.add(category2);
+		iTagList.add(category3);
+		iTagList.add(category4);
+		iTagList.add(category5);
+		iTagList.add(category6);
+		*/
+
+
+	    iTagList.add(brand);
+>>>>>>> e16f95851769ec999a06046cb0a23ae894721a62
 
 		//検索結果をリクエストスコープに格納する
 		request.setAttribute("CoordinateItemList", CoordinateItemList);
+
+		request.setAttribute("iTagList", iTagList);
 
 		//結果ページにフォワードする
 		RequestDispatcher dispatcher =request.getRequestDispatcher("/WEB-INF/jsp/ItemResult.jsp");

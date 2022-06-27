@@ -15,24 +15,26 @@
 			</c:forEach>
 			<!-- アイテム情報 -->
             <p class="article">アイテム情報</p>
-            <c:forEach var="e" items="${CoordinateList}">
             <div id= "iteminfo">
-            <div class = "box">
-				<tr>
-					<th class="brand"><label>ブランド:</label></th>
-					<td><input class="text" type="text" size="30" value="${e.brand}"></td>
-				</tr>
-				<br>
-				<tr>
-		            <th class="size"><label>サイズ:</label></th>
-		            <td><input class="text" type="text" size="30" value="${e.size}"></td>
-				</tr></div>
-				<br>
-		            <div class = "float"><img class="photo" src="${e.item_image}"></div>
-		            </div>
+		    	<c:forEach var="e" items="${CoordinateList}">
+			    	<div class="box">
+						<tr>
+							<th class="brand"><label>ブランド:</label></th>
+							<td><input class="text" type="text" size="30" value="${e.brand}" readonly="readonly" ></td>
+						</tr>
+						<br>
+
+						<tr>
+							<th class="size"><label>サイズ:</label></th>
+							<td><input class="text" type="text" size="30" value="${e.size}" readonly="readonly" ></td>
+						</tr>
+						<br>
+					</div>
+		           <p>アイテム画像</p><img class="photo" src="${e.item_image}"><br>
 		            <input class="delete" type="submit" value="Delete"><br>
 	            </c:forEach>
-            <input class="plus" type="submit" value="+">
-            <input class="minus" type="submit" value="Delete this look">
+            </div>
+            <input class="plus" type="submit" value="+"><input class="minus" type="submit" value="Delete this look">
         </main>
+        <!-- 変更確認 -->
 <%@ include file="/WEB-INF/jsp/Footer.jsp" %>

@@ -31,7 +31,6 @@ function itemsearch() {
         }
     }
 
-    //tops選択時
     document.querySelector('tbody').innerHTML = ""; //tbodyの中を全消去
     var html = ""; //innerHTMLの文を完成させるための変数
     var categorycnt = 0; //categryはiとjを使うと数字がおかしくなるためcategoryを紐づけるためのcount変数

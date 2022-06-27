@@ -21,6 +21,7 @@
 						<td class="searchitems"><input type="text" name="search_word"></td>
 					</tr>
 					<tr>
+<<<<<<< HEAD
 						  <td class="searchitems"><p class="category">カテゴリー</p>
 						<label><input type="checkbox" name="search_category" value="トップス">トップス</label>
 						<label><input type="checkbox" name="search_category" value="アウター">アウター</label>
@@ -31,6 +32,25 @@
 						<label><input type="checkbox" name="search_category" value="小物">小物</label></td>
 
 
+=======
+						<!--  <td class="searchitems"><p class="category">カテゴリー</p>
+						<label><input type="checkbox" name="search_category" value="tops">トップス</label>
+						<label><input type="checkbox" name="search_category" value="outer">アウター</label>
+						<label><input type="checkbox" name="search_category" value="pants">パンツ</label>
+						<label><input type="checkbox" name="search_category" value="skirt">スカート</label>
+						<label><input type="checkbox" name="search_category" value="onepiece">ワンピース</label>
+						<label><input type="checkbox" name="search_category" value="shoes">シューズ</label>
+						<label><input type="checkbox" name="search_category" value="accessories">小物</label></td>
+						-->
+						<td class="searchitems"><p class="category">カテゴリー</p>
+						<label><input type="checkbox" name="search_category1" value="tops">トップス</label>
+						<label><input type="checkbox" name="search_category2" value="outer">アウター</label>
+						<label><input type="checkbox" name="search_category3" value="pants">パンツ</label>
+						<label><input type="checkbox" name="search_category4" value="skirt">スカート</label>
+						<label><input type="checkbox" name="search_category5" value="onepiece">ワンピース</label>
+						<label><input type="checkbox" name="search_category6" value="shoes">シューズ</label>
+						<label><input type="checkbox" name="search_category7" value="accessories">小物</label></td>
+>>>>>>> e16f95851769ec999a06046cb0a23ae894721a62
 					</tr>
 					<tr>
 						<td><select name="search_brand">

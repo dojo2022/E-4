@@ -8,7 +8,7 @@
     <main>
         <div>
             <!-- fromの始まり -->
-            <form action="NewCoordinateServlet" method="post" enctype="multipart/form-data" name="coordinateregister">
+            <form action="NewCoordinateServlet" method="post" enctype="multipart/form-data" name = "coordinateregister">
 	            <!--fileのupload-->
 	            <div>
 	                <input type="file" id="coordinate_upload">
@@ -65,7 +65,7 @@
 						<label><input type="checkbox" name="search_category" value="accessories" onchange="itemsearch()">小物</label>
 						</div>
 
-						<select name="search_brand" onchange="itemsearch()">
+						<select name="search_brand">
 							<option value="">ブランド</option>
 							<c:forEach var="e" items="${ModelList}">
 								<option value="${e.brand}">${e.brand}</option>
@@ -92,7 +92,7 @@
 										<tr>
 									</c:if>
 										<td>
-											<input type="hidden" value="${e.category}">
+											<input type="hidden" value = "${e.category}">
 											<img src="${e.item_image}" id = "itemimage">
 										</td>
 
@@ -111,5 +111,5 @@
     </main>
 
 <script src ="././js/NewCoordinate.js"></script>
-<script src="././js/RealTimeSort.js"></script>
+<script src ="././js/RealTimeSort.js"></script>
 <%@ include file="/WEB-INF/jsp/Footer.jsp" %>

@@ -9,12 +9,15 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.CoordinateDAO;
 import dao.CoordinateItemDAO;
 import dao.UsedItemDAO;
 import model.CoordinateInsertModel;
 import model.CoordinateItemModel;
+import model.ItemBrandModel;
+import model.LoginUser;
 import model.UsedItemModel;
 
 /**
@@ -29,6 +32,10 @@ public class NewCoordinateServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+
+		LoginUser user = (LoginUser)session.getAttribute("user_id");
+		String user_id = user.getUser_id();
 
 		//アイテムを全件取得
 		CoordinateItemDAO itemdao = new CoordinateItemDAO();
@@ -36,6 +43,12 @@ public class NewCoordinateServlet extends HttpServlet {
 
 		//リクエストスコープに格納する
 		request.setAttribute("modelList",modelList);
+
+		CoordinateItemDAO bDao = new CoordinateItemDAO();
+		List<ItemBrandModel> brandList = bDao.selectBrand(new ItemBrandModel(user_id,""));
+
+		//検索結果をリクエストスコープに格納する
+		request.setAttribute("brandList", brandList);
 
 		//jspにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/NewCoordinate.jsp");
