@@ -28,10 +28,12 @@
 
 table {
 	margin: auto;
+	text-align: right;
 }
 
 .iteminfo {
 	font-family: "bold";
 	text-align: center;
-	margint: auto;
+	margin: auto;
 }
+

@@ -12,11 +12,8 @@
             	<div id = "item_image">
 					<img src="${e.item_image}" class = "item_place">
             	</div>
-            	<hr>
+            	<hr class = "line">
 
-				<div>
-					<p class = "iteminfo">アイテム情報</p>
-				</div><br>
 				<form id="update" method="POST" action="/CCC/ItemDetailServlet">
 					 <input type="hidden" name="item_id" value="${e.item_id}" >
 					<table>

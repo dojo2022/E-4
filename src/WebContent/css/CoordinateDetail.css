@@ -23,7 +23,6 @@ main{
 }
 
 .picbox img{
-	width: 100px;
 	height: auto;
 	object-fit:  contain;
 }
@@ -54,7 +53,7 @@ main{
 }
 
 .box{
-	 text-align: center;
+	 text-align: right;
 
 }
 
@@ -68,7 +67,12 @@ main{
 	text-align: center;
 	width: 100px;
 	height: auto;
-	object-fit:  contain;
+	transition: .3s;
+	padding-left: 10px;
+}
+.photo:hover {
+	box-shadow: 0 15px 30px -5px rgba(0,0,0,.15), 0 0 5px rgba(0,0,0,.1);
+	transform: translateY(-4px);
 }
 
 
@@ -93,10 +97,12 @@ input.delete{
 #iteminfo {
 	display: flex;
 	margin:auto;
+	padding-bottom: 7px;
 }
 
 .delete {
 	margin-left: 200px;
+	margin-bottom: 10px;
 }
 
 .deletethis {
