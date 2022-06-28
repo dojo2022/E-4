@@ -72,15 +72,14 @@
 							</c:forEach>
 						</select>
 
-
-
-
-
-
-
 		            	<!--コーディネート登録ボタン-->
 		            	<div id="coordinate_add">
 		                	<input type="submit" onclick="imageError()" id="coordinate_add" value="register">
+		            	</div>
+
+		            	<!-- 選択アイテム表示欄 -->
+		            	<div id="selectitems">
+
 		            	</div>
 					</div>
 		        	<div id="allitemimage"><!-- 画像一覧表示枠 -->
@@ -92,10 +91,10 @@
 										<tr>
 									</c:if>
 										<td>
+											<input type="hidden" value = "${e.item_id}" id = "itemimage${e.item_id}">
 											<input type="hidden" value = "${e.category}">
-											<img src="${e.item_image}" id = "itemimage">
+											<img src="${e.item_image}" id = "itemimage" name="${e.item_id}">
 										</td>
-
 									<c:set var="cnt" value="${cnt+1}"/>
 									<c:if test="${cnt%3==0}">
 										</tr>
@@ -111,5 +110,5 @@
     </main>
 
 <script src ="././js/NewCoordinate.js"></script>
-<script src ="././js/RealTimeSort.js"></script>
+<!-- <script src="././js/RealTimeSort.js"></script> -->
 <%@ include file="/WEB-INF/jsp/Footer.jsp" %>
