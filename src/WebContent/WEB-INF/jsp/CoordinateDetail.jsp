@@ -27,7 +27,9 @@
 		            <td><input class="text" type="text" size="30" value="${e.size}"></td>
 				</tr></div>
 				<br>
-		            <div class = "float"><img class="photo" src="${e.item_image}"></div>
+					<a href="/CCC/ItemDetailServlet?q=${e.item_id}">
+						<img class="photo" src="${e.item_image}">
+					</a>
 		            </div>
 
 		            <div class = "delete"><input class="delete" type="submit" value="Delete"><br></div>
