@@ -34,19 +34,19 @@
 							<td><input class="text" type="text" size="30" value="${e.size}"></td>
 						</tr>
 						<br>
-					</div>
 
-					<p>アイテム画像</p>
+
 					<a href="/CCC/ItemDetailServlet?q=${e.item_id}">
 						<img class="photo" src="${e.item_image}">
 					</a>
 					<input type="hidden" value="${e.item_id}" name="item_id">
 					<input class="delete" type="submit" value="delete" name="submit"><br>
+					</div>
 				</c:forEach>
 			</div>
 
 			<input class="plus" type="button" value="+">
-			<input class="minus" type="submit" value="Update this look" name="submit">
+			<input class="minus" type="submit" value="Update this look" name="submit"><br>
 			<input class="minus" type="submit" value="Delete this look" name="submit">
 		</form>
 	</main>

@@ -5,6 +5,7 @@ var rowtbl = searchimage.rows.length;//縦
 var celltbl = searchimage.rows[1].cells.length;//横
 var list = [];
 var category = [];
+var item_id = [];
 var templist;
 let macthcnt = 0;
 
@@ -12,9 +13,11 @@ for (i = 0; i < rowtbl; i++) {
     list[i] = [];
     for (j = 0; j < celltbl; j++) {
         templist = table.rows[i].cells[j];
+        console.log(table);
         if (templist !== undefined) { //全件取り終わるまで
-            list[i].push(templist.children['itemimage'].attributes['src'].nodeValue); //画像パスが入っている（例 ././白シャツ.jpg)
-            category.push(templist.children[0].attributes['value'].nodeValue); //カテゴリーが入っている（例 トップス）
+            list[i].push(templist.children['itemimage'+j].attributes['src'].nodeValue); //画像パスが入っている（例 ././白シャツ.jpg)
+            category.push(templist.children[1].attributes['value'].nodeValue); //カテゴリーが入っている（例 トップス）
+            item_id.push(templist.children[0].attributes['value'].nodeValue);
         }
     }
 }
@@ -43,6 +46,7 @@ function itemsearch() {
                 }
 
                 html += '<td>';
+                html += '<input type="hidden" value=' + item_id[categorycnt] + '>';
                 html += '<input type="hidden" value=' + category[categorycnt] + '>';
                 html += '<img src=' + list[i][j] + ' id = "itemimage">';
                 html += '</td>';
@@ -69,6 +73,7 @@ function itemsearch() {
             if (checkcategory.includes('tops') == true) {
                 if (category[categorycnt] == 'トップス') {
                     html += '<td>';
+                    html += '<input type="hidden" value=' + item_id[categorycnt] + '>';
                     html += '<input type="hidden" value=' + category[categorycnt] + '>';
                     html += '<img src=' + list[i][j] + ' id = "itemimage">';
                     html += '</td>';
@@ -79,6 +84,7 @@ function itemsearch() {
             if (checkcategory.includes('outer') == true) {
                 if (category[categorycnt] == 'アウター') {
                     html += '<td>';
+                    html += '<input type="hidden" value=' + item_id[categorycnt] + '>';
                     html += '<input type="hidden" value=' + category[categorycnt] + '>';
                     html += '<img src=' + list[i][j] + ' id = "itemimage">';
                     html += '</td>';
@@ -89,6 +95,7 @@ function itemsearch() {
             if (checkcategory.includes('pants') == true) {
                 if (category[categorycnt] == 'パンツ') {
                     html += '<td>';
+                    html += '<input type="hidden" value=' + item_id[categorycnt] + '>';
                     html += '<input type="hidden" value=' + category[categorycnt] + '>';
                     html += '<img src=' + list[i][j] + ' id = "itemimage">';
                     html += '</td>';
@@ -99,6 +106,7 @@ function itemsearch() {
             if (checkcategory.includes('skirt') == true) {
                 if (category[categorycnt] == 'スカート') {
                     html += '<td>';
+                    html += '<input type="hidden" value=' + item_id[categorycnt] + '>';
                     html += '<input type="hidden" value=' + category[categorycnt] + '>';
                     html += '<img src=' + list[i][j] + ' id = "itemimage">';
                     html += '</td>';
@@ -109,6 +117,7 @@ function itemsearch() {
             if (checkcategory.includes('onepiece') == true) {
                 if (category[categorycnt] == 'ワンピース') {
                     html += '<td>';
+                    html += '<input type="hidden" value=' + item_id[categorycnt] + '>';
                     html += '<input type="hidden" value=' + category[categorycnt] + '>';
                     html += '<img src=' + list[i][j] + ' id = "itemimage">';
                     html += '</td>';
@@ -119,6 +128,7 @@ function itemsearch() {
             if (checkcategory.includes('shoes') == true) {
                 if (category[categorycnt] == 'シューズ') {
                     html += '<td>';
+                    html += '<input type="hidden" value=' + item_id[categorycnt] + '>';
                     html += '<input type="hidden" value=' + category[categorycnt] + '>';
                     html += '<img src=' + list[i][j] + ' id = "itemimage">';
                     html += '</td>';
@@ -129,6 +139,7 @@ function itemsearch() {
             if (checkcategory.includes('accessories') == true) {
                 if (category[categorycnt] == '小物') {
                     html += '<td>';
+                    html += '<input type="hidden" value=' + item_id[categorycnt] + '>';
                     html += '<input type="hidden" value=' + category[categorycnt] + '>';
                     html += '<img src=' + list[i][j] + ' id = "itemimage">';
                     html += '</td>';
