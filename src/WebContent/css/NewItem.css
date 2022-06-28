@@ -60,9 +60,11 @@
 
 #regibtn{
 	text-align: right;
+	margin-right: 160px;
 }
 #uploadbutton{
 	text-align: right;
+	margin-right: 120px;
 }
 #imageplace{
 	text-align: center;
@@ -82,4 +84,8 @@
 
 input[type="file"] {
     display: none;
+}
+
+#div{
+	margin-left: 250px;
 }

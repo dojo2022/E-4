@@ -23,9 +23,6 @@
 	                </label>
 	            </div>
 	            <div>
-	            	<div id ="imageError">
-	            		<p id = error2>test</p>
-	            	</div>
 	            </div>
 	            <!--破線-->
 	            <hr id="line">

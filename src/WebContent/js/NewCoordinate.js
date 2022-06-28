@@ -27,24 +27,14 @@ for (i = 0; i < rowtbl; i++) {
 
 /*[1]クリック時に実行する関数*/
 function selectItem (e) {
-	//var hidevalue = e.path[6].children[1].children['searchimage'].children['search-tbody'].children[1].children[0].children[0].value;
-    //var joinname = "imagename"+hidevalue;
-    //var imagename = document.getElementById("");
     var imagename = e.target.getAttribute("name")
 
-    /*クリックした要素のIDを表示*/
-    //alert( e.target.getAttribute("id") + "をクリックしました" );
-    //console.log(e.path[6].children[1].children['searchimage'].children['search-tbody'].children[1].children[0].children[0].value);
 	var imagenameint = parseInt(imagename,10);
 	var imagevertical = Math.floor(imagenameint/3);
 	var imagebeside = imagenameint%3-1;
 	var selectimage = list[imagevertical][imagebeside]
 	selectitem.innerHTML += '<img src=' + selectimage + ' id = "itemimage">';
-	console.log(imagename);
-	console.log(imagenameint);
-	console.log(imagevertical);
-	console.log(imagebeside);
-	console.log(selectimage);
+
 }
 /*[2]IMG要素をすべてセレクト*/
 var img = document.querySelectorAll("#itemimage");
