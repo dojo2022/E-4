@@ -4,11 +4,6 @@
 <%@ include file="/WEB-INF/jsp/Header.jsp" %>
     <title>CCC｜ホーム</title>
       <link rel="stylesheet" href="././css/Home.css">
-
-		<c:forEach var="e" items="${cModel}">
-			<a href="/CCC/CoordinateDetailServlet?q=${e.coordinate_id}"><img src="${e.coordinate_image}"></a>
-		</c:forEach>
-
         <!--javascriptで触る？-->
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <!--==============レイアウトを制御する独自のCSSを読み込み===============-->
@@ -28,18 +23,22 @@
   <div class="tab_content" id="business_content">
     <div class="tab_content_description">
 <ul class="slider">
-    <li class="slider-item slider-item01"></li>
-    <li class="slider-item slider-item02"></li>
-    <li class="slider-item slider-item03"></li>
+	<c:forEach var="e" items="${bModel}">
+		<li class="slider-item">
+			<a href="/CCC/CoordinateDetailServlet?q=${e.coordinate_id}"><img src="${e.coordinate_image}" class= "searchlist"></a>
+		</li>
+	</c:forEach>
   </ul>
     </div>
   </div>
   <div class="tab_content" id="private_content">
     <div class="tab_content_description">
 <ul class="slider">
-    <li class="slider-item slider-item01"></li>
-    <li class="slider-item slider-item02"></li>
-    <li class="slider-item slider-item03"></li>
+    <c:forEach var="e" items="${pModel}">
+		<li class="slider-item">
+			<a href="/CCC/CoordinateDetailServlet?q=${e.coordinate_id}"><img src="${e.coordinate_image}" class= "searchlist"></a>
+		</li>
+	</c:forEach>
   </ul>
     </div>
   </div>

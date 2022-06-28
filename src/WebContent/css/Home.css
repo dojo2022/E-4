@@ -97,19 +97,6 @@
   height: 100vh;/*スライダー全体の縦幅を画面の高さいっぱい（100vh）にする*/
 }
 /*　背景画像設定　*/
-
-.slider-item01 {
-    background:url(https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/6-1-1/img/img_01.jpg);
-}
-
-.slider-item02 {
-    background:url(https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/6-1-1/img/img_02.jpg);
-}
-
-.slider-item03 {
-    background:url(https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/6-1-1/img/img_03.jpg);
-}
-
 .slider-item {
     width: 100%;/*各スライダー全体の横幅を画面の高さいっぱい（100%）にする*/
     height:100vh;/*各スライダー全体の縦幅を画面の高さいっぱい（100vh）にする*/
