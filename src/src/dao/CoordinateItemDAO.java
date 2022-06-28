@@ -29,7 +29,7 @@ public class CoordinateItemDAO {
 
     			// SQL文を準備(検索）
     			String sql = "select category,brand,item_image,item_id,size,remarks,day,flag "
-    					+ "from item where  category like ? and brand like ? and item_id like ? and flag != 'delete' and user_id like ?";
+    					+ "from item where  category like ? and brand like ? and item_id like ? and flag != 'delete' and user_id like ? and remarks like ?";
     			PreparedStatement pStmt = conn.prepareStatement(sql);
 
     			// SQL文を完成させる
@@ -56,6 +56,12 @@ public class CoordinateItemDAO {
     			}
     			else {
     				pStmt.setString(4, "%");
+    			}
+    			if (param.getUser_id() != null) {
+    				pStmt.setString(5, "%" + param.getRemarks() + "%");
+    			}
+    			else {
+    				pStmt.setString(5, "%");
     			}
 
 
