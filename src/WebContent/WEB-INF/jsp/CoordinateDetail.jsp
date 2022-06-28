@@ -6,16 +6,16 @@
 	<link rel="stylesheet" href="././css/CoordinateDetail.css">
 
 	<main>
-			<c:forEach var="e" items="${CoordinateList}" begin="0" end="0">
-            	<h1>コーディネート画像</h1>
-            	<div class="picbox">
-            		<img src="${e.coordinate_image}" >
-	        	</div>
-	         	<!-- 点線 -->
-				<p class = "line"></p>
-			</c:forEach>
+		<c:forEach var="e" items="${CoordinateList}" begin="0" end="0">
+			<h1>コーディネート画像</h1>
+			<div class="picbox">
+				<img src="${e.coordinate_image}" >
+			</div>
+			<!-- 点線 -->
+			<p class = "line"></p>
+		</c:forEach>
 
-			<!-- アイテム情報 -->
+		<!-- アイテム情報 -->
         <p class="article">アイテム情報</p>
         <form action="CoordinateDetailServlet" method="post"  name="coordinateupdate"><!-- enctype="multipart/form-data" -->
         	<div id= "iteminfo">
