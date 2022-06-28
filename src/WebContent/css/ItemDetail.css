@@ -32,4 +32,6 @@ table {
 
 .iteminfo {
 	font-family: "bold";
+	text-align: center;
+	margint: auto;
 }

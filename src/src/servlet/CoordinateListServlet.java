@@ -54,7 +54,6 @@ public class CoordinateListServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String season = request.getParameter("search_season");
 		String purpose = request.getParameter("search_purpose");
-		//String coordinate_image = request.getParameter("search_itemImg");
 
 
 		HttpSession session = request.getSession();
@@ -70,12 +69,15 @@ public class CoordinateListServlet extends HttpServlet {
 		List<Coordinate> CoordinateList = cDao.CoordinateSearch(new Coordinate(user_id, "", season, purpose, ""));
 
 		//タグをArrayListに格納
+		List<String> tagList = new ArrayList<String>();
 		//List<String> cImgList = new ArrayList<String>();
-
+		tagList.add(season);
+		tagList.add(purpose);
 		//cImgList.add(coordinate_image);
 
 		// 検索結果をリクエストスコープに格納する
 		request.setAttribute("CoordinateList", CoordinateList);
+		request.setAttribute("tag_list", tagList);
 		//request.setAttribute("cImgList", cImgList);
 
 		// 結果ページにフォワードする

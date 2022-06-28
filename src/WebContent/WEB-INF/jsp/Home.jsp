@@ -4,16 +4,10 @@
 <%@ include file="/WEB-INF/jsp/Header.jsp" %>
     <title>CCC｜ホーム</title>
       <link rel="stylesheet" href="././css/Home.css">
-
-		<c:forEach var="e" items="${cModel}">
-			<a href="/CCC/CoordinateDetailServlet?q=${e.coordinate_id}"><img src="${e.coordinate_image}"></a>
-		</c:forEach>
-
         <!--javascriptで触る？-->
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <!--==============レイアウトを制御する独自のCSSを読み込み===============-->
 <link rel="stylesheet" type="text/css" href="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/reset.css">
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
 <link rel="stylesheet" type="text/css" href="Home.css">
 </head>
 
@@ -29,18 +23,22 @@
   <div class="tab_content" id="business_content">
     <div class="tab_content_description">
 <ul class="slider">
-    <li class="slider-item slider-item01"></li>
-    <li class="slider-item slider-item02"></li>
-    <li class="slider-item slider-item03"></li>
+	<c:forEach var="e" items="${bModel}">
+		<li class="slider-item">
+			<a href="/CCC/CoordinateDetailServlet?q=${e.coordinate_id}"><img src="${e.coordinate_image}" class= "list"></a>
+		</li>
+	</c:forEach>
   </ul>
     </div>
   </div>
   <div class="tab_content" id="private_content">
     <div class="tab_content_description">
 <ul class="slider">
-    <li class="slider-item slider-item01"></li>
-    <li class="slider-item slider-item02"></li>
-    <li class="slider-item slider-item03"></li>
+    <c:forEach var="e" items="${pModel}">
+		<li class="slider-item">
+			<a href="/CCC/CoordinateDetailServlet?q=${e.coordinate_id}"><img src="${e.coordinate_image}" class= "list"></a>
+		</li>
+	</c:forEach>
   </ul>
     </div>
   </div>
@@ -64,5 +62,5 @@
         <p id = "switch1">Business</p>
         <p id = "switch2">Casual</p>
         </main>
- -->        <script src = "././js/Home.js"></script>
+ -->       <script src = "././js/Home.js"></script>
 <%@ include file="/WEB-INF/jsp/Footer.jsp" %>

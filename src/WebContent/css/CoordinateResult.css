@@ -25,13 +25,18 @@
 	color: #2f4f4f;
 }
 
-#coordinate_img {
-	width: 50px;
-	height: 50px;
-	margin-right: 50px;
+.searchmemu{
+	margin: 0 30px;
 	display: flex;
+	flex-flow: row wrap;
 	justify-content: center;
-	border-radius: 50%;
-	z-index: 97;
-	flex-wrap:wrap
+
+}
+.resultlist{
+	border: 1px solid #333;
+	margin: 2px 5px;
+}
+main img {
+	width:200px;
+	height:200px;
 }

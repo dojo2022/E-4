@@ -76,12 +76,8 @@ float{
 	object-fit:  contain;
 }
 
-input.delete{
-	text-align:center;
-	position:relative;
-	left: 80%;
-	width: 50px;
-	height: 20px;
+.delete{
+	text-align: right;
 }
 
 .plus{
@@ -96,4 +92,12 @@ input.delete{
 		position:relative;
 		left: 78%;
 		margin:1.5%;
+}
+
+input.delete{
+	text-align:center;
+	position:relative;
+	left: 80%;
+	width: 50px;
+	height: 20px;
 }
