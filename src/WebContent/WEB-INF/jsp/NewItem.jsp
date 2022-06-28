@@ -20,7 +20,7 @@
             <!--破線-->
             <hr id="line">
             <!--カテゴリーのプルダウンメニュー-->
-            <div>
+            <div id="div">
                 <p id="iteminfo">アイテム情報</p>
                 <select id="category" name="category">
                     <option value="トップス">トップス</option>
@@ -31,7 +31,7 @@
                     <option value="シューズ">シューズ</option>
                     <option value="小物">小物</option>
                 </select>
-            </div>
+
             <!--ブランド入力欄-->
             <div id="brand">
                 <p>ブランド：<input type="text" name="brand" style="width: 500px;" placeholder="ブランドを入力してください
@@ -49,6 +49,7 @@
                 <div>
                 	<textarea name="remarks" rows="8" cols="30"></textarea>
                 </div>
+            </div>
             </div>
             <!--コーディネート登録ボタン-->
             <div id = "regibtn">
