@@ -97,27 +97,14 @@
   height: 100vh;/*スライダー全体の縦幅を画面の高さいっぱい（100vh）にする*/
 }
 /*　背景画像設定　*/
-
-.slider-item01 {
-    background:url(https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/6-1-1/img/img_01.jpg);
-}
-
-.slider-item02 {
-    background:url(https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/6-1-1/img/img_02.jpg);
-}
-
-.slider-item03 {
-    background:url(https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/6-1-1/img/img_03.jpg);
-}
-
 .slider-item {
     width: 100%;/*各スライダー全体の横幅を画面の高さいっぱい（100%）にする*/
     height:100vh;/*各スライダー全体の縦幅を画面の高さいっぱい（100vh）にする*/
     background-repeat: no-repeat;/*背景画像をリピートしない*/
     background-position: center;/*背景画像の位置を中央に*/
     background-size: cover;/*背景画像が.slider-item全体を覆い表示*/
+    margin: 0;
 }
-
 /*矢印の設定*/
 
 /*戻る、次へ矢印の位置*/
@@ -268,7 +255,7 @@ input[name="tab_item"] {
   color: #fff;
 }
 
-/* #switch {
+ /*#switch {
   display: block;
   list-style: none;
   padding: 0;
@@ -297,7 +284,6 @@ input[name="tab_item"] {
   }
 .boxDisplay { display: block; }
 .boxNone { display: none; } */
-
 
 
 /* Slider */
@@ -350,63 +336,74 @@ input[name="tab_item"] {
             transform: translate3d(0, 0, 0);
 }
 
-.slick-track{
+.slick-track
+{
     position: relative;
     top: 0;
     left: 0;
+
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
-
-.slick-track:before,.slick-track:after{
+.slick-track:before,
+.slick-track:after
+{
     display: table;
+
     content: '';
 }
-
-.slick-track:after{
+.slick-track:after
+{
     clear: both;
 }
-
-.slick-loading .slick-track{
+.slick-loading .slick-track
+{
     visibility: hidden;
 }
 
-.slick-slide{
+.slick-slide
+{
     display: none;
     float: left;
 }
-
-[dir='rtl'] .slick-slide{
+[dir='rtl'] .slick-slide
+{
     float: right;
 }
-
-.slick-slide img{
+.slick-slide img
+{
     display: block;
 }
-
-.slick-slide.slick-loading img{
+.slick-slide.slick-loading img
+{
     display: none;
 }
-
-.slick-slide.dragging img{
+.slick-slide.dragging img
+{
     pointer-events: none;
 }
-
-.slick-initialized .slick-slide{
+.slick-initialized .slick-slide
+{
     display: block;
 }
-
-.slick-loading .slick-slide{
+.slick-loading .slick-slide
+{
     visibility: hidden;
 }
-
-.slick-vertical .slick-slide{
+.slick-vertical .slick-slide
+{
     display: block;
+
     height: auto;
+
     border: 1px solid transparent;
 }
-
 .slick-arrow.slick-hidden {
     display: none;
+}
+
+img.list {
+	width:100%;
+	height:100%;
 }

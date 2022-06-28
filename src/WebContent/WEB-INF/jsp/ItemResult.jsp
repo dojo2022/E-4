@@ -2,10 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="/WEB-INF/jsp/Header.jsp" %>
-<%
-String category = (String)request.getAttribute("search_category");
-String brand = (String)request.getAttribute("search_brand");
-%>
 <link rel="stylesheet" href="././css/ItemResult.css">
     <title>CCC｜検索結果</title>
 
@@ -15,15 +11,12 @@ String brand = (String)request.getAttribute("search_brand");
         <h1 class="Title_Result">Results</h1>
         </div>
 
-     <c:forEach var="tag" items="${iTagList}">
-      <p id="search_tag"><c:out value="${tag}"></c:out></p>
-    </c:forEach>
 
     <h1 class="img_title">Item Image</h1>
 
-	<div class="item_img">
+	<div class = searchmemu>
         <c:forEach var="e" items="${CoordinateItemList}">
-			<a href="/CCC/ItemDetailServlet?q=${e.item_id}"><img src="${e.item_image}"></a>
+			<a href="/CCC/ItemDetailServlet?q=${e.item_id}"><img src="${e.item_image}" class= "resultlist"></a>
 		</c:forEach>
 </div>
 

@@ -27,12 +27,17 @@ public class CoordinateDAO{
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/CCC", "sa", "ccc");
 
 			// SELECT文を準備する
-			String sql ="select COORDINATE.USER_ID, COORDINATE.COORDINATE_ID, PURPOSE, COORDINATE_IMAGE, day "
-					+ "FROM ((COORDINATE left outer join USED_ITEM on COORDINATE.COORDINATE_ID = USED_ITEM.COORDINATE_ID) left outer join ITEM on USED_ITEM.ITEM_ID = ITEM.ITEM_ID) "
-					+ "where USED_ITEM.user_id LIKE ? AND SEASON like ? and PURPOSE = 'ビジネス' or USED_ITEM.user_id LIKE ? AND SEASON like ? and PURPOSE = '兼用' ORDER BY RAND() LIMIT 3";
+			String sql ="select * from COORDINATE where COORDINATE_ID NOT IN "
+					+ "( select cd.COORDINATE_ID from COORDINATE as cd left outer join USED_ITEM as ui "
+					+ "on cd.COORDINATE_ID = ui.COORDINATE_ID left outer join ITEM as it on ui.ITEM_ID = it.ITEM_ID "
+					+ "where ui.user_id like ? and it.DAY > now() -3 ) and (user_id like ?) "
+					+ "and ( case when month(now()) BETWEEN 3 AND 5 then (SEASON like '春' and PURPOSE = 'ビジネス') or (SEASON like '春' and PURPOSE = '兼用') "
+					+ "when month(now()) BETWEEN 6 AND 8 then (SEASON like '夏' and PURPOSE = 'ビジネス') or (SEASON like '夏' and PURPOSE = '兼用') "
+					+ "when month(now()) BETWEEN 9 AND 11 then (SEASON like '秋' and PURPOSE = 'ビジネス') or (SEASON like '秋' and PURPOSE = '兼用') "
+					+ "else (SEASON like '冬' and PURPOSE = 'ビジネス') or (SEASON like '冬' and PURPOSE = '兼用') end) "
+					+ "order by rand() limit(3)";
 			//SQLで日付取得
 			PreparedStatement pStmt = conn.prepareStatement(sql);
-
 
 			// SQL文を完成させる
 			if (param.getUser_id() != null) {
@@ -42,22 +47,10 @@ public class CoordinateDAO{
 				pStmt.setString(1, "%");
 			}
 			if(param.getSeason() != null) {
-				pStmt.setString(2,"%" + param.getSeason() + "%");
+				pStmt.setString(2, param.getUser_id());
 			}
 			else {
 				pStmt.setString(2, "%");
-			}
-			if (param.getUser_id() != null) {
-				pStmt.setString(3, param.getUser_id());
-			}
-			else {
-				pStmt.setString(3, "%");
-			}
-			if(param.getSeason() != null) {
-				pStmt.setString(4,"%" + param.getSeason() + "%");
-			}
-			else {
-				pStmt.setString(4, "%");
 			}
 
 			// SELECT文を実行し、結果表を取得する
@@ -69,7 +62,7 @@ public class CoordinateDAO{
 				Coordinate card = new Coordinate(
 				param.getUser_id(),
 				rs.getString("coordinate_id"),
-				param.getSeason(),
+				rs.getString("season"),
 				rs.getString("purpose"),
 				rs.getString("coordinate_image")
 				);
@@ -116,12 +109,17 @@ public class CoordinateDAO{
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/CCC", "sa", "ccc");
 
 			// SELECT文を準備する
-			String sql ="select COORDINATE.USER_ID, COORDINATE.COORDINATE_ID, PURPOSE, COORDINATE_IMAGE, day "
-					+ "FROM ((COORDINATE left outer join USED_ITEM on COORDINATE.COORDINATE_ID = USED_ITEM.COORDINATE_ID) left outer join ITEM on USED_ITEM.ITEM_ID = ITEM.ITEM_ID) "
-					+ "where USED_ITEM.user_id LIKE ? AND SEASON like ? and PURPOSE = 'プライベート' or USED_ITEM.user_id LIKE ? AND SEASON like ? and PURPOSE = '兼用' ORDER BY RAND() LIMIT 3";
+			String sql ="select * from COORDINATE where COORDINATE_ID NOT IN "
+					+ "( select cd.COORDINATE_ID from COORDINATE as cd left outer join USED_ITEM as ui "
+					+ "on cd.COORDINATE_ID = ui.COORDINATE_ID left outer join ITEM as it on ui.ITEM_ID = it.ITEM_ID "
+					+ "where ui.user_id like ? and it.DAY > now() -3 ) and (user_id like ?) "
+					+ "and ( case when month(now()) BETWEEN 3 AND 5 then (SEASON like '春' and PURPOSE = 'プライベート') or (SEASON like '春' and PURPOSE = '兼用') "
+					+ "when month(now()) BETWEEN 6 AND 8 then (SEASON like '夏' and PURPOSE = 'プライベート') or (SEASON like '夏' and PURPOSE = '兼用') "
+					+ "when month(now()) BETWEEN 9 AND 11 then (SEASON like '秋' and PURPOSE = 'プライベート') or (SEASON like '秋' and PURPOSE = '兼用') "
+					+ "else (SEASON like '冬' and PURPOSE = 'プライベート') or (SEASON like '冬' and PURPOSE = '兼用') end) "
+					+ "order by rand() limit(3)";
 			//SQLで日付取得
 			PreparedStatement pStmt = conn.prepareStatement(sql);
-
 
 			// SQL文を完成させる
 			if (param.getUser_id() != null) {
@@ -131,22 +129,10 @@ public class CoordinateDAO{
 				pStmt.setString(1, "%");
 			}
 			if(param.getSeason() != null) {
-				pStmt.setString(2,"%" + param.getSeason() + "%");
+				pStmt.setString(2, param.getUser_id());
 			}
 			else {
 				pStmt.setString(2, "%");
-			}
-			if (param.getUser_id() != null) {
-				pStmt.setString(3, param.getUser_id());
-			}
-			else {
-				pStmt.setString(3, "%");
-			}
-			if(param.getSeason() != null) {
-				pStmt.setString(4,"%" + param.getSeason() + "%");
-			}
-			else {
-				pStmt.setString(4, "%");
 			}
 
 			// SELECT文を実行し、結果表を取得する
@@ -158,7 +144,7 @@ public class CoordinateDAO{
 				Coordinate card = new Coordinate(
 				param.getUser_id(),
 				rs.getString("coordinate_id"),
-				param.getSeason(),
+				rs.getString("season"),
 				rs.getString("purpose"),
 				rs.getString("coordinate_image")
 				);

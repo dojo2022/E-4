@@ -38,21 +38,17 @@ public class NewItemServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//登録情報の取得
 		// リクエストパラメータを取得する
-		request.setCharacterEncoding("UTF-8");
-		//String user_id = request.getParameter("user_id");
 		HttpSession session = request.getSession();
 
 		LoginUser user = (LoginUser)session.getAttribute("user_id");
 		String user_id = user.getUser_id();
 
-		//String item_id = request.getParameter("item_id");
+		request.setCharacterEncoding("UTF-8");
 		String item_image = request.getParameter("item_image");
 		String category = request.getParameter("category");
 		String brand = request.getParameter("brand");
 		String size = request.getParameter("size");
-		//String flag = request.getParameter("flag");
 		String remarks = request.getParameter("remarks");
-		//String date = request.getParameter("date");
 
 
 		// 登録処理を行う

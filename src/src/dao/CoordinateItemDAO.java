@@ -29,7 +29,7 @@ public class CoordinateItemDAO {
 
     			// SQL文を準備(検索）
     			String sql = "select category,brand,item_image,item_id,size,remarks,day,flag "
-    					+ "from item where  category like ? and brand like ? and item_id like ? and flag != 'delete' and user_id like ?";
+    					+ "from item where  category like ? and brand like ? and item_id like ? and flag != 'delete' and user_id like ? and remarks like ?";
     			PreparedStatement pStmt = conn.prepareStatement(sql);
 
     			// SQL文を完成させる
@@ -56,6 +56,12 @@ public class CoordinateItemDAO {
     			}
     			else {
     				pStmt.setString(4, "%");
+    			}
+    			if (param.getUser_id() != null) {
+    				pStmt.setString(5, "%" + param.getRemarks() + "%");
+    			}
+    			else {
+    				pStmt.setString(5, "%");
     			}
 
 
@@ -179,7 +185,7 @@ public class CoordinateItemDAO {
     				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/CCC", "sa", "ccc");
 
     				// SQL文を準備する
-    				String sql = "insert into item (user_id,item_id,item_image,category, brand,size,flag,remarks,date) values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    				String sql = "insert into item (user_id,item_image,category, brand,size,flag,remarks,day) values (?, ?, ?, ?, ?, ?, ?, ?)";
     				PreparedStatement pStmt = conn.prepareStatement(sql);
 
  					// SQL文を完成させる
@@ -189,53 +195,47 @@ public class CoordinateItemDAO {
 					else {
 						pStmt.setString(1, null);
 					}
-					if (card.getItem_id() != null && !card.getItem_id().equals("")) {
-						pStmt.setString(2, card.getItem_id());
+					if (card.getItem_image() != null && !card.getItem_image().equals("")) {
+						pStmt.setString(2,	"././itemimage/" + card.getItem_image());
 					}
 					else {
 						pStmt.setString(2, null);
 					}
-					if (card.getItem_image() != null && !card.getItem_image().equals("")) {
-						pStmt.setString(3, card.getItem_image());
+					if (card.getCategory() != null && !card.getCategory().equals("")) {
+						pStmt.setString(3, card.getCategory());
 					}
 					else {
 						pStmt.setString(3, null);
 					}
-					if (card.getCategory() != null && !card.getCategory().equals("")) {
-						pStmt.setString(4, card.getCategory());
-					}
-					else {
-						pStmt.setString(4, null);
-					}
 					if (card.getBrand() != null && !card.getBrand().equals("")) {
-						pStmt.setString(5, card.getBrand());
+						pStmt.setString(4, card.getBrand());
 					}
 					else {
-						pStmt.setString(5, null);
+						pStmt.setString(4, "");
 					}
 					if (card.getSize() != null && !card.getSize().equals("")) {
-						pStmt.setString(6, card.getSize());
+						pStmt.setString(5, card.getSize());
 					}
 					else {
-						pStmt.setString(6, null);
+						pStmt.setString(5, "");
 					}
 					if (card.getFlag() != null && !card.getFlag().equals("")) {
-						pStmt.setString(7, card.getFlag());
+						pStmt.setString(6, card.getFlag());
 					}
 					else {
-						pStmt.setString(7, null);
+						pStmt.setString(6, "");
 					}
 					if (card.getRemarks() != null && !card.getRemarks().equals("")) {
-						pStmt.setString(8, card.getRemarks());
+						pStmt.setString(7, card.getRemarks());
+					}
+					else {
+						pStmt.setString(7, "");
+					}
+					if (card.getDay() != null && !card.getDay().equals("")) {
+						pStmt.setString(8, card.getDay());
 					}
 					else {
 						pStmt.setString(8, null);
-					}
-					if (card.getDay() != null && !card.getDay().equals("")) {
-						pStmt.setString(9, card.getDay());
-					}
-					else {
-						pStmt.setString(9, null);
 					}
 
         			// SQL文を実行する

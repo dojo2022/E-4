@@ -6,7 +6,7 @@
     <main>
         <div>
             <!-- fromの始まり -->
-            <form action="test.html" method="post" enctype="multipart/form-data" >
+            <form action="NewItemServlet" method="post" >
             <!--fileのupload-->
             <!--選択された画像の表示枠-->
             <div id="imageplace">
@@ -23,13 +23,13 @@
             <div>
                 <p id="iteminfo">アイテム情報</p>
                 <select id="category" name="category">
-                    <option value="tops">トップス</option>
-                    <option value="outer">アウター</option>
-                    <option value="pants">パンツ</option>
-                    <option value="skirt">スカート</option>
-                    <option value="onepiece">ワンピース</option>
-                    <option value="shoes">シューズ</option>
-                    <option value="accessories">小物</option>
+                    <option value="トップス">トップス</option>
+                    <option value="アウター">アウター</option>
+                    <option value="パンツ">パンツ</option>
+                    <option value="スカート">スカート</option>
+                    <option value="ワンピース">ワンピース</option>
+                    <option value="シューズ">シューズ</option>
+                    <option value="小物">小物</option>
                 </select>
             </div>
             <!--ブランド入力欄-->
