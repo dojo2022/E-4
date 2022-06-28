@@ -25,7 +25,7 @@ public class CoordinateItemDAO {
     			Class.forName("org.h2.Driver");
 
     			// データベースに接続する
-    			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/CCC", "sa", "ccc");
+    			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6/data/CCC", "sa", "ccc");
 
     			// SQL文を準備(検索）
     			String sql = "select category,brand,item_image,item_id,size,remarks,day,flag "
@@ -119,7 +119,7 @@ public class CoordinateItemDAO {
     			Class.forName("org.h2.Driver");
 
     			// データベースに接続する
-    			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/CCC", "sa", "ccc");
+    			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6/data/CCC", "sa", "ccc");
 
     			// SQL文を準備(検索）
     			String sql = "select distinct brand from item where flag != 'delete' and user_id like ? and brand != ''";
@@ -182,7 +182,7 @@ public class CoordinateItemDAO {
     				Class.forName("org.h2.Driver");
 
     				// データベースに接続する
-    				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/CCC", "sa", "ccc");
+    				conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6/data/CCC", "sa", "ccc");
 
     				// SQL文を準備する
     				String sql = "insert into item (user_id,item_image,category, brand,size,flag,remarks,day) values (?, ?, ?, ?, ?, ?, ?, ?)";
@@ -276,7 +276,7 @@ public class CoordinateItemDAO {
     					Class.forName("org.h2.Driver");
 
     					// データベースに接続する
-    					conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/CCC", "sa", "ccc");
+    					conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6/data/CCC", "sa", "ccc");
 
 
     					// SQL文を準備する
@@ -350,7 +350,7 @@ public class CoordinateItemDAO {
 				Class.forName("org.h2.Driver");
 
 				// データベースに接続する
-				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/CCC", "sa", "ccc");
+				conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6/data/CCC", "sa", "ccc");
 
 
 				// SQL文を準備する
@@ -406,7 +406,7 @@ public class CoordinateItemDAO {
 				Class.forName("org.h2.Driver");
 
 				// データベースに接続する
-				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/CCC", "sa", "ccc");
+				conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6/data/CCC", "sa", "ccc");
 
 
 				// SQL文を準備する
