@@ -106,7 +106,7 @@ public class CoordinateDAO{
 			Class.forName("org.h2.Driver");
 
 			// データベースに接続する
-			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/CCC", "sa", "ccc");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6/data/CCC", "sa", "ccc");
 
 			// SELECT文を準備する
 			String sql ="select * from COORDINATE where COORDINATE_ID NOT IN "
@@ -188,7 +188,7 @@ public class CoordinateDAO{
 			Class.forName("org.h2.Driver");
 
 			// データベースに接続する
-			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/CCC", "sa", "ccc");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6/data/CCC", "sa", "ccc");
 
 			// SQL文を準備する
 			String sql = "SELECT coordinate_id, season, purpose, coordinate_image "
@@ -272,7 +272,7 @@ public class CoordinateDAO{
 			Class.forName("org.h2.Driver");
 
 			// データベースに接続する
-			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/CCC", "sa", "ccc");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6/data/CCC", "sa", "ccc");
 
 			// SQL文を準備する
 			String sql = "SELECT c.coordinate_id, season, purpose, coordinate_image, i.item_id, item_image, category, brand, size, flag, remarks, day "
@@ -377,7 +377,7 @@ public class CoordinateDAO{
 			Class.forName("org.h2.Driver");
 
 			// データベースに接続する
-			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/CCC", "sa", "ccc");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6/data/CCC", "sa", "ccc");
 
 			// SQL文を準備する
 			String sql = "insert into COORDINATE(USER_ID,COORDINATE_ID,SEASON,PURPOSE,COODINATE_IMAGE) values (?, ?, ?, ?, ?)";
@@ -464,7 +464,7 @@ public class CoordinateDAO{
 				Class.forName("org.h2.Driver");
 
 				// データベースに接続する
-				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/CCC", "sa", "ccc");
+				conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6/data/CCC", "sa", "ccc");
 
 				// SQL文を準備する
 				String sql = "delete from coordinate where user_id=? and COORDINATE_id=?";
