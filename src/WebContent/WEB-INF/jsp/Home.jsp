@@ -25,7 +25,7 @@
 <ul class="slider">
 	<c:forEach var="e" items="${bModel}">
 		<li class="slider-item">
-			<a href="/CCC/CoordinateDetailServlet?q=${e.coordinate_id}"><img src="${e.coordinate_image}" class= "searchlist"></a>
+			<a href="/CCC/CoordinateDetailServlet?q=${e.coordinate_id}"><img src="${e.coordinate_image}" class= "list"></a>
 		</li>
 	</c:forEach>
   </ul>
@@ -36,7 +36,7 @@
 <ul class="slider">
     <c:forEach var="e" items="${pModel}">
 		<li class="slider-item">
-			<a href="/CCC/CoordinateDetailServlet?q=${e.coordinate_id}"><img src="${e.coordinate_image}" class= "searchlist"></a>
+			<a href="/CCC/CoordinateDetailServlet?q=${e.coordinate_id}"><img src="${e.coordinate_image}" class= "list"></a>
 		</li>
 	</c:forEach>
   </ul>
