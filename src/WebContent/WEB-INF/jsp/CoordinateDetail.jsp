@@ -36,7 +36,6 @@
 						<br>
 					</div>
 
-					<p>アイテム画像</p>
 					<a href="/CCC/ItemDetailServlet?q=${e.item_id}">
 						<img class="photo" src="${e.item_image}">
 					</a>
