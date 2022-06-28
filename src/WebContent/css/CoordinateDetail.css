@@ -9,12 +9,9 @@ main{
 .article{
 	text-align: left;
 	font-family:"Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体";
-	font-size:25px;
 }
 
-#iteminfo{
-	display:flex;
-}
+
 
 .picbox{
 	padding: 0.5em 1em;
@@ -60,10 +57,6 @@ main{
 	 text-align: left;
 }
 
-float{
-	float:right;
-}
-
 .brand,.size{
     padding-right: 4em;
     position: relative;
@@ -76,12 +69,8 @@ float{
 	object-fit:  contain;
 }
 
-input.delete{
-	text-align:center;
-	position:relative;
-	left: 80%;
-	width: 50px;
-	height: 20px;
+.delete{
+	text-align: right;
 }
 
 .plus{
@@ -90,10 +79,7 @@ input.delete{
 }
 
 .minus{
-		width: 6rem;
-		height: 2rem;
-		text-align: center;
-		position:relative;
-		left: 78%;
-		margin:1.5%;
+		width: 100px;
+		height: 30px;
+		text-align: right;
 }
