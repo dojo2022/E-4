@@ -54,6 +54,7 @@ main{
 
 .box{
 	 text-align: center;
+
 }
 
 .brand,.size{
@@ -83,7 +84,7 @@ input.delete{
 .minus{
 		width: 7rem;
 		height: 2rem;
-		text-align: center;
-		position:relative;
+
+		margin-right: 60px;
 
 }
