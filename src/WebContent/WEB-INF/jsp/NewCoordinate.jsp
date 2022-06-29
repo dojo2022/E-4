@@ -56,18 +56,13 @@
 						<label><input type="checkbox" name="search_category" value="tops" onchange="itemsearch()">トップス</label>
 						<label><input type="checkbox" name="search_category" value="outer" onchange="itemsearch()">アウター</label>
 						<label><input type="checkbox" name="search_category" value="pants" onchange="itemsearch()">パンツ</label>
-						<label><input type="checkbox" name="search_category" value="skirt" onchange="itemsearch()">スカート</label>
+						<label><input type="checkbox" name="search_category" value="skirt" onchange="itemsearch()">スカート</label><br>
 						<label><input type="checkbox" name="search_category" value="onepiece" onchange="itemsearch()">ワンピース</label>
 						<label><input type="checkbox" name="search_category" value="shoes" onchange="itemsearch()">シューズ</label>
 						<label><input type="checkbox" name="search_category" value="accessories" onchange="itemsearch()">小物</label>
 						</div>
 
-						<select name="search_brand">
-							<option value="">ブランド</option>
-							<c:forEach var="e" items="${ModelList}">
-								<option value="${e.brand}">${e.brand}</option>
-							</c:forEach>
-						</select>
+
 
 		            	<!--コーディネート登録ボタン-->
 		            	<div id="coordinate_add">
