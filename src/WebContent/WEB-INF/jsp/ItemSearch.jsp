@@ -15,7 +15,7 @@
 				<table>
 					<tr>
 						<td class="searchitems"><p class="searchtitle">SEARCH ITEMS</p>
-						<label for="search_input" class="btn"><span>×</span></label></td>
+						<label for="search_input" class="btn"><span class="cancel">×</span></label></td>
 					</tr>
 					<tr>
 						<td class="searchitems"><input type="text" name="search_word"></td>
@@ -23,13 +23,13 @@
 					<tr>
 
 						  <td class="searchitems"><p class="category">カテゴリー</p>
-						<label><input type="checkbox" name="search_category" value="トップス">トップス</label>
-						<label><input type="checkbox" name="search_category" value="アウター">アウター</label>
-						<label><input type="checkbox" name="search_category" value="パンツ">パンツ</label>
-						<label><input type="checkbox" name="search_category" value="スカート">スカート</label>
-						<label><input type="checkbox" name="search_category" value="ワンピース">ワンピース</label>
-						<label><input type="checkbox" name="search_category" value="シューズ">シューズ</label>
-						<label><input type="checkbox" name="search_category" value="小物">小物</label></td>
+						<label class="item"><input type="checkbox" name="search_category" value="トップス">トップス</label>
+						<label class="item"><input type="checkbox" name="search_category" value="アウター">アウター</label>
+						<label class="item"><input type="checkbox" name="search_category" value="パンツ">パンツ</label>
+						<label class="item"><input type="checkbox" name="search_category" value="スカート">スカート</label>
+						<label class="item"><input type="checkbox" name="search_category" value="ワンピース">ワンピース</label>
+						<label class="item"><input type="checkbox" name="search_category" value="シューズ">シューズ</label>
+						<label class="item"><input type="checkbox" name="search_category" value="小物">小物</label></td>
 					</tr>
 					<tr>
 						<td><select name="search_brand">
@@ -43,7 +43,7 @@
 				</table>
 			</form>
 		</div>
-		<label for="search_input"><span  class="search" id="searchBtn"></span></label>
+		<label for="search_input"><span  class="search" id="searchBtn"><span class="icon">▲</span></span></label>
 	</main>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>

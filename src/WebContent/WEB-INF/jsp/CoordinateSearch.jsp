@@ -15,24 +15,24 @@
 				<table>
 					<tr>
 						<td class="searchitems"><p class="searchtitle">SEARCH COORDINATE</p>
-						<label for="search_input" class="btn"><span>×</span></label></td>
+						<label for="search_input" class="btn"><span class="cancel">×</span></label></td>
 					</tr>
 					<tr>
-						<td class="searchitems"><label><input type="radio" name="search_purpose" value="兼用" checked>兼用</label>
-						<label><input type="radio" name="search_purpose" value="ビジネス">ビジネス</label>
-						<label><input type="radio" name="search_purpose" value="プライベート">プライベート</label></td>
+						<td class="searchitems"><label class="item"><input type="radio" name="search_purpose" value="兼用" checked>兼用</label>
+						<label class="item"><input type="radio" name="search_purpose" value="ビジネス">ビジネス</label>
+						<label class="item"><input type="radio" name="search_purpose" value="プライベート">プライベート</label></td>
 					</tr>
 					<tr>
-						<td><label><input type="checkbox" name="search_season" value="春">春</label>
-						<label><input type="checkbox" name="search_season" value="夏">夏</label>
-						<label><input type="checkbox" name="search_season" value="秋">秋</label>
-						<label><input type="checkbox" name="search_season" value="冬">冬</label>
+						<td><label class="item"><input type="checkbox" name="search_season" value="春">春</label>
+						<label class="item"><input type="checkbox" name="search_season" value="夏">夏</label>
+						<label class="item"><input type="checkbox" name="search_season" value="秋">秋</label>
+						<label class="item"><input type="checkbox" name="search_season" value="冬">冬</label>
 						<input type="submit" name="search" value="GO" class="search_submit"></td>
 					</tr>
 				</table>
 			</form>
 		</div>
-		<label for="search_input"><span class="search" id="searchBtn"></span></label>
+		<label for="search_input"><span class="search" id="searchBtn"><span class="icon">▲</span></span></label>
 	</main>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>
