@@ -4,6 +4,8 @@ var itemimage = document.getElementById("itemimage");
 var selectitem = document.getElementById("selectitems");
 var rowtbl = searchimage.rows.length;//縦
 var celltbl = searchimage.rows[1].cells.length;//横
+var num = [];
+var numcnt=1;
 var list = [];
 var category = [];
 var item_id = [];
@@ -12,14 +14,18 @@ let macthcnt = 0;
 
 for (i = 0; i < rowtbl; i++) {
     list[i] = [];
+    num[i] = [];
     for (j = 0; j < celltbl; j++) {
+    	numcnt = numcnt.toString();
         templist = table.rows[i].cells[j];
         //console.log(table);
         if (templist !== undefined) { //全件取り終わるまで
+        	num[i].push(numcnt);
             list[i].push(templist.children['itemimage'].attributes['src'].nodeValue); //画像パスが入っている（例 ././白シャツ.jpg)
             category.push(templist.children[1].attributes['value'].nodeValue); //カテゴリーが入っている（例 トップス）
             item_id.push(templist.children[0].attributes['value'].nodeValue);
         }
+        numcnt++;
     }
 }
 
@@ -88,7 +94,7 @@ function itemsearch() {
                 html += '<td>';
                 html += '<input type="hidden" value=' + item_id[categorycnt] + ' id = itemimage' + item_id[categorycnt] + '>';
                 html += '<input type="hidden" value=' + category[categorycnt] + '>';
-                html += '<img src=' + list[i][j] + ' id = "itemimage">';
+                html += '<img src=' + list[i][j] + ' id = "itemimage" name='+num[i][j]+'>';
                 html += '</td>';
 
                 if (j == 2) { //3列分で</tr>で次の行へ
@@ -115,7 +121,7 @@ function itemsearch() {
                     html += '<td>';
                     html += '<input type="hidden" value=' + item_id[categorycnt] + ' id = itemimage' + item_id[categorycnt] + '>';
                     html += '<input type="hidden" value=' + category[categorycnt] + '>';
-                    html += '<img src=' + list[i][j] + ' id = "itemimage">';
+                    html += '<img src=' + list[i][j] + ' id = "itemimage" name='+num[i][j]+'>';
                     html += '</td>';
                     macthcnt++;
                 }
@@ -126,7 +132,7 @@ function itemsearch() {
                     html += '<td>';
                     html += '<input type="hidden" value=' + item_id[categorycnt] + ' id = itemimage' + item_id[categorycnt] + '>';
                     html += '<input type="hidden" value=' + category[categorycnt] + '>';
-                    html += '<img src=' + list[i][j] + ' id = "itemimage">';
+                    html += '<img src=' + list[i][j] + ' id = "itemimage" name='+num[i][j]+'>';
                     html += '</td>';
                     macthcnt++;
                 }
@@ -137,7 +143,7 @@ function itemsearch() {
                     html += '<td>';
                     html += '<input type="hidden" value=' + item_id[categorycnt] + ' id = itemimage' + item_id[categorycnt] + '>';
                     html += '<input type="hidden" value=' + category[categorycnt] + '>';
-                    html += '<img src=' + list[i][j] + ' id = "itemimage">';
+                    html += '<img src=' + list[i][j] + ' id = "itemimage" name='+num[i][j]+'>' ;
                     html += '</td>';
                     macthcnt++;
                 }
@@ -148,7 +154,7 @@ function itemsearch() {
                     html += '<td>';
                     html += '<input type="hidden" value=' + item_id[categorycnt] + ' id = itemimage' + item_id[categorycnt] + '>';
                     html += '<input type="hidden" value=' + category[categorycnt] + '>';
-                    html += '<img src=' + list[i][j] + ' id = "itemimage">';
+                    html += '<img src=' + list[i][j] + ' id = "itemimage" name='+num[i][j]+'>';
                     html += '</td>';
                     macthcnt++;
                 }
@@ -159,7 +165,7 @@ function itemsearch() {
                     html += '<td>';
                     html += '<input type="hidden" value=' + item_id[categorycnt] + ' id = itemimage' + item_id[categorycnt] + '>';
                     html += '<input type="hidden" value=' + category[categorycnt] + '>';
-                    html += '<img src=' + list[i][j] + ' id = "itemimage">';
+                    html += '<img src=' + list[i][j] + ' id = "itemimage" name='+num[i][j]+'>';
                     html += '</td>';
                     macthcnt++;
                 }
@@ -170,7 +176,7 @@ function itemsearch() {
                     html += '<td>';
                     html += '<input type="hidden" value=' + item_id[categorycnt] + ' id = itemimage' + item_id[categorycnt] + '>';
                     html += '<input type="hidden" value=' + category[categorycnt] + '>';
-                    html += '<img src=' + list[i][j] + ' id = "itemimage">';
+                    html += '<img src=' + list[i][j] + ' id = "itemimage" name='+num[i][j]+'>';
                     html += '</td>';
                     macthcnt++;
                 }
@@ -181,7 +187,7 @@ function itemsearch() {
                     html += '<td>';
                     html += '<input type="hidden" value=' + item_id[categorycnt] + ' id = itemimage' + item_id[categorycnt] + '>';
                     html += '<input type="hidden" value=' + category[categorycnt] + '>';
-                    html += '<img src=' + list[i][j] + ' id = "itemimage">';
+                    html += '<img src=' + list[i][j] + ' id = "itemimage" name='+num[i][j]+'>';
                     html += '</td>';
                     macthcnt++;
                 }
