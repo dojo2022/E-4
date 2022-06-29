@@ -65,7 +65,7 @@ function afterloading(){
     weatherposition.innerHTML += "<p class=num id=min>"+min+"</p>";//最低気温をHTMLに挿入
 }
 //fetchに時間がかかりopen-meteoのデータがロードよりも早く実行してしまうためsettimeoutで実行を遅らせる
-setTimeout(afterloading,1000);//1000ミリ秒(1秒後)にafterloading呼び出し
+setTimeout(afterloading,2000);//1000ミリ秒(1秒後)にafterloading呼び出し
 
 //写真アップロードのためのfunction
 function upimage(upimage){
