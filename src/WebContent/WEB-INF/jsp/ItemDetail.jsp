@@ -19,7 +19,7 @@
 					<table>
 						<tr>
 							<td class="category">カテゴリー:</td>
-							<td><select name="item_category">
+							<td id = "category"><select name="item_category">
 								<option value="トップス" ${e.category == "トップス" ? "selected": ""}>トップス</option>
 								<option value="アウター" ${e.category == "アウター" ? "selected": ""}>アウター</option>
 								<option value="パンツ" ${e.category == "パンツ" ? "selected": ""}>パンツ</option>
