@@ -18,7 +18,6 @@ for (i = 0; i < rowtbl; i++) {
     for (j = 0; j < celltbl; j++) {
     	numcnt = numcnt.toString();
         templist = table.rows[i].cells[j];
-        //console.log(table);
         if (templist !== undefined) { //全件取り終わるまで
         	num[i].push(numcnt);
             list[i].push(templist.children['itemimage'].attributes['src'].nodeValue); //画像パスが入っている（例 ././白シャツ.jpg)
