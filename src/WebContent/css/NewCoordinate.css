@@ -62,4 +62,22 @@ input[type="file"] {
 }
 #coordinate_add{
 	text-align: right;
+	margin-right: 20px;
+	margin-top: 10px;
+}
+
+.garments {
+	margin-left: 80px;
+}
+
+#category {
+	margin-left: 50px;
+}
+
+.category {
+	margin-top: 10px;
+}
+
+.label {
+	margin-right: 5px;
 }

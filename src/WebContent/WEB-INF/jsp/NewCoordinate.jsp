@@ -51,15 +51,17 @@
 </div>
 -->
 
-						<div>
-						<p>カテゴリー</p>
-						<label><input type="checkbox" name="search_category" value="tops" onchange="itemsearch()">トップス</label>
-						<label><input type="checkbox" name="search_category" value="outer" onchange="itemsearch()">アウター</label>
-						<label><input type="checkbox" name="search_category" value="pants" onchange="itemsearch()">パンツ</label>
-						<label><input type="checkbox" name="search_category" value="skirt" onchange="itemsearch()">スカート</label><br>
-						<label><input type="checkbox" name="search_category" value="onepiece" onchange="itemsearch()">ワンピース</label>
-						<label><input type="checkbox" name="search_category" value="shoes" onchange="itemsearch()">シューズ</label>
-						<label><input type="checkbox" name="search_category" value="accessories" onchange="itemsearch()">小物</label>
+						<div class = "category">
+						<p id = "category">カテゴリー</p>
+						<div class = "garments">
+						<label class = "label"><input type="checkbox" name="search_category" value="tops" onchange="itemsearch()">トップス</label>
+						<label class = "label"><input type="checkbox" name="search_category" value="outer" onchange="itemsearch()">アウター</label>
+						<label class = "label"><input type="checkbox" name="search_category" value="pants" onchange="itemsearch()">パンツ</label>
+						<label class = "label"><input type="checkbox" name="search_category" value="skirt" onchange="itemsearch()">スカート</label><br>
+						<label class = "label"><input type="checkbox" name="search_category" value="onepiece" onchange="itemsearch()">ワンピース</label>
+						<label class = "label"><input type="checkbox" name="search_category" value="shoes" onchange="itemsearch()">シューズ</label>
+						<label class = "label"><input type="checkbox" name="search_category" value="accessories" onchange="itemsearch()">小物</label>
+						</div>
 						</div>
 
 
