@@ -11700,3 +11700,125 @@ INSERT  INTO  ITEM (USER_ID, ITEM_IMAGE, CATEGORY,BRAND,SIZE,FLAG, REMARKS,DAY) 
 org.h2.jdbc.JdbcSQLSyntaxErrorException: SQLステートメントに文法エラーがあります "ITEM[*]"; 期待されるステートメント "INSERT"
 Syntax error in SQL statement "ITEM[*]"; expected "INSERT"; SQL statement:
 ITEM [42001-200]
+2022-06-29 11:23:39 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: SQLステートメントに文法エラーがあります "SELECT CD.COORDINATE_ID FROM COORDINATE AS CD LEFT OUTER JOIN USED_ITEM AS UI 
+					ON CD.COORDINATE_ID = UI.COORDINATE_ID LEFT OUTER JOIN ITEM AS IT ON UI.ITEM_ID = IT.ITEM_ID 
+					WHERE UI.USER_ID LIKE ? AND IT.DAY > NOW() -3 )[*] AND (USER_ID LIKE ?) 
+					AND ( CASE WHEN MONTH(NOW()) BETWEEN 3 AND 5 THEN (SEASON LIKE '春' AND PURPOSE = 'ビジネス') OR (SEASON LIKE '春' AND PURPOSE = '兼用') 
+					WHEN MONTH(NOW()) BETWEEN 6 AND 8 THEN (SEASON LIKE '夏' AND PURPOSE = 'ビジネス') OR (SEASON LIKE '夏' AND PURPOSE = '兼用')
+					WHEN MONTH(NOW()) BETWEEN 9 AND 11 THEN (SEASON LIKE '秋' AND PURPOSE = 'ビジネス') OR (SEASON LIKE '秋' AND PURPOSE = '兼用') 
+					ELSE (SEASON LIKE '冬' AND PURPOSE = 'ビジネス') OR (SEASON LIKE '冬' AND PURPOSE = '兼用') END) 
+					ORDER BY RAND() LIMIT(3)"
+Syntax error in SQL statement "SELECT CD.COORDINATE_ID FROM COORDINATE AS CD LEFT OUTER JOIN USED_ITEM AS UI 
+					ON CD.COORDINATE_ID = UI.COORDINATE_ID LEFT OUTER JOIN ITEM AS IT ON UI.ITEM_ID = IT.ITEM_ID 
+					WHERE UI.USER_ID LIKE ? AND IT.DAY > NOW() -3 )[*] AND (USER_ID LIKE ?) 
+					AND ( CASE WHEN MONTH(NOW()) BETWEEN 3 AND 5 THEN (SEASON LIKE '春' AND PURPOSE = 'ビジネス') OR (SEASON LIKE '春' AND PURPOSE = '兼用') 
+					WHEN MONTH(NOW()) BETWEEN 6 AND 8 THEN (SEASON LIKE '夏' AND PURPOSE = 'ビジネス') OR (SEASON LIKE '夏' AND PURPOSE = '兼用')
+					WHEN MONTH(NOW()) BETWEEN 9 AND 11 THEN (SEASON LIKE '秋' AND PURPOSE = 'ビジネス') OR (SEASON LIKE '秋' AND PURPOSE = '兼用') 
+					ELSE (SEASON LIKE '冬' AND PURPOSE = 'ビジネス') OR (SEASON LIKE '冬' AND PURPOSE = '兼用') END) 
+					ORDER BY RAND() LIMIT(3)"; SQL statement:
+select cd.COORDINATE_ID from COORDINATE as cd left outer join USED_ITEM as ui 
+					on cd.COORDINATE_ID = ui.COORDINATE_ID left outer join ITEM as it on ui.ITEM_ID = it.ITEM_ID 
+					where ui.user_id like ? and it.DAY > now() -3 ) and (user_id like ?) 
+					and ( case when month(now()) BETWEEN 3 AND 5 then (SEASON like '春' and PURPOSE = 'ビジネス') or (SEASON like '春' and PURPOSE = '兼用') 
+					when month(now()) BETWEEN 6 AND 8 then (SEASON like '夏' and PURPOSE = 'ビジネス') or (SEASON like '夏' and PURPOSE = '兼用')
+					when month(now()) BETWEEN 9 AND 11 then (SEASON like '秋' and PURPOSE = 'ビジネス') or (SEASON like '秋' and PURPOSE = '兼用') 
+					else (SEASON like '冬' and PURPOSE = 'ビジネス') or (SEASON like '冬' and PURPOSE = '兼用') end) 
+					order by rand() limit(3) [42000-200]
+2022-06-29 11:24:04 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: SQLステートメントに文法エラーがあります "SELECT CD.COORDINATE_ID FROM COORDINATE AS CD LEFT OUTER JOIN USED_ITEM AS UI 
+					ON CD.COORDINATE_ID = UI.COORDINATE_ID LEFT OUTER JOIN ITEM AS IT ON UI.ITEM_ID = IT.ITEM_ID 
+					WHERE UI.USER_ID LIKE 'takahashi' AND IT.DAY > NOW() -3 )[*] AND (USER_ID LIKE 'takahashi') 
+					AND ( CASE WHEN MONTH(NOW()) BETWEEN 3 AND 5 THEN (SEASON LIKE '春' AND PURPOSE = 'ビジネス') OR (SEASON LIKE '春' AND PURPOSE = '兼用') 
+					WHEN MONTH(NOW()) BETWEEN 6 AND 8 THEN (SEASON LIKE '夏' AND PURPOSE = 'ビジネス') OR (SEASON LIKE '夏' AND PURPOSE = '兼用')
+					WHEN MONTH(NOW()) BETWEEN 9 AND 11 THEN (SEASON LIKE '秋' AND PURPOSE = 'ビジネス') OR (SEASON LIKE '秋' AND PURPOSE = '兼用') 
+					ELSE (SEASON LIKE '冬' AND PURPOSE = 'ビジネス') OR (SEASON LIKE '冬' AND PURPOSE = '兼用') END) 
+					ORDER BY RAND() LIMIT(3)"
+Syntax error in SQL statement "SELECT CD.COORDINATE_ID FROM COORDINATE AS CD LEFT OUTER JOIN USED_ITEM AS UI 
+					ON CD.COORDINATE_ID = UI.COORDINATE_ID LEFT OUTER JOIN ITEM AS IT ON UI.ITEM_ID = IT.ITEM_ID 
+					WHERE UI.USER_ID LIKE 'takahashi' AND IT.DAY > NOW() -3 )[*] AND (USER_ID LIKE 'takahashi') 
+					AND ( CASE WHEN MONTH(NOW()) BETWEEN 3 AND 5 THEN (SEASON LIKE '春' AND PURPOSE = 'ビジネス') OR (SEASON LIKE '春' AND PURPOSE = '兼用') 
+					WHEN MONTH(NOW()) BETWEEN 6 AND 8 THEN (SEASON LIKE '夏' AND PURPOSE = 'ビジネス') OR (SEASON LIKE '夏' AND PURPOSE = '兼用')
+					WHEN MONTH(NOW()) BETWEEN 9 AND 11 THEN (SEASON LIKE '秋' AND PURPOSE = 'ビジネス') OR (SEASON LIKE '秋' AND PURPOSE = '兼用') 
+					ELSE (SEASON LIKE '冬' AND PURPOSE = 'ビジネス') OR (SEASON LIKE '冬' AND PURPOSE = '兼用') END) 
+					ORDER BY RAND() LIMIT(3)"; SQL statement:
+select cd.COORDINATE_ID from COORDINATE as cd left outer join USED_ITEM as ui 
+					on cd.COORDINATE_ID = ui.COORDINATE_ID left outer join ITEM as it on ui.ITEM_ID = it.ITEM_ID 
+					where ui.user_id like 'takahashi' and it.DAY > now() -3 ) and (user_id like 'takahashi') 
+					and ( case when month(now()) BETWEEN 3 AND 5 then (SEASON like '春' and PURPOSE = 'ビジネス') or (SEASON like '春' and PURPOSE = '兼用') 
+					when month(now()) BETWEEN 6 AND 8 then (SEASON like '夏' and PURPOSE = 'ビジネス') or (SEASON like '夏' and PURPOSE = '兼用')
+					when month(now()) BETWEEN 9 AND 11 then (SEASON like '秋' and PURPOSE = 'ビジネス') or (SEASON like '秋' and PURPOSE = '兼用') 
+					else (SEASON like '冬' and PURPOSE = 'ビジネス') or (SEASON like '冬' and PURPOSE = '兼用') end) 
+					order by rand() limit(3) [42000-200]
+2022-06-29 11:24:05 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: SQLステートメントに文法エラーがあります "SELECT CD.COORDINATE_ID FROM COORDINATE AS CD LEFT OUTER JOIN USED_ITEM AS UI 
+					ON CD.COORDINATE_ID = UI.COORDINATE_ID LEFT OUTER JOIN ITEM AS IT ON UI.ITEM_ID = IT.ITEM_ID 
+					WHERE UI.USER_ID LIKE 'takahashi' AND IT.DAY > NOW() -3 )[*] AND (USER_ID LIKE 'takahashi') 
+					AND ( CASE WHEN MONTH(NOW()) BETWEEN 3 AND 5 THEN (SEASON LIKE '春' AND PURPOSE = 'ビジネス') OR (SEASON LIKE '春' AND PURPOSE = '兼用') 
+					WHEN MONTH(NOW()) BETWEEN 6 AND 8 THEN (SEASON LIKE '夏' AND PURPOSE = 'ビジネス') OR (SEASON LIKE '夏' AND PURPOSE = '兼用')
+					WHEN MONTH(NOW()) BETWEEN 9 AND 11 THEN (SEASON LIKE '秋' AND PURPOSE = 'ビジネス') OR (SEASON LIKE '秋' AND PURPOSE = '兼用') 
+					ELSE (SEASON LIKE '冬' AND PURPOSE = 'ビジネス') OR (SEASON LIKE '冬' AND PURPOSE = '兼用') END) 
+					ORDER BY RAND() LIMIT(3)"
+Syntax error in SQL statement "SELECT CD.COORDINATE_ID FROM COORDINATE AS CD LEFT OUTER JOIN USED_ITEM AS UI 
+					ON CD.COORDINATE_ID = UI.COORDINATE_ID LEFT OUTER JOIN ITEM AS IT ON UI.ITEM_ID = IT.ITEM_ID 
+					WHERE UI.USER_ID LIKE 'takahashi' AND IT.DAY > NOW() -3 )[*] AND (USER_ID LIKE 'takahashi') 
+					AND ( CASE WHEN MONTH(NOW()) BETWEEN 3 AND 5 THEN (SEASON LIKE '春' AND PURPOSE = 'ビジネス') OR (SEASON LIKE '春' AND PURPOSE = '兼用') 
+					WHEN MONTH(NOW()) BETWEEN 6 AND 8 THEN (SEASON LIKE '夏' AND PURPOSE = 'ビジネス') OR (SEASON LIKE '夏' AND PURPOSE = '兼用')
+					WHEN MONTH(NOW()) BETWEEN 9 AND 11 THEN (SEASON LIKE '秋' AND PURPOSE = 'ビジネス') OR (SEASON LIKE '秋' AND PURPOSE = '兼用') 
+					ELSE (SEASON LIKE '冬' AND PURPOSE = 'ビジネス') OR (SEASON LIKE '冬' AND PURPOSE = '兼用') END) 
+					ORDER BY RAND() LIMIT(3)"; SQL statement:
+select cd.COORDINATE_ID from COORDINATE as cd left outer join USED_ITEM as ui 
+					on cd.COORDINATE_ID = ui.COORDINATE_ID left outer join ITEM as it on ui.ITEM_ID = it.ITEM_ID 
+					where ui.user_id like 'takahashi' and it.DAY > now() -3 ) and (user_id like 'takahashi') 
+					and ( case when month(now()) BETWEEN 3 AND 5 then (SEASON like '春' and PURPOSE = 'ビジネス') or (SEASON like '春' and PURPOSE = '兼用') 
+					when month(now()) BETWEEN 6 AND 8 then (SEASON like '夏' and PURPOSE = 'ビジネス') or (SEASON like '夏' and PURPOSE = '兼用')
+					when month(now()) BETWEEN 9 AND 11 then (SEASON like '秋' and PURPOSE = 'ビジネス') or (SEASON like '秋' and PURPOSE = '兼用') 
+					else (SEASON like '冬' and PURPOSE = 'ビジネス') or (SEASON like '冬' and PURPOSE = '兼用') end) 
+					order by rand() limit(3) [42000-200]
+2022-06-29 11:24:27 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: SQLステートメントに文法エラーがあります "SELECT CD.COORDINATE_ID FROM COORDINATE AS CD LEFT OUTER JOIN USED_ITEM AS UI 
+					ON CD.COORDINATE_ID = UI.COORDINATE_ID LEFT OUTER JOIN ITEM AS IT ON UI.ITEM_ID = IT.ITEM_ID 
+					WHERE UI.USER_ID LIKE 'takahashi' AND IT.DAY > NOW() -3 )[*] AND (USER_ID LIKE 'takahashi') 
+					AND ( CASE WHEN MONTH(NOW()) BETWEEN 3 AND 5 THEN (SEASON LIKE '春' AND PURPOSE = 'ビジネス') OR (SEASON LIKE '春' AND PURPOSE = '兼用') 
+					WHEN MONTH(NOW()) BETWEEN 6 AND 8 THEN (SEASON LIKE '夏' AND PURPOSE = 'ビジネス') OR (SEASON LIKE '夏' AND PURPOSE = '兼用')
+					WHEN MONTH(NOW()) BETWEEN 9 AND 11 THEN (SEASON LIKE '秋' AND PURPOSE = 'ビジネス') OR (SEASON LIKE '秋' AND PURPOSE = '兼用') 
+					ELSE (SEASON LIKE '冬' AND PURPOSE = 'ビジネス') OR (SEASON LIKE '冬' AND PURPOSE = '兼用') END) 
+					ORDER BY RAND() LIMIT(3)"
+Syntax error in SQL statement "SELECT CD.COORDINATE_ID FROM COORDINATE AS CD LEFT OUTER JOIN USED_ITEM AS UI 
+					ON CD.COORDINATE_ID = UI.COORDINATE_ID LEFT OUTER JOIN ITEM AS IT ON UI.ITEM_ID = IT.ITEM_ID 
+					WHERE UI.USER_ID LIKE 'takahashi' AND IT.DAY > NOW() -3 )[*] AND (USER_ID LIKE 'takahashi') 
+					AND ( CASE WHEN MONTH(NOW()) BETWEEN 3 AND 5 THEN (SEASON LIKE '春' AND PURPOSE = 'ビジネス') OR (SEASON LIKE '春' AND PURPOSE = '兼用') 
+					WHEN MONTH(NOW()) BETWEEN 6 AND 8 THEN (SEASON LIKE '夏' AND PURPOSE = 'ビジネス') OR (SEASON LIKE '夏' AND PURPOSE = '兼用')
+					WHEN MONTH(NOW()) BETWEEN 9 AND 11 THEN (SEASON LIKE '秋' AND PURPOSE = 'ビジネス') OR (SEASON LIKE '秋' AND PURPOSE = '兼用') 
+					ELSE (SEASON LIKE '冬' AND PURPOSE = 'ビジネス') OR (SEASON LIKE '冬' AND PURPOSE = '兼用') END) 
+					ORDER BY RAND() LIMIT(3)"; SQL statement:
+select cd.COORDINATE_ID from COORDINATE as cd left outer join USED_ITEM as ui 
+					on cd.COORDINATE_ID = ui.COORDINATE_ID left outer join ITEM as it on ui.ITEM_ID = it.ITEM_ID 
+					where ui.user_id like 'takahashi' and it.DAY > now() -3 ) and (user_id like 'takahashi') 
+					and ( case when month(now()) BETWEEN 3 AND 5 then (SEASON like '春' and PURPOSE = 'ビジネス') or (SEASON like '春' and PURPOSE = '兼用') 
+					when month(now()) BETWEEN 6 AND 8 then (SEASON like '夏' and PURPOSE = 'ビジネス') or (SEASON like '夏' and PURPOSE = '兼用')
+					when month(now()) BETWEEN 9 AND 11 then (SEASON like '秋' and PURPOSE = 'ビジネス') or (SEASON like '秋' and PURPOSE = '兼用') 
+					else (SEASON like '冬' and PURPOSE = 'ビジネス') or (SEASON like '冬' and PURPOSE = '兼用') end) 
+					order by rand() limit(3) [42000-200]
+2022-06-29 11:25:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: SQLステートメントに文法エラーがあります "SELECT CD.COORDINATE_ID FROM COORDINATE AS CD LEFT OUTER JOIN USED_ITEM AS UI 
+					ON CD.COORDINATE_ID = UI.COORDINATE_ID LEFT OUTER JOIN ITEM AS IT ON UI.ITEM_ID = IT.ITEM_ID 
+					WHERE UI.USER_ID LIKE 'takahashi' AND IT.DAY >  NOW() -3 )[*] AND (USER_ID LIKE 'takahashi') 
+					AND ( CASE WHEN MONTH(NOW()) BETWEEN 3 AND 5 THEN (SEASON LIKE '春' AND PURPOSE = 'ビジネス') OR (SEASON LIKE '春' AND PURPOSE = '兼用') 
+					WHEN MONTH(NOW()) BETWEEN 6 AND 8 THEN (SEASON LIKE '夏' AND PURPOSE = 'ビジネス') OR (SEASON LIKE '夏' AND PURPOSE = '兼用')
+					WHEN MONTH(NOW()) BETWEEN 9 AND 11 THEN (SEASON LIKE '秋' AND PURPOSE = 'ビジネス') OR (SEASON LIKE '秋' AND PURPOSE = '兼用') 
+					ELSE (SEASON LIKE '冬' AND PURPOSE = 'ビジネス') OR (SEASON LIKE '冬' AND PURPOSE = '兼用') END)"
+Syntax error in SQL statement "SELECT CD.COORDINATE_ID FROM COORDINATE AS CD LEFT OUTER JOIN USED_ITEM AS UI 
+					ON CD.COORDINATE_ID = UI.COORDINATE_ID LEFT OUTER JOIN ITEM AS IT ON UI.ITEM_ID = IT.ITEM_ID 
+					WHERE UI.USER_ID LIKE 'takahashi' AND IT.DAY >  NOW() -3 )[*] AND (USER_ID LIKE 'takahashi') 
+					AND ( CASE WHEN MONTH(NOW()) BETWEEN 3 AND 5 THEN (SEASON LIKE '春' AND PURPOSE = 'ビジネス') OR (SEASON LIKE '春' AND PURPOSE = '兼用') 
+					WHEN MONTH(NOW()) BETWEEN 6 AND 8 THEN (SEASON LIKE '夏' AND PURPOSE = 'ビジネス') OR (SEASON LIKE '夏' AND PURPOSE = '兼用')
+					WHEN MONTH(NOW()) BETWEEN 9 AND 11 THEN (SEASON LIKE '秋' AND PURPOSE = 'ビジネス') OR (SEASON LIKE '秋' AND PURPOSE = '兼用') 
+					ELSE (SEASON LIKE '冬' AND PURPOSE = 'ビジネス') OR (SEASON LIKE '冬' AND PURPOSE = '兼用') END)"; SQL statement:
+select cd.COORDINATE_ID from COORDINATE as cd left outer join USED_ITEM as ui 
+					on cd.COORDINATE_ID = ui.COORDINATE_ID left outer join ITEM as it on ui.ITEM_ID = it.ITEM_ID 
+					where ui.user_id like 'takahashi' and it.DAY >  now() -3 ) and (user_id like 'takahashi') 
+					and ( case when month(now()) BETWEEN 3 AND 5 then (SEASON like '春' and PURPOSE = 'ビジネス') or (SEASON like '春' and PURPOSE = '兼用') 
+					when month(now()) BETWEEN 6 AND 8 then (SEASON like '夏' and PURPOSE = 'ビジネス') or (SEASON like '夏' and PURPOSE = '兼用')
+					when month(now()) BETWEEN 9 AND 11 then (SEASON like '秋' and PURPOSE = 'ビジネス') or (SEASON like '秋' and PURPOSE = '兼用') 
+					else (SEASON like '冬' and PURPOSE = 'ビジネス') or (SEASON like '冬' and PURPOSE = '兼用') end) [42000-200]

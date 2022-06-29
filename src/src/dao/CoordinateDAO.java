@@ -24,7 +24,7 @@ public class CoordinateDAO{
 			Class.forName("org.h2.Driver");
 
 			// データベースに接続する
-			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/CCC", "sa", "ccc");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6/data/CCC", "sa", "ccc");
 
 			// SELECT文を準備する
 			String sql ="select * from COORDINATE where COORDINATE_ID NOT IN "
