@@ -78,7 +78,7 @@ public class NewCoordinateServlet extends HttpServlet {
 			dispatcher.forward(request, response);
 		}
 		else {												// 登録失敗
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/NewCoordinateError.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/NewCoordinateSuccess.jsp");
 			dispatcher.forward(request, response);
 		}
 
@@ -88,7 +88,7 @@ public class NewCoordinateServlet extends HttpServlet {
 			dispatcher.forward(request, response);
 		}
 		else {												// 登録失敗
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/CoordinateError.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/NewCoordinateSuccess.jsp");
 			dispatcher.forward(request, response);
 		}
 
