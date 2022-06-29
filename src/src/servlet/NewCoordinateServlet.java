@@ -39,7 +39,7 @@ public class NewCoordinateServlet extends HttpServlet {
 
 		//アイテムを全件取得
 		CoordinateItemDAO itemdao = new CoordinateItemDAO();
-		List <CoordinateItemModel> modelList = itemdao.select (new CoordinateItemModel("","","","","","","","",""));
+		List <CoordinateItemModel> modelList = itemdao.select (new CoordinateItemModel(user_id,"","","","","","","",""));
 
 		//リクエストスコープに格納する
 		request.setAttribute("modelList",modelList);

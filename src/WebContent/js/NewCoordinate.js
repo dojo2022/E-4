@@ -30,9 +30,30 @@ function selectItem (e) {
     var imagename = e.target.getAttribute("name")
 
 	var imagenameint = parseInt(imagename,10);
-	var imagevertical = Math.floor(imagenameint/3);
-	var imagebeside = imagenameint%3-1;
-	var selectimage = list[imagevertical][imagebeside]
+	console.log("選択した番号："+imagenameint);
+
+	if(imagenameint%3==0){
+		var imagevertical = Math.floor(imagenameint/3-1);
+	}else{
+		var imagevertical = Math.floor(imagenameint/3);
+	}
+	console.log("縦："+imagevertical);
+
+	var imagebeside;
+	switch(imagenameint%3){
+		case 0:
+			imagebeside = 2;
+			break;
+		case 1:
+			imagebeside = 0;
+			break;
+		case 2:
+			imagebeside = 1;
+			break;
+	}
+	console.log("横："+imagebeside);
+
+	var selectimage = list[imagevertical][imagebeside];
 	selectitem.innerHTML += '<img src=' + selectimage + ' id = "itemimage">';
 
 }
@@ -145,7 +166,7 @@ function itemsearch() {
             }
 
             if (checkcategory.includes('shoes') == true) {
-                if (category[categorycnt] == 'シューズ') {
+                if (category[categorycnt] == '靴') {
                     html += '<td>';
                     html += '<input type="hidden" value=' + item_id[categorycnt] + ' id = itemimage' + item_id[categorycnt] + '>';
                     html += '<input type="hidden" value=' + category[categorycnt] + '>';

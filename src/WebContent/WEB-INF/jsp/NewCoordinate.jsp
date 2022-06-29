@@ -85,7 +85,7 @@
 										<td>
 											<input type="hidden" value = "${e.item_id}" id = "itemimage${e.item_id}">
 											<input type="hidden" value = "${e.category}">
-											<img src="${e.item_image}" id = "itemimage" name="${e.item_id}">
+											<img src="${e.item_image}" id = "itemimage" name="${cnt+1}">
 										</td>
 									<c:set var="cnt" value="${cnt+1}"/>
 									<c:if test="${cnt%3==0}">
